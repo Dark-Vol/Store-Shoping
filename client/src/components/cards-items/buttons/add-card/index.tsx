@@ -7,8 +7,19 @@ interface AddToCartButtonProps {
 
 const AddToCartButton: React.FC<AddToCartButtonProps> = ({ onClick }) => {
     return (
-        <button className="add-to-cart-btn" onClick={onClick}>
-            <i className="fas fa-shopping-cart"></i> Add to Cart
+        <button className="
+            button
+            button--tamaya 
+            button--round-l 
+            button--text-thick 
+            button--border-medium 
+            button--text-upper 
+            button--size-s 
+            button--inverted" 
+            data-text="Open"
+            onClick={onClick}
+            >
+            <span>Open</span>
         </button>
     );
 };

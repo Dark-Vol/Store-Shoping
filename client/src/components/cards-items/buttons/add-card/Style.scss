@@ -1,13 +1,92 @@
-.add-to-cart-btn {
-    padding: 12px 16px;
-    background-color: #333;
-    color: white;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
+.button {
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
     cursor: pointer;
+    overflow: hidden;
+    transition: all 0.3s ease;
 
-    .fas fa-shopping-cart {
-        margin-right: 8px;
+    &--tamaya {
+        background-color: #333;
+        color: #fff;
+        border: 2px solid #fff;
+
+        &:hover {
+            background-color: #fff;
+            color: #333;
+        }
+    }
+
+    &--round-l {
+        border-radius: 50px;
+    }
+
+    &--text-thick {
+        font-weight: 600;
+    }
+
+    &--border-medium {
+        border-width: 3px;
+    }
+
+    &--text-upper {
+        text-transform: uppercase;
+    }
+
+    &--size-s {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+
+    &--inverted {
+        background-color: transparent;
+        color: #333;
+        border-color: #333;
+
+        &:hover {
+            background-color: #333;
+            color: #fff;
+        }
+    }
+
+    span {
+        position: relative;
+        z-index: 1;
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 300%;
+        height: 300%;
+        background-color: #fff;
+        transition: width 0.4s, height 0.4s, top 0.4s, left 0.4s;
+        border-radius: 50%;
+        z-index: 0;
+        transform: translate(-50%, -50%);
+    }
+
+    &:hover::before {
+        width: 0;
+        height: 0;
+        top: 50%;
+        left: 50%;
+    }
+
+    &:hover {
+        transform: translateY(-5px);
+    }
+
+    // Анимация нажатия
+    &:active {
+        transform: scale(0.95); // Сжатие кнопки при нажатии
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     }
 }
