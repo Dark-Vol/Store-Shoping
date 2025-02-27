@@ -1,0 +1,13 @@
+.add-to-cart-btn {
+    padding: 12px 16px;
+    background-color: #333;
+    color: white;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    .fas fa-shopping-cart {
+        margin-right: 8px;
+    }
+}
