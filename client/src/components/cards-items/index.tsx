@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Product } from "./types";
+import AddToCartButton from "./buttons/add-card";
+import "./_cardsItems.scss"
 
 const product: Product = {
     name: "Yamaha Acoustic Guitar",
@@ -18,14 +20,19 @@ const ProductCard: React.FC = () => {
     const [selectedColor, setSelectedColor] = useState(product.colors[0]);
     const [selectedSize, setSelectedSize] = useState(product.sizes[2]);
 
+    const handleAddToCart = () => {
+        console.log(`Added to cart: ${product.name}, Color: ${selectedColor.name}, Size: ${selectedSize}"`);
+    };
+
     return (
         <div className="product-card">
             <div className="image-container">
                 <img
                     src={selectedColor.image}
-                    alt={product.name}
+                    alt={`${product.name} - ${selectedColor.name}`}
                 />
             </div>
+
             <div className="product-info">
                 <h1>{product.name}</h1>
                 <h3>{product.category}</h3>
@@ -38,6 +45,7 @@ const ProductCard: React.FC = () => {
                     {product.colors.map((color) => (
                         <button
                             key={color.name}
+                            aria-label={`Select color ${color.name}`}
                             className={selectedColor.name === color.name ? "selected" : ""}
                             style={{ backgroundColor: color.hex }}
                             onClick={() => setSelectedColor(color)}
@@ -63,9 +71,7 @@ const ProductCard: React.FC = () => {
 
             <div className="price-cart">
                 <h1>${product.price}</h1>
-                <button>
-                    <i className="fas fa-shopping-cart"></i> Add to Cart
-                </button>
+                <AddToCartButton onClick={handleAddToCart} />
             </div>
         </div>
     );
