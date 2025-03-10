@@ -1,7 +1,6 @@
-import React from 'react';
 import styles from './Footer.module.scss';
-
 const Footer: React.FC = () => {
+
     return (
         <footer className={styles.footer}>
             <div className={styles.container}>
@@ -37,12 +36,31 @@ const Footer: React.FC = () => {
                     <div className={styles.footer_col}>
                         <h4>follow us</h4>
                         <div className={styles.social_links}>
-                            <a href="#"><i className={styles.fab}></i></a>
-                            <a href="#"><i className={styles.fab}></i></a>
-                            <a href="#"><i className={styles.fab}></i></a>
-                            <a href="#"><i className={styles.fab}></i></a>
+                            <a href="#">
+                                <i className={styles.fab}>
+                                    <img src="/assets/icons/linkedin-1-svgrepo-com.svg" alt="linkedin" />
+                                </i>
+                            </a>
+                            <a href="#">
+                                <i className={styles.fab}>
+                                    <img src="/assets/icons/telegram-svgrepo-com.svg" alt="telegram" />
+                                </i>
+                            </a>
+                            <a href="#">
+                                <i className={styles.fab}>
+                                    <img src="/assets/icons/twitter-svgrepo-com.svg" alt="twitter" />
+                                </i>
+                            </a>
+                            <a href="#">
+                                <i className={styles.fab}>
+                                    <img src="/assets/icons/instagram-1-svgrepo-com.svg" alt="instagram" />
+                                </i>
+                            </a>
                         </div>
                     </div>
+                </div>
+                <div className={styles.copyright}>
+                    <p>&copy; {new Date().getFullYear()} Your Company. All rights reserved.</p>
                 </div>
             </div>
         </footer>
