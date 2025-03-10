@@ -1,37 +1,47 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-
-body {
-    line-height: 1.5;
-    font-family: 'Poppins', sans-serif;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-.container {
-    max-width: 1170px;
-    margin: auto;
-}
-
-.row {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-ul {
-    list-style: none;
-}
-
 .footer {
     background-color: #24262b;
     padding: 70px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    z-index: 999;
+    color: #ffffff;
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 15px;
+    }
+
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
 
     .footer_col {
         width: 25%;
         padding: 0 15px;
+        animation: fadeInUp 0.6s ease-out forwards;
+        opacity: 0; // Начальное состояние для анимации
+
+        // Задержка анимации для каждой колонки
+        &:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        &:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        &:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        &:nth-child(4) {
+            animation-delay: 0.4s;
+        }
 
         h4 {
             font-size: 18px;
@@ -48,7 +58,6 @@ ul {
                 bottom: -10px;
                 background-color: #e91e63;
                 height: 2px;
-                box-sizing: border-box;
                 width: 50px;
             }
         }
@@ -62,10 +71,8 @@ ul {
                 a {
                     font-size: 16px;
                     text-transform: capitalize;
-                    color: #ffffff;
-                    text-decoration: none;
-                    font-weight: 300;
                     color: #bbbbbb;
+                    font-weight: 300;
                     display: block;
                     transition: all 0.3s ease;
 
@@ -89,26 +96,100 @@ ul {
                 border-radius: 50%;
                 color: #ffffff;
                 transition: all 0.5s ease;
+                animation: bounceIn 0.5s ease-out forwards;
+                opacity: 0;
+
+                // Задержка для социальных иконок
+                &:nth-child(1) {
+                    animation-delay: 0.5s;
+                }
+
+                &:nth-child(2) {
+                    animation-delay: 0.6s;
+                }
+
+                &:nth-child(3) {
+                    animation-delay: 0.7s;
+                }
+
+                &:nth-child(4) {
+                    animation-delay: 0.8s;
+                }
 
                 &:hover {
                     color: #24262b;
                     background-color: #ffffff;
+                    transform: scale(1.1); // Легкое увеличение при наведении
+                }
+
+                .fab {
+                    font-size: 20px; // Размер иконок
                 }
             }
         }
     }
+
+    .copyright {
+        text-align: center;
+        margin-top: 40px;
+        font-size: 14px;
+        color: #bbbbbb;
+        animation: fadeIn 1s ease-out forwards;
+        opacity: 0;
+        animation-delay: 0.9s;
+    }
 }
 
-/* Responsive */
-@media(max-width: 767px) {
-    .footer-col {
+// Анимации
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+// Адаптивность
+@media (max-width: 767px) {
+    .footer_col {
         width: 50%;
         margin-bottom: 30px;
     }
 }
 
-@media(max-width: 574px) {
-    .footer-col {
+@media (max-width: 574px) {
+    .footer_col {
         width: 100%;
     }
 }
