@@ -1,6 +1,7 @@
 import ProductCard from "../../components/CardsItem";
 import React from "react";
 
+
 const Home: React.FC = () => {
     return (
         <div>
@@ -13,7 +14,6 @@ const Home: React.FC = () => {
                 onAddToCart={() => console.log("Добавлено в корзину")}
                 imageLink="/assets/Guitars.png"
             />
-
         </div>
     );
 };
