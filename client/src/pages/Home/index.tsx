@@ -1,4 +1,5 @@
 import ProductCard from "../../components/CardsItem";
+import React from "react";
 
 const Home: React.FC = () => {
     return (
