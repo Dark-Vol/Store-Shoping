@@ -1,0 +1,55 @@
+/*
+ToDo Tree
+*/
+{
+    "todo-tree.highlights.defaultHighlight": {
+        // "icon": "alert",
+        // "type": "text",
+        // "foreground": "red",
+        // "background": "greenyellow",
+        // "opacity": 50,
+        // "iconColour": "blue"
+        "icon": "check",
+        "type": "line",
+        "foreground": "black",
+        "iconColour": "yellow",
+        "background": "greenyellow",
+        "gutterIcon": true,
+        "opacity": 50
+    },
+    "todo-tree.highlights.customHighlight": {
+        "TODO": {
+            "icon": "check",
+            "type": "line"
+        },
+        "FIXME": {
+            "foreground": "black",
+            "iconColour": "yellow",
+            "gutterIcon": true
+        }
+    },
+    "todo-tree.general.tagGroups": {
+        "FIXME": [
+            "FIXME",
+            "FIXIT",
+            "FIX",
+        ]
+    },
+    "todo-tree.scopes": [
+        {
+            "name": "Production ",
+            "excludeGlobs": [
+                "**/tests/**"
+            ]
+        },
+        {
+            "name": "Tests",
+            "includeGlobs": [
+                "**/tests/**"
+            ]
+        },
+        {
+            "name": "All"
+        }
+    ]
+}
