@@ -2,6 +2,7 @@ const { Sequelize, DataTypes } = require("sequelize");
 const sequelize = require("../config/db");
 
 // Customer Model
+// TODO Add more fields
 const User = sequelize.define("User", {
     customer_name: { type: DataTypes.STRING(255), allowNull: false },
     email: { type: DataTypes.STRING(255), unique: true, allowNull: false },
