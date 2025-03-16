@@ -2,42 +2,62 @@ import { useEffect, useState, useCallback } from "react";
 import axios from "axios";
 
 const useAuth = () => {
-    const [auth, setAuth] = useState(false);
-    const [user, setUser] = useState({ email: "", password: "" });
+  const [auth, setAuth] = useState(false);
+  const [password, setUserPassword] = useState("");
+  const [email, setUserEmail] = useState("");
 
-    useEffect(() => {
-        const token = localStorage.getItem("token");
-        if (token) {
-            axios.post("http://localhost:4000/api/account/relogin", null, { headers: { Authorization: `Bearer ${token}` } })
-                .then(res => {
-                    localStorage.setItem("token", res.data.token);
-                    setAuth(true);
-                })
-                .catch(() => localStorage.removeItem("token"));
-        }
-    }, []);
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      axios
+        .post("http://localhost:4000/api/account/relogin", null, {
+          headers: { Authorization: `Bearer ${token}` },
+        })
+        .then((res) => {
+          localStorage.setItem("token", res.data.token);
+          setAuth(true);
+        })
+        .catch(() => {
+          localStorage.removeItem("token");
+        });
+    }
+  }, []);
 
-    const register = useCallback(() => {
-        axios.post("http://localhost:4000/api/account/register", user)
-            .then(res => {
-                localStorage.setItem("token", res.data.token);
-                setAuth(true);
-                setUser({ email: "", password: "" });
-            })
-            .catch(err => console.error("Registration failed:", err.response?.data));
-    }, [user]);
+  const registerAction = useCallback(() => {
+    axios
+      .post("http://localhost:4000/api/account/register", { email, password })
+      .then((res) => {
+        localStorage.setItem("token", res.data.token);
+        setAuth(true);
+        setUserEmail("");
+        setUserPassword("");
+      })
+      .catch((err) => {
+        console.error("Registration failed:", err.response?.data);
+      });
+  }, [email, password]);
 
-    const login = useCallback(() => {
-        axios.post("http://localhost:4000/api/account/login", user)
-            .then(res => {
-                localStorage.setItem("token", res.data.token);
-                setAuth(true);
-                setUser({ email: "", password: "" });
-            })
-            .catch(err => console.error("Login failed:", err.response?.data));
-    }, [user]);
+  const loginAction = useCallback(() => {
+    axios
+      .post("http://localhost:4000/api/account/login", { email, password })
+      .then((res) => {
+        localStorage.setItem("token", res.data.token);
+        setAuth(true);
+        setUserEmail("");
+        setUserPassword("");
+      })
+      .catch((err) => {
+        console.error("Login failed:", err.response?.data);
+      });
+  }, [email, password]);
 
-    return { auth, user, setUser, login, register };
+  return {
+    auth,
+    setUserEmail: setUserEmail,
+    setUserPassword: setUserPassword,
+    loginAction: loginAction,
+    registerAction: registerAction,
+  };
 };
 
 export default useAuth;
