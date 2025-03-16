@@ -4,8 +4,8 @@ const {Administrator, Support} = require ("../models/models")
 
 class AdminController {
     static async loginAdmin(req, res) {
-        const { email, password } = req.body;
-        if (!email || !password) {
+        const { adminname, email, password } = req.body;
+        if (!adminname || !email || !password) {
             return res.status(400).json("Введите email и пароль");
         }
         try {
