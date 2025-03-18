@@ -1,6 +1,6 @@
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const { User, Support, Message, Administrator} = require("../models/models");
+const { User, Support, Message} = require("../models/models");
 
 class ChatController {
     /* Создание аккаунта пользователя */
@@ -164,6 +164,7 @@ class ChatController {
 }
 
 module.exports = ChatController;
+
 // const bcrypt = require("bcrypt");
 // const jwt = require("jsonwebtoken");
 // const { User, Support, Message, Administrator} = require("../models/models");
