@@ -1,222 +1,113 @@
-/* Обнуление базовых стилей */
+/* Сброс всех стилей */
 *,
 *::before,
 *::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    /* Предпочтительнее border-box для всех элементов */
 }
 
-/* Базовая настройка документа */
-html {
-    height: 100%;
-    font-size: 100%;
-    /* Базовый размер шрифта браузера */
-    -webkit-text-size-adjust: 100%;
-    /* Предотвращает изменение размера текста на мобильных */
-    -ms-text-size-adjust: 100%;
-    scroll-behavior: smooth;
-    /* Плавная прокрутка для современных браузеров */
-}
-
-body {
-    min-height: 100%;
-    /* Используем min-height вместо height для гибкости */
-    line-height: 1.5;
-    /* Универсальное значение для читаемости */
-    font-family: sans-serif;
-    /* Дефолтный шрифт */
-    -webkit-font-smoothing: antialiased;
-    /* Сглаживание шрифтов для Webkit */
-    -moz-osx-font-smoothing: grayscale;
-    /* Сглаживание шрифтов для Firefox */
-    overflow-x: hidden;
-    /* Предотвращает горизонтальную прокрутку */
-}
-
-/* Контейнер */
-.container {
-    max-width: 1170px;
-    margin: 0 auto;
-    /* Более явное центрирование */
-}
-
-/* Изображения и медиа */
-img,
-picture,
-video,
-iframe {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    /* Убирает лишние отступы под изображениями */
-    vertical-align: middle;
-    /* Выравнивание по центру */
-}
-
-/* Ссылки */
-a {
-    color: inherit;
-    text-decoration: none;
-    outline: none;
-    /* Убирает outline для доступности можно переопределить позже */
-}
-
-/* Элементы форм */
-button,
-input,
-select,
-textarea {
-    font-family: inherit;
-    font-size: inherit;
-    color: inherit;
-    background: none;
-    border: none;
-    margin: 0;
-    /* Убираем дефолтные отступы */
-    appearance: none;
-    /* Сбрасываем стили браузера */
-}
-
-button {
-    cursor: pointer;
-    padding: 0;
-    /* Убираем дефолтные отступы */
-}
-
-input[type="text"],
-input[type="email"],
-input[type="password"],
-input[type="search"],
-textarea {
-    border: 1px solid #ccc;
-    /* Минимальная граница для видимости */
-    padding: 8px;
-    /* Базовые отступы */
-    appearance: none;
-}
-
-textarea {
-    resize: vertical;
-    /* Только вертикальное изменение размера */
-    min-height: 80px;
-}
-
-/* Плейсхолдеры */
-::-webkit-input-placeholder,
-::-moz-placeholder,
-:-ms-input-placeholder,
-::placeholder {
-    color: #999;
-    /* Более практичный цвет вместо transparent */
-    opacity: 1;
-    /* Для кроссбраузерности */
-}
-
-/* Списки */
+/* Убираем стандартные стили списка */
 ul,
 ol {
     list-style: none;
-}
-
-/* Таблицы */
-table {
-    border-collapse: collapse;
-    border-spacing: 0;
-}
-
-th,
-td {
-    text-align: left;
     padding: 0;
-}
-
-/* Разделители */
-hr {
-    border: 0;
-    border-top: 1px solid #ccc;
-}
-
-/* Flex row */
-.row {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-/* Семантические элементы */
-header,
-footer,
-main,
-section,
-article,
-aside,
-nav,
-figure,
-figcaption {
-    display: block;
     margin: 0;
-    padding: 0;
 }
 
+/* Убираем подчеркивание у ссылок */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Нормализуем поведение кнопок */
+button {
+    all: unset;
+    cursor: pointer;
+}
+
+/* Убираем стандартный outline у интерактивных элементов */
+input,
+textarea,
+button,
+select {
+    outline: none;
+    border: none;
+    background: none;
+    font: inherit;
+}
+
+/* Базовые стили для body */
+body {
+    font-family: sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    text-rendering: optimizeSpeed;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
+    background-color: #fff;
+    color: #000;
+    display: flex;
+    flex-direction: column;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
 main {
-    flex: 1 0 auto;
-    /* Для прикрепления футера к низу */
+    flex: 1 1 auto;
 }
 
-/* Типографика */
-b,
-strong {
-    font-weight: bolder;
-    /* Более современный подход вместо inherit */
+footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 10px auto;
+}
+/* Контейнеры занимают всю ширину */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
 }
 
-i,
-em {
-    font-style: italic;
-    /* Возвращаем базовую логику вместо inherit */
+/* Убираем выделение текста при кликах */
+body,
+button,
+input,
+textarea {
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
-/* Доступность и интерактивность */
-:focus {
-    outline: none;
-    /* Можно переопределить для доступности позже */
+/* Настройка блочных изображений */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
 }
 
-button:focus,
-input:focus,
-select:focus,
-textarea:focus {
-    outline: none;
-    /* Убираем стандартный outline */
+/* Универсальные утилиты */
+.hidden {
+    display: none !important;
 }
 
-:global {
-
-    html,
-    body {
-        height: 100%;
-        margin: 0;
-    }
-
-    body {
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
-        line-height: 1.5;
-        font-family: 'Poppins', sans-serif;
-    }
-
-    main {
-        flex: 1 0 auto; // Растягивает основной контент
-    }
+.flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-/* Медиа-запросы для мобильных устройств */
-@media (prefers-reduced-motion: reduce) {
-    * {
-        animation: none !important;
-        transition: none !important;
-        scroll-behavior: auto !important;
-    }
+.grid {
+    display: grid;
+    gap: 1rem;
+}
+
+.text-center {
+    text-align: center;
 }
