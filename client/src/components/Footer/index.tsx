@@ -1,60 +1,54 @@
 import styles from './Footer.module.scss';
-const Footer: React.FC = () => {
 
+const Footer: React.FC = () => {
     return (
         <footer className={styles.footer}>
             <div className={styles.container}>
                 <div className={styles.row}>
-                    <div className={styles.footer_col}>
-                        <h4>company</h4>
+                    <nav className={styles.footer_col} aria-label="Company Information">
+                        <h4>Company</h4>
                         <ul>
-                            <li><a href="#">about us</a></li>
-                            <li><a href="#">our services</a></li>
-                            <li><a href="#">privacy policy</a></li>
-                            <li><a href="#">affiliate program</a></li>
+                            <li><a href="/about-us">About Us</a></li>
+                            <li><a href="/services">Our Services</a></li>
+                            <li><a href="/privacy-policy">Privacy Policy</a></li>
+                            <li><a href="/affiliate">Affiliate Program</a></li>
                         </ul>
-                    </div>
-                    <div className={styles.footer_col}>
-                        <h4>get help</h4>
+                    </nav>
+                    <nav 
+                        className={styles.footer_col} 
+                        aria-label="Customer Support">
+                        <h4>Get Help</h4>
                         <ul>
-                            <li><a href="#">FAQ</a></li>
-                            <li><a href="#">shipping</a></li>
-                            <li><a href="#">returns</a></li>
-                            <li><a href="#">order status</a></li>
-                            <li><a href="#">payment options</a></li>
+                            <li><a href="/faq">FAQ</a></li>
+                            <li><a href="/shipping">Shipping</a></li>
+                            <li><a href="/returns">Returns</a></li>
+                            <li><a href="/order-status">Order Status</a></li>
+                            <li><a href="/payment-options">Payment Options</a></li>
                         </ul>
-                    </div>
-                    <div className={styles.footer_col}>
-                        <h4>online shop</h4>
+                    </nav>
+                    <nav className={styles.footer_col} aria-label="Online Shop">
+                        <h4>Online Shop</h4>
                         <ul>
-                            <li><a href="#">watch</a></li>
-                            <li><a href="#">bag</a></li>
-                            <li><a href="#">shoes</a></li>
-                            <li><a href="#">dress</a></li>
+                            <li><a href="/shop/watch">Watch</a></li>
+                            <li><a href="/shop/bag">Bag</a></li>
+                            <li><a href="/shop/shoes">Shoes</a></li>
+                            <li><a href="/shop/dress">Dress</a></li>
                         </ul>
-                    </div>
+                    </nav>
                     <div className={styles.footer_col}>
-                        <h4>follow us</h4>
+                        <h4>Follow Us</h4>
                         <div className={styles.social_links}>
-                            <a href="#">
-                                <i className={styles.fab}>
-                                    <img src="/assets/icons/linkedin-1-svgrepo-com.svg" alt="linkedin" />
-                                </i>
+                            <a href="https://linkedin.com" aria-label="LinkedIn">
+                                <img src="/assets/icons/linkedin-1-svgrepo-com.svg" alt="LinkedIn" />
                             </a>
-                            <a href="#">
-                                <i className={styles.fab}>
-                                    <img src="/assets/icons/telegram-svgrepo-com.svg" alt="telegram" />
-                                </i>
+                            <a href="https://t.me/" aria-label="Telegram">
+                                <img src="/assets/icons/telegram-svgrepo-com.svg" alt="Telegram" />
                             </a>
-                            <a href="#">
-                                <i className={styles.fab}>
-                                    <img src="/assets/icons/twitter-svgrepo-com.svg" alt="twitter" />
-                                </i>
+                            <a href="https://twitter.com" aria-label="Twitter">
+                                <img src="/assets/icons/twitter-svgrepo-com.svg" alt="Twitter" />
                             </a>
-                            <a href="#">
-                                <i className={styles.fab}>
-                                    <img src="/assets/icons/instagram-1-svgrepo-com.svg" alt="instagram" />
-                                </i>
+                            <a href="https://instagram.com" aria-label="Instagram">
+                                <img src="/assets/icons/instagram-1-svgrepo-com.svg" alt="Instagram" />
                             </a>
                         </div>
                     </div>
@@ -65,6 +59,6 @@ const Footer: React.FC = () => {
             </div>
         </footer>
     );
-}
+};
 
 export default Footer;
