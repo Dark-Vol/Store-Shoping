@@ -1,3 +1,8 @@
+//
+require('./models/models')
+const fileUpload = require('express-fileupload')
+//
+
 const express = require("express");
 const router = require("./routers");
 const sequelize = require("./config/db");
@@ -11,6 +16,7 @@ const server = http.createServer(app);
 app.use(cors());
 app.use(express.json());
 app.use("/api", router);
+app.use(fileUpload({}))
 
 const io = new Server(server, {
     cors: "*"
