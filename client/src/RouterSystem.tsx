@@ -1,16 +1,31 @@
+import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Main from "./pages/Home"
 import ErrorPage from "./pages/Error"
 import Footer from "./components/Footer";
+import Products from "./pages/Products";
+import Preloader from "./pages/Preloader";
 
+const RouterSystem: React.FC = () => {
+  const [loading, setLoading] = useState(true);
 
-const App: React.FC = () => {
+  useEffect(() => {
+    // Симулируем загрузку данных (можно заменить на реальный API-запрос)
+    setTimeout(() => {
+      setLoading(false);
+    }, 5000);
+  }, []);
+
+  if (loading) {
+    return <Preloader />; // Показываем прелоадер, пока идет загрузка
+  }
   return (
     <>
       <Header />
       <Routes>
         <Route path="/" element={<Main />} />
+        <Route path="/products" element={<Products />} />
         <Route path="/*" element={<ErrorPage />} />
       </Routes>
       <Footer />
@@ -18,4 +33,4 @@ const App: React.FC = () => {
   );
 }
 
-export default App
+export default RouterSystem
