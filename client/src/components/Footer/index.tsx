@@ -6,7 +6,7 @@ const Footer: React.FC = () => {
             <div className={styles.container}>
                 <div className={styles.row}>
                     <nav className={styles.footer_col} aria-label="Company Information">
-                        <h4>Company</h4>
+                        <h4 >Company</h4>
                         <ul>
                             <li><a href="/about-us">About Us</a></li>
                             <li><a href="/services">Our Services</a></li>
@@ -14,10 +14,8 @@ const Footer: React.FC = () => {
                             <li><a href="/affiliate">Affiliate Program</a></li>
                         </ul>
                     </nav>
-                    <nav 
-                        className={styles.footer_col} 
-                        aria-label="Customer Support">
-                        <h4>Get Help</h4>
+                    <nav className={styles.footer_col} aria-label="Customer Support">
+                        <h4 >Get Help</h4>
                         <ul>
                             <li><a href="/faq">FAQ</a></li>
                             <li><a href="/shipping">Shipping</a></li>
@@ -36,7 +34,7 @@ const Footer: React.FC = () => {
                         </ul>
                     </nav>
                     <div className={styles.footer_col}>
-                        <h4>Follow Us</h4>
+                        <h4 >Follow Us</h4>
                         <div className={styles.social_links}>
                             <a href="https://linkedin.com" aria-label="LinkedIn">
                                 <img src="/assets/icons/linkedin-1-svgrepo-com.svg" alt="LinkedIn" />
