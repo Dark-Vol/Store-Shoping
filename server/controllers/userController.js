@@ -7,8 +7,8 @@ const path = require('path')
 class UserController {
     /* Создание аккаунта пользователя */
     static async createUser(req, res) {
-        const { username, email, password } = req.body;
-        if (!username || !email || !password) {
+        const { userName, email, password } = req.body;
+        if (!userName || !email || !password) {
             return res.status(400).json("Введите корректные данные");
         }
         try {
@@ -19,7 +19,7 @@ class UserController {
             const hashedPassword = await bcrypt.hash(password, 4);
             const user = await User.create(
                 {
-                    username,
+                    userName,
                     email,
                     password: hashedPassword
                 }
@@ -73,3 +73,5 @@ class UserController {
         }
     }
 }
+
+module.exports = UserController
