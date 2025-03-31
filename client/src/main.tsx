@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import RouterSystem from './RouterSystem';
-import "./scss/_reset.scss";
+import "./scss/Main.scss";
 
 const rootElem = document.getElementById("root");
 if (!rootElem) {
