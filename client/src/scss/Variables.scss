@@ -1,0 +1,30 @@
+// Variables for SCSS
+// This file contains all the variables used in the project.
+$white: #ffffff;
+$black: #000000;
+$dark: #1a1a1a;
+$dark-2: #121212;
+
+$similar: #b9c0c4;
+$Husky-Orange: #be6440;
+$Ultramarine-Highlight: #14165a; // Dark Ultramarine
+$Ultramarine-Highlight-2: #2e3192; // Light Ultramarine
+
+// Main colors
+$primary: #2e3192; // Ultramarine
+$secondary: #be6440; // Husky Orange
+$tertiary: #F6F4EC; // Light Beige
+$quinary: #C5C6B3; // Light Olive
+$Light-Cream: #E2D8C3; // Light Cream
+$Light-Yellow: #EFC87D; // Light Yellow
+$Olive-Green: #4F531F; // Olive Green
+$Dark-Brown: #341C02; // Dark Brown
+$Dark-Olive: #2C362D; // Dark Olive
+$Light-Green: #709774; // Light Green
+$Light-Red: #D65137; // Light Red
+$Light-Peach: #D37F6C; // Light Peach
+$Light-Pink: #DECEBE; // Light Pink
+
+$ease-in-out-quad: cubic-bezier(0.45, 0, 0.55, 1);
+$ease-in-out-cubic: cubic-bezier(0.65, 0, 0.35, 1);
+$ease-in-out-circ: cubic-bezier(0.85, 0, 0.15, 1);
