@@ -1,100 +1,31 @@
 @use "@scss/MixinsInputs" as *;
-@use "@scss/Variables" as *;
 
-.coolinput {
-  position: relative;
-  display: flex;
-  width: 100%;
-  max-width: 290px;
-}
-
-.coolinput>span,
-.coolinput .input {
-  white-space: nowrap;
-  display: block;
-}
-
-.coolinput>span,
-.coolinput .input:first-child {
-  border-radius: 6px 0 0 6px;
-}
-
-.coolinput>span,
-.coolinput .input {
-  border-radius: 0 6px 6px 0;
-}
-
-.coolinput>span,
-.coolinput .input {
-  margin-left: -1px;
-}
-
-.coolinput .input {
-  position: relative;
-  z-index: 1;
-  flex: 1 1 auto;
-  width: 1%;
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-.coolinput span {
-  text-align: center;
-  padding: 8px 12px;
-  font-size: 14px;
-  line-height: 25px;
-  color: $color-span;
-  background: $background-span;
-  border: $border-span;
-  font-weight: bold;
-  transition: background 0.3s ease, border 0.3s ease, color 0.3s ease;
-}
-
-.coolinput:focus-within>span {
-  color: $color-span-focus; // Light Beige
-  background-color: $primary; // Ultramarine
-  border-color: $primary; // Ultramarine
+.box {
+  @include flex-container;
 }
 
 .input {
-  display: block;
-  width: 100%;
-  padding: 8px 16px;
-  line-height: 25px;
-  font-size: 14px;
-  font-weight: 500;
-  font-family: inherit;
-  border-radius: 6px;
-  -webkit-appearance: none;
-  color: $Dark-Olive;
-  border: 1px solid $quinary; // Light Olive
-  background: $Light-Cream;
-  transition: border 0.3s ease, background 0.3s ease;
+  @include input-style;
 }
 
 .input::placeholder {
-  color: $quinary; // Light Olive
+  color: #C5C6B3;
 }
 
-.input:focus {
+.input:focus,
+.input:hover {
   outline: none;
-  border-color: $primary; // Ultramarine
-  background-color: $Light-Yellow;
+  border-color: #2e3192;
+  background-color: #fff;
+  box-shadow: 0 0 0 5px rgba(46, 49, 146, 0.3);
 }
 
-/* Состояние ошибки */
-.input.error {
-  border-color: $Light-Red;
-  background-color: $Light-Peach;
-  color: $Dark-Brown;
-}
-
-/* Отключенное состояние */
-.input:disabled {
-  background: $similar;
-  color: $Light-Green;
-  border-color: $quinary;
-  cursor: not-allowed;
+.icon {
+  position: absolute;
+  left: 1rem;
+  fill: none;
+  width: 1rem;
+  height: 1rem;
 }
 
 // .box {

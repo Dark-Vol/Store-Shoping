@@ -1,35 +1,16 @@
-import { useState } from "react";
 import styles from "./InputFirstName.module.scss";
+import { UserRound } from 'lucide-react';
 
-interface InputFirstNameProps {
-    onChange?: (value: string) => void;
-}
 
-const InputFirstName: React.FC<InputFirstNameProps> = ({onChange}) => {
-    const [text, setText] = useState("");
-
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setText(e.target.value);
-        if (onChange) {
-            onChange(e.target.value);
-        }
-    };
+const InputFirstName: React.FC = () => {
     return (
-        <div className={styles.box}>
+      <div className={styles.box}>
+          <UserRound className={styles.icon} />
             <input
-              id="FirstName"
               className={styles.input_first_name}
               type="text"
               placeholder="FirstName"
-              value={text}
-              onChange={handleChange}
             />
-            <label 
-              htmlFor="FirstName"
-              className={styles.label_first_name}
-            >
-                First Name
-            </label>
         </div>
     )
 }

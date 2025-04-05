@@ -16,6 +16,8 @@ const useChat = () => {
   const [problemDescription, setProblemDescription] = useState("");
   const [problemTitle, setProblemTitle] = useState("");
 
+    const [activeChat,setActiveChat] = useState(false)
+
   const createTicket = useCallback(() => {
     axios
       .post("http://localhost:4000/api/chat/ticket", {
@@ -77,6 +79,79 @@ const useChat = () => {
       setActiveChat(true);
     }
   }, []);
+
+
+  // const CloseTicket = () => {
+  //   axios.post("http://localhost:4000/api/chat/closeTicket", {
+  //     id: room
+  //   })
+  //   .then((response)=>{
+  //     console.log(response)
+  //     setActiveChat(false)
+  //     setIsChatOpen(false)
+  //     setProblemTitle("")
+  //     setProblemDescription("")
+  //     localStorage.removeItem("roomId")
+  //     socket.emit('closeTicket', {room})
+  //     // Вызов события закрытие тикета
+  //   })
+  //   .catch((error) => {
+  //     console.error("Ошибка при сохранении сообщения:", error);
+  //   });
+  // }
+
+  // useEffect(() => {
+  //   if (room !== -1) {
+  //     axios
+  //       .get(`http://localhost:4000/api/chat/message/${room}`)
+  //       .then((response) => {
+  //         setMessages(response.data.data);
+  //       })
+  //       .catch((error) => {
+  //         console.error("Ошибка при загрузке сообщений:", error.response?.data);
+  //       });
+  //   }
+  // }, [room]);
+
+  // const startChat = () => {
+  //   if(!problemTitle || !problemDescription){
+  //     console.error("Название проблемы и описание проблемы обязательны.");
+  //     return;
+  //   }
+  //   creatrTicket();
+  //   setActiveChat(true)
+  // }
+
+  // const getRole =(message)=>{
+  //   if (message.role) {
+  //     return message.role
+  //   }
+  //   if (message.UserId) {
+  //       return "User"
+  //   } else {
+  //       return "admin"
+  //   }
+  // }
+
+  // useEffect(() => {
+  //   const handleReceiveMessage = (data) => {
+  //     setMessages((prevMessages) => [...prevMessages, data]);
+  //   };
+  //   socket.on("receiveMessage", handleReceiveMessage);
+  //   return () => {
+  //     socket.off("receiveMessage", handleReceiveMessage);
+  //   };
+  // }, []);
+
+  // useEffect(() => {
+  //   const savedRoom = localStorage.getItem("roomId");
+  //   if (savedRoom) {
+  //     setRoom(savedRoom)
+  //     socket.emit("joinRoom", savedRoom)
+  //     setIsChatOpen(true);
+  //     setActiveChat(true);
+  //   }
+  // }, []);
 
   const toggleChat = () => setIsChatOpen((prev) => !prev);
   return {
