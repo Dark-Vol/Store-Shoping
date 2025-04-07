@@ -1,6 +1,11 @@
 import styles from "./InputEmail.module.scss";
 
-const InputEmail: React.FC = () => {
+type InputEmailProps = {
+  value: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+};
+
+const InputEmail: React.FC<InputEmailProps> = ({ value, onChange }) => {
 
   return (
     <div className={styles.box}>
@@ -19,10 +24,11 @@ const InputEmail: React.FC = () => {
         <path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-4 8" />
       </svg>
       <input
-        id="email"
         className={styles.input}
         type="email"
         placeholder="Email"
+        value={value}
+        onChange={onChange}
       />
     </div>
   )
