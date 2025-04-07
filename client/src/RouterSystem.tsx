@@ -6,6 +6,7 @@ import ErrorPage from "./pages/Error"
 import Footer from "./components/Footer";
 import Products from "./pages/Products";
 import Login from "@pages/Login";
+import Admin from "@pages/Admin";
 // import Preloader from "./pages/Preloader";
 
 const RouterSystem: React.FC = () => {
@@ -29,6 +30,7 @@ const RouterSystem: React.FC = () => {
         <Route path="/products" element={<Products />} />
         <Route path="/login" element={<Login />} />
         <Route path="/*" element={<ErrorPage />} />
+        <Route path="/admin" element={<Admin />} />
       </Routes>
       <Footer />
     </>
