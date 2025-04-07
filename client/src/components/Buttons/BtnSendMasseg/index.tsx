@@ -1,9 +1,13 @@
-const BtnSendMasseg: React.FC = () => {
-    return (
-        <button className='btn_send_masseg'>
-            Закрыть тикет
-        </button>
-    )
-}
+import React from "react";
 
-export default BtnSendMasseg
+type BtnSendMassegProps = {
+  onClick: () => void;
+};
+
+const BtnSendMasseg: React.FC<BtnSendMassegProps> = ({ onClick }) => (
+  <button className="btn_send_masseg" onClick={onClick}>
+    Send
+  </button>
+);
+
+export default BtnSendMasseg;
