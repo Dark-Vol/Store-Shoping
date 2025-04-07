@@ -1,9 +1,13 @@
-const BtnStartChat: React.FC = () => {
-    return (
-        <button className='btn_start_chat'>
-            Закрыть тикет
-        </button>
-    )
-}
+import React from "react";
 
-export default BtnStartChat
+type BtnStartChatProps = {
+  onClick: () => void;
+};
+
+const BtnStartChat: React.FC<BtnStartChatProps> = ({ onClick }) => (
+  <button className="btn-start-chat" onClick={onClick}>
+    Start Chat
+  </button>
+);
+
+export default BtnStartChat;
