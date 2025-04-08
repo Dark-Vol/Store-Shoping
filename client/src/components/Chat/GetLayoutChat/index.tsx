@@ -88,3 +88,8 @@
 //   }
 //   return null;
 // };
+const GetLayoutChat: React.FC = () => {
+  return (null);
+}
+
+export default GetLayoutChat;
