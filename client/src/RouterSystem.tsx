@@ -1,10 +1,10 @@
 // import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
-import Header from "./components/Header";
-import Main from "./pages/Home"
-import ErrorPage from "./pages/Error"
-import Footer from "./components/Footer";
-import Products from "./pages/Products";
+import Header from "@components/Header";
+import Main from "@pages/Home"
+import ErrorPage from "@pages/Error"
+import Footer from "@components/Footer";
+import Products from "@pages/Products";
 import Login from "@pages/Login";
 import Admin from "@pages/Admin";
 // import Preloader from "./pages/Preloader";
