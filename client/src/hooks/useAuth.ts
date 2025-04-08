@@ -6,6 +6,34 @@ const useAuth = () => {
   const [password, setUserPassword] = useState("");
   const [email, setUserEmail] = useState("");
 
+  const loginAction = useCallback(() => {
+    axios
+      .post("http://localhost:4000/api/account/login", { email, password })
+      .then((res) => {
+        localStorage.setItem("token", res.data.token);
+        setAuth(true);
+        setUserEmail("");
+        setUserPassword("");
+      })
+      .catch((err) => {
+        console.error("Login failed:", err.response?.data);
+      });
+  }, [email, password]);
+
+  const registerAction = useCallback(() => {
+    axios
+      .post("http://localhost:4000/api/account/register", { email, password })
+      .then((res) => {
+        localStorage.setItem("token", res.data.token);
+        setAuth(true);
+        setUserEmail("");
+        setUserPassword("");
+      })
+      .catch((err) => {
+        console.error("Registration failed:", err.response?.data);
+      });
+  }, [email, password]);
+
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) {
@@ -22,34 +50,6 @@ const useAuth = () => {
         });
     }
   }, []);
-
-  const registerAction = useCallback(() => {
-    axios
-      .post("http://localhost:4000/api/account/register", { email, password })
-      .then((res) => {
-        localStorage.setItem("token", res.data.token);
-        setAuth(true);
-        setUserEmail("");
-        setUserPassword("");
-      })
-      .catch((err) => {
-        console.error("Registration failed:", err.response?.data);
-      });
-  }, [email, password]);
-
-  const loginAction = useCallback(() => {
-    axios
-      .post("http://localhost:4000/api/account/login", { email, password })
-      .then((res) => {
-        localStorage.setItem("token", res.data.token);
-        setAuth(true);
-        setUserEmail("");
-        setUserPassword("");
-      })
-      .catch((err) => {
-        console.error("Login failed:", err.response?.data);
-      });
-  }, [email, password]);
 
   return {
     auth,
