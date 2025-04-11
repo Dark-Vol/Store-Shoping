@@ -1,125 +1,128 @@
-const {Sequelize,DataTypes} = require('sequelize');
+const { Sequelize, DataTypes } = require('sequelize');
 const sequelize = require('../config/db.js');
 
 
 /** Создание акаунта, профиля для Администратора и Пользователя */
 const Account = sequelize.define("Account", {
-    accountType: { type: DataTypes.ENUM("User", "Administrator"), allowNull: false },
-    status: { type: DataTypes.STRING(50), allowNull: false, defaultValue: "active" },
+  accountType: { type: DataTypes.ENUM("User", "Administrator"), allowNull: false },
+  status: { type: DataTypes.STRING(50), allowNull: false, defaultValue: "active" },
 });
 
 const Profile = sequelize.define("Profile", {
-    firstName: { type: DataTypes.STRING(255), allowNull: false },
-    lastName: { type: DataTypes.STRING(255), allowNull: false },
-    phone: { type: DataTypes.STRING(50) },
+  firstName: { type: DataTypes.STRING(255), allowNull: false },
+  lastName: { type: DataTypes.STRING(255), allowNull: false },
+  phone: { type: DataTypes.STRING(50) },
 });
 
 const User = sequelize.define('User', {
-    userName: { type: DataTypes.STRING(255), allowNull: false },
-    email: { type: DataTypes.STRING(255), unique: true, allowNull: false },
-    password: { type: DataTypes.STRING(255), allowNull: false },
-    confirmationCode: { type: DataTypes.TEXT },
-    confirmationTime: { type: DataTypes.DATE },
+  userName: { type: DataTypes.STRING(255), allowNull: false },
+  email: { type: DataTypes.STRING(255), unique: true, allowNull: false },
+  password: { type: DataTypes.STRING(255), allowNull: false },
+  confirmationCode: { type: DataTypes.TEXT },
+  confirmationTime: { type: DataTypes.DATE },
 });
 
 const Administrator = sequelize.define("Administrator", {
-    adminName: { type: DataTypes.STRING(255), allowNull: false },
-    email: { type: DataTypes.STRING, unique: true, allowNull: false },
-    password: { type: DataTypes.STRING, allowNull: false },
+  adminName: { type: DataTypes.STRING(255), allowNull: false },
+  email: { type: DataTypes.STRING, unique: true, allowNull: false },
+  password: { type: DataTypes.STRING, allowNull: false },
 });
 
 const Photo = sequelize.define("Photo", {
-    path: { type: DataTypes.STRING, allowNull: false, unique: true }
+  path: { type: DataTypes.STRING, allowNull: false, unique: true }
 });
 
 const Address = sequelize.define("Address", {
-    address: { type: DataTypes.STRING(255), allowNull: false },
-    city: { type: DataTypes.STRING(255), allowNull: false },
-    zipCode: { type: DataTypes.STRING(50), allowNull: false },
-    region: { type: DataTypes.STRING(255) },
-    state: { type: DataTypes.STRING(255) },
-    other: { type: DataTypes.STRING(255) },
+  address: { type: DataTypes.STRING(255), allowNull: false },
+  city: { type: DataTypes.STRING(255), allowNull: false },
+  zipCode: { type: DataTypes.STRING(50), allowNull: false },
+  region: { type: DataTypes.STRING(255) },
+  state: { type: DataTypes.STRING(255) },
+  other: { type: DataTypes.STRING(255) },
 });
 /** */
 
 /** Сообщения, Помощь */
 const Support = sequelize.define("Support", {
-    title: { type: DataTypes.STRING(255), allowNull: false },
-    body: {type: DataTypes.STRING(255), allowNull: false},
-    statusClose: { type: DataTypes.BOOLEAN, defaultValue: false },
+  title: { type: DataTypes.STRING(255), allowNull: false },
+  body: { type: DataTypes.STRING(255), allowNull: false },
+  statusClose: { type: DataTypes.BOOLEAN, defaultValue: false },
 });
 
 const Message = sequelize.define("Message", {
-    text: { type: DataTypes.TEXT, allowNull: false },
-    room: { type: DataTypes.INTEGER, allowNull: false },
+  text: { type: DataTypes.TEXT, allowNull: false },
+  room: { type: DataTypes.INTEGER, allowNull: false },
 });
 /** */
 
 /** Предметы */
 const Category = sequelize.define("Category", {
-    categoryName: { type: DataTypes.STRING(255), allowNull: false },
+  categoryName: { type: DataTypes.STRING(255), allowNull: false },
 });
 
 const Instrument = sequelize.define("Instrument", {
-    instrumentName: { type: DataTypes.STRING(255), allowNull: false },
-    description: { type: DataTypes.TEXT },
+  instrumentName: { type: DataTypes.STRING(255), allowNull: false },
+  description: { type: DataTypes.TEXT },
 });
 
 const Item = sequelize.define("Item", {
-    serialNumber: { type: DataTypes.STRING(255), allowNull: false },
-    yearOfProduction: { type: DataTypes.INTEGER },
-    price: { type: DataTypes.DECIMAL(10, 2), allowNull: false },
-    characteristics: { type: DataTypes.STRING(255) },
+  serialNumber: { type: DataTypes.STRING(255), allowNull: false },
+  yearOfProduction: { type: DataTypes.INTEGER },
+  price: { type: DataTypes.DECIMAL(10, 2), allowNull: false },
+  characteristics: { type: DataTypes.STRING(255) },
+  rewiwes: { type: DataTypes.STRING(255) },
+  rating: { type: DataTypes.FLOAT },
+  availability: { type: DataTypes.BOOLEAN, defaultValue: true },
 });
 /** */
 
 /** Оплата */
 const Cart = sequelize.define("Cart", {
-    sessionId: { type: DataTypes.STRING(100) },
-    status: { type: DataTypes.SMALLINT },
-    firstName: { type: DataTypes.STRING(50) },
-    lastName: { type: DataTypes.STRING(50) },
-    mobile: { type: DataTypes.STRING(20) },
+  sessionId: { type: DataTypes.STRING(100) },
+  status: { type: DataTypes.SMALLINT },
+  firstName: { type: DataTypes.STRING(50) },
+  lastName: { type: DataTypes.STRING(50) },
+  mobile: { type: DataTypes.STRING(20) },
 });
 
 const CartItem = sequelize.define("CartItem", {
-    price: { type: DataTypes.FLOAT, allowNull: false },
-    discount: { type: DataTypes.FLOAT },
-    active: { type: DataTypes.BOOLEAN, defaultValue: true },
+  price: { type: DataTypes.FLOAT, allowNull: false },
+  discount: { type: DataTypes.FLOAT },
+  active: { type: DataTypes.BOOLEAN, defaultValue: true },
 });
 
 const UserOrder = sequelize.define("UserOrder", {
-    deliveryAddress: { type: DataTypes.STRING(255) },
-    totalPrice: { type: DataTypes.DECIMAL(10, 2) },
-    discount: { type: DataTypes.FLOAT },
-    finalPrice: { type: DataTypes.DECIMAL(10, 2) },
-    active: { type: DataTypes.BOOLEAN, defaultValue: true },
+  deliveryAddress: { type: DataTypes.STRING(255) },
+  totalPrice: { type: DataTypes.DECIMAL(10, 2) },
+  discount: { type: DataTypes.FLOAT },
+  finalPrice: { type: DataTypes.DECIMAL(10, 2) },
+  active: { type: DataTypes.BOOLEAN, defaultValue: true },
 });
 
 const OrderStatus = sequelize.define("OrderStatus", {
-    statusName: { type: DataTypes.STRING(255), allowNull: false },
+  statusName: { type: DataTypes.STRING(255), allowNull: false },
 });
 
 const Transaction = sequelize.define("Transaction", {
-    mode: { type: DataTypes.SMALLINT },
-    status: { type: DataTypes.SMALLINT },
+  mode: { type: DataTypes.SMALLINT },
+  status: { type: DataTypes.SMALLINT },
 });
 
 const OrderItem = sequelize.define("OrderItem", {
-    price: { type: DataTypes.DECIMAL(10, 2), allowNull: false },
-    discount: { type: DataTypes.FLOAT },
+  price: { type: DataTypes.DECIMAL(10, 2), allowNull: false },
+  discount: { type: DataTypes.FLOAT },
 });
 /** */
 
 /** Other */
 const Country = sequelize.define("Country", {
-    countryName: { type: DataTypes.STRING(255), allowNull: false },
+  countryName: { type: DataTypes.STRING(255), allowNull: false },
 });
 
 const Manufacturer = sequelize.define("Manufacturer", { // производитель
-    manufactureName: { type: DataTypes.STRING(255), allowNull: false },
-    contactInfo: { type: DataTypes.STRING(255) },
-    webSite: { type: DataTypes.STRING(255) },
+  manufactureName: { type: DataTypes.STRING(255), allowNull: false },
+  contactInfo: { type: DataTypes.STRING(255) },
+  webSite: { type: DataTypes.STRING(255) },
 });
 /** */
 
@@ -219,23 +222,23 @@ Support.hasMany(Message);
 Message.belongsTo(Support);
 
 module.exports = {
-    Account,
-    Profile,
-    Address,
-    Photo,
-    User,
-    Administrator,
-    Country,
-    Manufacturer, // производитель
-    Category,
-    Instrument,
-    Item,
-    Cart,
-    CartItem,
-    UserOrder,
-    OrderStatus,
-    Transaction,
-    OrderItem,
-    Support,
-    Message,
+  Account,
+  Profile,
+  Address,
+  Photo,
+  User,
+  Administrator,
+  Country,
+  Manufacturer, // производитель
+  Category,
+  Instrument,
+  Item,
+  Cart,
+  CartItem,
+  UserOrder,
+  OrderStatus,
+  Transaction,
+  OrderItem,
+  Support,
+  Message,
 };
