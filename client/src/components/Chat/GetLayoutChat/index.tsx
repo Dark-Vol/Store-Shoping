@@ -1,6 +1,8 @@
-// import { ChatContainer } from "@components/Chat/ChatContainer";
-// import { StartChatForm } from "@components/Chat/StartChatForm";
-// import { LoginForm } from "@components/Chat/LoginForm";
+import { ChatContainer } from "../ChatContainer";
+import { LoginForm } from "../LoginForm";
+import StartChatForm from "../StartChatForm";
+import useChat from "@hooks/useChat";
+import useAuth from "@hooks/useAuth";
 
 // interface LayoutChatProps {
 //   isChatOpen: boolean;
@@ -89,7 +91,70 @@
 //   return null;
 // };
 const GetLayoutChat: React.FC = () => {
-  return (null);
-}
+
+  const {
+    messages,
+    message,
+    setMessage,
+    SendMasseg,
+    problemDescription,
+    problemTitle,
+    activeChat,
+    isChatOpen,
+    getRole,
+    CloseTicket,
+    setProblemTitle,
+    setProblemDescription,
+    startChat,
+  } = useChat()
+
+  const {
+    auth,
+    email,
+    setUserEmail,
+    password,
+    setUserPassword,
+    loginAction,
+    registerAction,
+  } = useAuth()
+
+  if (!isChatOpen) return <div>CHAT</div>;
+  if (auth && activeChat) {
+    return (
+      <ChatContainer
+        messages={messages}
+        message={message}
+        setMessage={setMessage}
+        SendMasseg={SendMasseg}
+        CloseTicket={CloseTicket}
+        getRole={getRole}
+      />
+    );
+  }
+  if (auth && activeChat === false) {
+    return (
+      <StartChatForm
+        problemTitle={problemTitle}
+        setProblemTitle={setProblemTitle}
+        problemDescription={problemDescription}
+        setProblemDescription={setProblemDescription}
+        startChat={startChat}
+      />
+    );
+  }
+  if (auth === false) {
+    return (
+      <LoginForm
+        email={email}
+        setUserEmail={setUserEmail}
+        password={password}
+        setUserPassword={setUserPassword}
+        loginAction={loginAction}
+        registerAction={registerAction}
+      />
+    );
+  }
+  return <h1>test 2</h1>;
+};
 
 export default GetLayoutChat;
