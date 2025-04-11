@@ -53,10 +53,13 @@ const useAuth = () => {
 
   return {
     auth,
-    setUserEmail: setUserEmail,
-    setUserPassword: setUserPassword,
-    loginAction: loginAction,
-    registerAction: registerAction,
+    setAuth,
+    email,
+    setUserEmail,
+    password,
+    setUserPassword,
+    loginAction,
+    registerAction,
   };
 };
 
