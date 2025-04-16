@@ -1,18 +1,35 @@
 import { useState } from "react";
-import InputEmail from "../../components/Inputs/InputEmail";
-import InputPassword from "../../components/Inputs/InputPassword";
-import BtnLogin from "../../components/Buttons/BtnLogin";
-import InputFirstName from "../../components/Inputs/InputFirstName";
-import InputLastName from "../../components/Inputs/InputLastName";
-import InputPasswordConfirm from "../../components/Inputs/InputPasswordConfirm";
+import InputEmail from "@components/Inputs/InputEmail";
+import InputPassword from "@components/Inputs/InputPassword";
+import BtnLogin from "@components/Buttons/BtnLogin";
+import InputFirstName from "@components/Inputs/InputFirstName";
+import InputLastName from "@components/Inputs/InputLastName";
 import styles from "./Login.module.scss";
+import useAuth from "@hooks/useAuth";
+import BtnRegistraishen from "@components/Buttons/BtnRegistraishen";
 
 const Login: React.FC = () => {
   const [isLogin, setIsLogin] = useState(true);
 
+  const {
+    auth,
+    setAuth,
+    email,
+    setUserEmail,
+    password,
+    setUserPassword,
+    loginAction,
+    registerAction,
+    firstName,
+    setFirstName,
+    lastName,
+    setLastName,
+  } = useAuth()
+
   const toggleForm = () => {
     setIsLogin(!isLogin);
   };
+
   return (
     <div className={styles.login}>
       {isLogin ? (
@@ -37,22 +54,30 @@ const Login: React.FC = () => {
             <circle cx="12" cy="10" r="4" />
             <circle cx="12" cy="12" r="10" />
           </svg>
-          <InputEmail />
-          <InputPassword />
+          <InputEmail
+            email={email}
+            onChange={(e) => setUserEmail(e.target.value)}
+          />
+          <InputPassword
+            password={password}
+            onChange={(e) => setUserPassword(e.target.value)}
+          />
           <div className="styles.options_02}">
             <p>Already Registered?
-              <a href="#" onClick={toggleForm}>
-                <BtnLogin />
-              </a>
+              <BtnLogin onClick={(e) => { e.preventDefault(); loginAction() }} />
+              <a href="#">Forgot your password?</a>
             </p>
+          </div>
+          <div className={styles.options_02}>
+            <p>Not Registered? <a href="#" onClick={toggleForm}>Create an Account</a></p>
           </div>
         </form>
       ) : (
-          <form
-            className={styles.login_form}
-            action=""
-            method="post"
-          >
+        <form
+          className={styles.login_form}
+          action=""
+          method="post"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="48"
@@ -69,20 +94,28 @@ const Login: React.FC = () => {
             <circle cx="12" cy="10" r="4" />
             <circle cx="12" cy="12" r="10" />
           </svg>
-          <InputFirstName />
-          <InputLastName />
-          <InputPassword />
-          <InputPasswordConfirm />
+          <InputFirstName
+            firstName={firstName}
+            onChange={(e) => setFirstName(e.target.value)}
+          />
+          <InputLastName
+            lastName={lastName}
+            onChange={(e) => setLastName(e.target.value)}
+          />
+          <InputEmail
+            email={email}
+            onChange={(e) => setUserEmail(e.target.value)}
+          />
+          <InputPassword
+            password={password}
+            onChange={(e) => setUserPassword(e.target.value)}
+          />
           <div className="styles.options_01}">
-              <label className={styles.remember_me}>
+            <label className={styles.remember_me}>
               <input type="checkbox" /> Remember me
             </label>
-            <a href="#">Forgot your password?</a>
           </div>
-          <BtnLogin />
-          <div className={styles.options_02}>
-            <p>Not Registered? <a href="#" onClick={toggleForm}>Create an Account</a></p>
-          </div>
+          <BtnRegistraishen onClick={(e) => { e.preventDefault(); registerAction() }} />
         </form>
       )}
     </div>

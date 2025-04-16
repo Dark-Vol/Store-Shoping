@@ -28,7 +28,7 @@
       "@components/*": ["src/components/*"],
       "@hooks/*": ["src/hooks/*"],
       "@utils/*": ["src/utils/*"],
-      "@assets/*": ["src/assets/*"],
+      "@assets/*": ["assets/*"],
       "@scss/*": ["src/scss/*"],
       "@context/*": ["src/context/*"],
       "@pages/*": ["src/pages/*"],

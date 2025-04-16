@@ -1,11 +1,11 @@
 import styles from "./InputEmail.module.scss";
 
 type InputEmailProps = {
-  value: string;
+  email: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
-const InputEmail: React.FC<InputEmailProps> = ({ value, onChange }) => {
+const InputEmail: React.FC<InputEmailProps> = ({ email, onChange }) => {
 
   return (
     <div className={styles.box}>
@@ -27,7 +27,7 @@ const InputEmail: React.FC<InputEmailProps> = ({ value, onChange }) => {
         className={styles.input}
         type="email"
         placeholder="Email"
-        value={value}
+        value={email}
         onChange={onChange}
       />
     </div>

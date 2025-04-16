@@ -6,6 +6,7 @@ const sequelize = require('../config/db.js');
 const Account = sequelize.define("Account", {
   accountType: { type: DataTypes.ENUM("User", "Administrator"), allowNull: false },
   status: { type: DataTypes.STRING(50), allowNull: false, defaultValue: "active" },
+  registrationDate: { type: DataTypes.DATE, defaultValue: Sequelize.NOW },
 });
 
 const Profile = sequelize.define("Profile", {
@@ -15,21 +16,24 @@ const Profile = sequelize.define("Profile", {
 });
 
 const User = sequelize.define('User', {
-  userName: { type: DataTypes.STRING(255), allowNull: false },
+  firstName: { type: DataTypes.STRING(255), allowNull: false },
+  lastName: { type: DataTypes.STRING(255), allowNull: false },
   email: { type: DataTypes.STRING(255), unique: true, allowNull: false },
   password: { type: DataTypes.STRING(255), allowNull: false },
-  confirmationCode: { type: DataTypes.TEXT },
-  confirmationTime: { type: DataTypes.DATE },
+  registrationDate: { type: DataTypes.DATE, defaultValue: Sequelize.NOW },
 });
 
 const Administrator = sequelize.define("Administrator", {
   adminName: { type: DataTypes.STRING(255), allowNull: false },
   email: { type: DataTypes.STRING, unique: true, allowNull: false },
   password: { type: DataTypes.STRING, allowNull: false },
+  registrationDate: { type: DataTypes.DATE, defaultValue: Sequelize.NOW },
 });
 
 const Photo = sequelize.define("Photo", {
-  path: { type: DataTypes.STRING, allowNull: false, unique: true }
+  path: { type: DataTypes.STRING, allowNull: false, unique: true },
+  description: { type: DataTypes.STRING(255) },
+  isMain: { type: DataTypes.BOOLEAN, defaultValue: false },
 });
 
 const Address = sequelize.define("Address", {
@@ -47,11 +51,15 @@ const Support = sequelize.define("Support", {
   title: { type: DataTypes.STRING(255), allowNull: false },
   body: { type: DataTypes.STRING(255), allowNull: false },
   statusClose: { type: DataTypes.BOOLEAN, defaultValue: false },
+  statusAnswer: { type: DataTypes.BOOLEAN, defaultValue: false },
+  answer: { type: DataTypes.STRING(255) },
 });
 
 const Message = sequelize.define("Message", {
   text: { type: DataTypes.TEXT, allowNull: false },
   room: { type: DataTypes.INTEGER, allowNull: false },
+  status: { type: DataTypes.BOOLEAN, defaultValue: false },
+  isRead: { type: DataTypes.BOOLEAN, defaultValue: false },
 });
 /** */
 
@@ -73,6 +81,12 @@ const Item = sequelize.define("Item", {
   rewiwes: { type: DataTypes.STRING(255) },
   rating: { type: DataTypes.FLOAT },
   availability: { type: DataTypes.BOOLEAN, defaultValue: true },
+  description: { type: DataTypes.TEXT },
+  warranty: { type: DataTypes.STRING(255) },
+  photo: { type: DataTypes.STRING(255) },
+  discount: { type: DataTypes.FLOAT },
+  discountEndDate: { type: DataTypes.DATE },
+  discountStartDate: { type: DataTypes.DATE },
 });
 /** */
 
@@ -123,6 +137,8 @@ const Manufacturer = sequelize.define("Manufacturer", { // производит�
   manufactureName: { type: DataTypes.STRING(255), allowNull: false },
   contactInfo: { type: DataTypes.STRING(255) },
   webSite: { type: DataTypes.STRING(255) },
+  email: { type: DataTypes.STRING(100) },
+  phone: { type: DataTypes.STRING(50) },
 });
 /** */
 

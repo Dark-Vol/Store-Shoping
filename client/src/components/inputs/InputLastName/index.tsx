@@ -1,37 +1,29 @@
-import { useState } from "react";
 import styles from "./InputLastName.module.scss";
 
 interface InputLastNameProps {
-    onChange?: (value: string) => void;
+  lastName: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const InputLastName: React.FC<InputLastNameProps> = ({onChange}) => {
-    const [text, setText] = useState("");
-
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setText(e.target.value);
-        if (onChange) {
-            onChange(e.target.value);
-        }
-    };
-    return (
-        <div className={styles.box}>
-            <input
-              id="LastName"
-              className={styles.input_last_name}
-              type="text"
-              placeholder="LastName"
-              value={text}
-              onChange={handleChange}
-            />
-            <label 
-              htmlFor="LastName"
-              className={styles.label_last_name}
-            >
-                Last Name
-            </label>
-        </div>
-    )
+const InputLastName: React.FC<InputLastNameProps> = ({ lastName, onChange }) => {
+  return (
+    <div className={styles.box}>
+      <input
+        id="LastName"
+        className={styles.input_last_name}
+        type="text"
+        placeholder="LastName"
+        value={lastName}
+        onChange={onChange}
+      />
+      <label
+        htmlFor="LastName"
+        className={styles.label_last_name}
+      >
+        Last Name
+      </label>
+    </div>
+  )
 }
 
 export default InputLastName

@@ -1,11 +1,11 @@
 import styles from "./InputPassword.module.scss";
 
 type InputPasswordProps = {
-  value: string;
+  password: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
-const InputPassword: React.FC<InputPasswordProps> = ({ value, onChange }) => {
+const InputPassword: React.FC<InputPasswordProps> = ({ password, onChange }) => {
   return (
     <div className={styles.box}>
       <svg
@@ -26,9 +26,9 @@ const InputPassword: React.FC<InputPasswordProps> = ({ value, onChange }) => {
       </svg>
       <input
         className={styles.input_password}
-        type="text"
+        type="password"
         placeholder="Password"
-        value={value}
+        value={password}
         onChange={onChange}
       />
     </div>
