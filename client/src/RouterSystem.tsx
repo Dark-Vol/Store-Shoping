@@ -6,6 +6,7 @@ import Products from "@pages/Products";
 import Login from "@pages/Login";
 import Admin from "@pages/Admin";
 import LayOut from "@components/LayOut";
+import User from "@pages/User";
 // import Preloader from "./pages/Preloader";
 
 const RouterSystem: React.FC = () => {
@@ -28,6 +29,7 @@ const RouterSystem: React.FC = () => {
           <Route index element={<Main />} />
           <Route path="products" element={<Products />} />
           <Route path="login" element={<Login />} />
+          <Route path="user" element={<User />} />
           <Route path="admin" element={<Admin />} />
           <Route path="*" element={<ErrorPage />} />
         </Route>

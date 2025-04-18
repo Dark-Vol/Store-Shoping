@@ -40,15 +40,8 @@ const Login: React.FC = () => {
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="48"
-            height="48"
             viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            className="lucide lucide-circle-user-round"
+            className={styles.lucide_circle_user_round}
           >
             <path d="M18 20a6 6 0 0 0-12 0" />
             <circle cx="12" cy="10" r="4" />
@@ -80,15 +73,8 @@ const Login: React.FC = () => {
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="48"
-            height="48"
             viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            className="lucide lucide-circle-user-round"
+            className={styles.lucide_circle_user_round}
           >
             <path d="M18 20a6 6 0 0 0-12 0" />
             <circle cx="12" cy="10" r="4" />
@@ -116,6 +102,11 @@ const Login: React.FC = () => {
             </label>
           </div>
           <BtnRegistraishen onClick={(e) => { e.preventDefault(); registerAction() }} />
+          <div className={styles.options_02}>
+            <p>There is an Account?
+              <a href="" onClick={toggleForm}> Login an Account</a>
+            </p>
+          </div>
         </form>
       )}
     </div>

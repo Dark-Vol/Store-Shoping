@@ -9,10 +9,11 @@ $font: normal 16px 'Times New Roman', Times, serif;
   align-items: center;
   position: relative;
   max-width: $max-width;
+  padding: 5px 0;
 }
 
 @mixin input-style($bg-color: $tertiary, $text-color: $Dark-Olive) {
-  width: 100%;
+  max-width: 100%;
   height: 45px;
   line-height: 30px;
   padding: 0 5rem;
