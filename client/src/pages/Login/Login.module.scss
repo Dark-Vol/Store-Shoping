@@ -1,0 +1,39 @@
+.login{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 32px auto;
+
+  .login_form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 400px;
+    padding: 32px 40px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+    .lucide_circle_user_round {
+      display: block;
+      margin: 0 auto 16px auto;
+      align-items: center;
+      stroke: black;
+      transition: stroke 0.3s ease;
+      width: 48px;
+      height: 48px;
+      fill: none;
+      stroke-width: 2px;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+  
+      @media (prefers-color-scheme: dark) {
+        stroke: #000000;
+      }
+    }
+}
