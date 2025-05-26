@@ -1,0 +1,59 @@
+{
+  "compilerOptions": {
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
+    "target": "ES2020",
+    "useDefineForClassFields": true,
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "skipLibCheck": true,
+
+    /* Bundler mode */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "isolatedModules": true,
+    "moduleDetection": "force",
+    "noEmit": true,
+    "jsx": "react-jsx",
+
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedSideEffectImports": true,
+
+    /* Path Aliases */
+    "baseUrl": "./",
+    "paths": {
+      "@components/*": ["src/components/*"],
+      "@hooks/*": ["src/hooks/*"],
+      "@utils/*": ["src/utils/*"],
+      "@assets/*": ["assets/*"],
+      "@scss/*": ["src/scss/*"],
+      "@context/*": ["src/context/*"],
+      "@pages/*": ["src/pages/*"],
+      "@routes/*": ["src/routes/*"],
+      "@store/*": ["src/store/*"],
+      "@types/*": ["src/types/*"],
+      "@services/*": ["src/services/*"],
+      "@constants/*": ["src/constants/*"],
+      "@mocks/*": ["src/mocks/*"],
+      "@tests/*": ["src/tests/*"],
+      "@config/*": ["src/config/*"],
+      "@api/*": ["src/api/*"],
+      "@lib/*": ["src/lib/*"],
+      "@middleware/*": ["src/middleware/*"],
+    }
+  },
+  "include": [
+    "src", 
+    "vite.config.ts", 
+    "vite-env.d.ts", 
+    "src/**/*.ts", 
+    "src/**/*.tsx", 
+    "src/**/*.js", 
+    "src/**/*.jsx"
+  ]
+}
+// , "vite.config.ts", "vite-env.d.ts", "src/**/*.ts", "src/**/*.tsx", "src/**/*.js", "src/**/*.jsx"]
+// , "src/**/*.ts", "src/**/*.tsx", "src/**/*.js", "src/**/*.jsx"]
