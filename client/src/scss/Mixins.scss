@@ -1,0 +1,45 @@
+// _mixins.scss
+// Миксины для повторного использования стилей
+
+@use './Variables.scss' as *;
+
+@mixin transition($property: all, $duration: 0.3s, $timing: $ease-in-out-quad) {
+  transition: $property $duration $timing;
+}
+
+@mixin box-shadow($x: 0, $y: 4px, $blur: 10px, $color: rgba(0, 0, 0, 0.1)) {
+  box-shadow: $x $y $blur $color;
+}
+
+@mixin text-style($color: $black, $size: 16px, $weight: 400) {
+  color: $color;
+  font-size: $size;
+  font-weight: $weight;
+}
+
+@mixin flex-center($direction: row) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin responsive($breakpoint) {
+  @if $breakpoint ==mobile {
+    @media (max-width: 600px) {
+      @content;
+    }
+  }
+
+  @else if $breakpoint ==tablet {
+    @media (max-width: 1024px) {
+      @content;
+    }
+  }
+
+  @else if $breakpoint ==desktop {
+    @media (max-width: 1440px) {
+      @content;
+    }
+  }
+}

@@ -1,0 +1,28 @@
+@use "@scss/Variables" as *;
+
+$font: normal 16px 'Times New Roman', Times, serif;
+
+
+@mixin flex-container($max-width: 100%) {
+  display: flex;
+  line-height: 30px;
+  align-items: center;
+  position: relative;
+  max-width: $max-width;
+  padding: 5px 0;
+}
+
+@mixin input-style($bg-color: $tertiary, $text-color: $Dark-Olive) {
+  max-width: 100%;
+  height: 45px;
+  line-height: 30px;
+  padding: 0 5rem;
+  padding-left: 3rem;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  outline: none;
+  background-color: $bg-color;
+  color: $text-color;
+  transition: .5s ease;
+  font: $font;
+}

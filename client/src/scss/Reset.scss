@@ -1,0 +1,117 @@
+#root{
+  width: 100%;
+}
+
+/* Сброс всех стилей */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Убираем стандартные стили списка */
+ul,
+ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Убираем подчеркивание у ссылок */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Нормализуем поведение кнопок */
+button {
+    all: unset;
+    cursor: pointer;
+}
+
+/* Убираем стандартный outline у интерактивных элементов */
+input,
+textarea,
+button,
+select {
+    outline: none;
+    border: none;
+    background: none;
+    font: inherit;
+}
+
+/* Базовые стили для body */
+body {
+    font-family: sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    text-rendering: optimizeSpeed;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
+    background-color: #fff;
+    color: #000;
+    display: flex;
+    flex-direction: column;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+main {
+    flex: 1 1 auto;
+}
+
+footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 10px auto;
+}
+/* Контейнеры занимают всю ширину */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* Убираем выделение текста при кликах */
+body,
+button,
+input,
+textarea {
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Настройка блочных изображений */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Универсальные утилиты */
+.hidden {
+    display: none !important;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.grid {
+    display: grid;
+    gap: 1rem;
+}
+
+.text-center {
+    text-align: center;
+}
