@@ -1,0 +1,29 @@
+@use "@scss/MixinsInputs" as *;
+
+.box {
+  @include flex-container;
+}
+
+.input_first_name {
+  @include input-style;
+}
+
+.input_first_name::placeholder {
+  color: #C5C6B3;
+}
+
+.input_first_name:focus,
+.input_first_name:hover {
+  outline: none;
+  border-color: #2e3192;
+  background-color: #fff;
+  box-shadow: 0 0 0 5px rgba(46, 49, 146, 0.3);
+}
+
+.icon {
+  position: absolute;
+  fill: none;
+  width: 24px;
+  height: 24px;
+  margin: 10px 10px;
+}
