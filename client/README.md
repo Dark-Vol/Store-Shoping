@@ -1,54 +1,53 @@
 # React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+client/
+├── node_modules/                # Установленные зависимости проекта (автоматически создается npm/yarn)
+├── public/                      # Публичные файлы, доступные напрямую по URL
+│   └── assets/                  # Статические ресурсы (изображения, иконки и т.д.)
+│       ├── arrows/             # Графика со стрелками (например, для UI-элементов)
+│       ├── icons/              # Иконки для интерфейса
+│       ├── react.svg           # Логотип React (может использоваться на главной странице)
+│       └── vite.svg            # Логотип Vite (аналогично)
+├── src/                         # Исходный код приложения
+│   ├── components/              # Повторно используемые UI-компоненты
+│   │   ├── Buttons/             # Компоненты кнопок
+│   │   │   ├── BtnChat
+│   │   │   ├── BtnCloseTicket
+│   │   │   ├── BtnLogin
+│   │   │   ├── BtnRegistraishen
+│   │   │   ├── BtnSendMasseg
+│   │   │   ├── BtnStartChat
+│   │   │   └── BtnThemeToggle
+│   │   ├── Chat/                # Компоненты, связанные с функционалом чата
+│   │   │   ├── ChatContainer
+│   │   │   ├── GetLayoutChat
+│   │   │   ├── LoginForm
+│   │   │   └── StartChatForm
+│   │   ├── Footer               # Нижняя часть страницы
+│   │   ├── Header               # Верхняя часть страницы
+│   │   ├── Inputs               # Компоненты ввода
+│   │   └── LayOut               # Компоненты, отвечающие за компоновку страниц
+│   ├── hooks/                   # Пользовательские React-хуки
+│   ├── pages/                   # Страницы приложения (по маршрутам)
+│   │   ├── Admin                # Страница или модуль администратора
+│   │   ├── Error                # Страницы обработки ошибок (например, 404)
+│   │   ├── Home                 # Главная страница
+│   │   ├── Login                # Страница входа
+│   │   ├── Preloader            # Компоненты прелоадеров или загрузчиков
+│   │   ├── Products             # Страница или модуль товаров
+│   │   └── User                 # Страница или модуль пользователя
+│   ├── scss/                    # SASS/SCSS стили проекта
+│   ├── types/                   # Пользовательские типы TypeScript
+│   ├── main.tsx                 # Точка входа в приложение React
+│   └── RouterSystem.tsx        # Файл с роутингом приложения (React Router)
+│
+├── .gitignore                   # Исключения для Git
+├── eslint.config.js            # Конфигурация ESLint для анализа кода
+├── index.html                  # Шаблон HTML для сборки проекта
+├── package-lock.json           # Фиксация версий зависимостей (автоматически создается)
+├── package.json                # Основной файл с метаданными проекта и зависимостями
+├── README.md                   # Документация проекта
+├── tsconfig.app.json           # Настройки TypeScript для приложения
+├── tsconfig.json               # Основной конфиг TypeScript
+├── tsconfig.node.json          # Конфигурация TypeScript для Node.js скриптов
+└── vite.config.ts              # Конфигурация Vite (инструмент сборки)
