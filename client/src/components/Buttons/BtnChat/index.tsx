@@ -1,11 +1,17 @@
-import React from 'react'
+import styles from './BtnChat.module.scss';
+
 interface BtnChatProps {
   onClick: () => void;
 }
 
 const BtnChat: React.FC<BtnChatProps> = ({ onClick }) => {
   return (
-    <button onClick={onClick}>
+    <button
+      className={styles.btnChat}
+      type="button"
+      aria-label="Open chat"
+      data-testid="btn-chat"
+      onClick={onClick}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="28"
