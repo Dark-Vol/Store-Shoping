@@ -24,16 +24,20 @@ export const LoginForm: React.FC<LoginFormProps> = ({
 }) => {
   return (
     <div className={styles.form_container}>
-      <InputEmail
-        email={email}
-        onChange={(e) => setUserEmail(e.target.value)}
-      />
-      <InputPassword
-        password={password}
-        onChange={(e) => setUserPassword(e.target.value)}
-      />
-      <BtnLogin onClick={loginAction} />
-      <BtnRegistraishen onClick={registerAction} />
+      <div className={styles.form_title}>
+        <InputEmail
+          email={email}
+          onChange={(e) => setUserEmail(e.target.value)}
+        />
+        <InputPassword
+          password={password}
+          onChange={(e) => setUserPassword(e.target.value)}
+        />
+      </div>
+      <div className={styles.form_buttons}>
+        <BtnLogin onClick={loginAction} />
+        <BtnRegistraishen onClick={registerAction} />
+      </div>
     </div>
   );
 };

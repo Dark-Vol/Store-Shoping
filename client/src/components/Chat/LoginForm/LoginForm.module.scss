@@ -1,0 +1,29 @@
+@use "@scss/Variables" as *;
+
+
+.form_container {
+  border: 4px solid $dark;
+  border-radius: 20px;
+  padding: 1rem;
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  position: relative;
+}
+
+.form_title {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.form_buttons {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: 100%;
+}
