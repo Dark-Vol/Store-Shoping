@@ -51,31 +51,31 @@ client/
 │   │   ├── Footer/                      # Нижняя часть страницы
 │   │   ├── Header/                      # Верхняя часть страницы
 │   │   ├── Inputs/                      # Компоненты ввода
-│   │   │   ├── InputDiscription/
+│   │   │   ├── InputDiscription/        # описание проблемы
 │   │   │   │   ├── InputDiscription.module.scss
 │   │   │   │   └── index.tsx
-│   │   │   ├── InputEmail/
+│   │   │   ├── InputEmail/              # ввод почты
 │   │   │   │   ├── InputEmail.module.scss
 │   │   │   │   └── index.tsx
-│   │   │   ├── InputFirstName/
+│   │   │   ├── InputFirstName/          # ввод Имени
 │   │   │   │   ├── InputFirstName.module.scss
 │   │   │   │   └── index.tsx
-│   │   │   ├── InputLastName/
+│   │   │   ├── InputLastName/           # ввод Фамилии
 │   │   │   │   ├── InputLastName.module.scss
 │   │   │   │   └── index.tsx
-│   │   │   ├── InputPassword/
+│   │   │   ├── InputPassword/           # ввод Пароля
 │   │   │   │   ├── InputPassword.module.scss
 │   │   │   │   └── index.tsx
-│   │   │   ├── InputSetMasseg/
+│   │   │   ├── InputSetMasseg/          # ввод Фамилии
 │   │   │   │   ├── InputSetMasseg.module.scss
 │   │   │   │   └── index.tsx
-│   │   │   └── InputTitle/
+│   │   │   └── InputTitle/              # ввод Заголовка проблемы
 │   │   │       ├── InputTitle.module.scss
 │   │   │       └── index.tsx
 │   │   └── LayOut/                      # Компоновка страниц
 │   ├── hooks/                           # Пользовательские React-хуки
-│   │   ├── useAuth.ts
-│   │   └── useChat.ts
+│   │   ├── useAuth.ts                   # для авторизации
+│   │   └── useChat.ts                   # для чата, получение и отправкии сообщений
 │   ├── pages/                           # Страницы приложения
 │   │   ├── Admin/
 │   │   │   ├── Admin.module.scss
@@ -98,12 +98,12 @@ client/
 │   │       ├── User.module.scss
 │   │       └── index.tsx
 │   ├── scss/                            # Общие SCSS-стили проекта
-│   │   ├── Main.scss
-│   │   ├── Mixins.scss
-│   │   ├── MixinsButton.scss
-│   │   ├── MixinsInputs.scss
-│   │   ├── Reset.scss
-│   │   └── Variables.scss
+│   │   ├── Main.scss                    # Основной файл для стилей
+│   │   ├── Mixins.scss                  # Миксины для повторного использования стилей
+│   │   ├── MixinsButton.scss            # -||- для кнопок
+│   │   ├── MixinsInputs.scss            # -||- для инпутов
+│   │   ├── Reset.scss                   # для обнуление стилей
+│   │   └── Variables.scss               # Этот файл содержит все переменные, используемые в проекте.
 │   ├── types/                           # Пользовательские типы TypeScript
 │   │   └── chat.ts
 │   ├── main.tsx                         # Точка входа в приложение React
