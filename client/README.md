@@ -15,8 +15,8 @@ client/
 │   ├── components/                      # Повторно используемые UI-компоненты
 │   │   ├── Buttons/                     # Различные кнопки приложения
 │   │   │   ├── BtnChat/                 # Кнопка: открыть чат
-│   │   │   │   ├── BtnChat.module.scss  # Стили кнопки
-│   │   │   │   └── index.tsx            # Компонент кнопки
+│   │   │   │   ├── BtnChat.module.scss
+│   │   │   │   └── index.tsx
 │   │   │   ├── BtnCloseTicket/          # Кнопка: закрыть запрос (ticket)
 │   │   │   │   ├── BtnCloseTicket.module.scss
 │   │   │   │   └── index.tsx
@@ -37,24 +37,75 @@ client/
 │   │   │       └── index.tsx
 │   │   ├── Chat/                         # Компоненты чата
 │   │   │   ├── ChatContainer/
+│   │   │   │   ├── ChatContainer.module.scss
+│   │   │   │   └── index.tsx
 │   │   │   ├── GetLayoutChat/
+│   │   │   │   ├── GetLayoutChat.module.scss
+│   │   │   │   └── index.tsx
 │   │   │   ├── LoginForm/
+│   │   │   │   ├── LoginForm.module.scss
+│   │   │   │   └── index.tsx
 │   │   │   └── StartChatForm/
+│   │   │       ├── StartChatForm.module.scss
+│   │   │       └── index.tsx
 │   │   ├── Footer/                      # Нижняя часть страницы
 │   │   ├── Header/                      # Верхняя часть страницы
 │   │   ├── Inputs/                      # Компоненты ввода
+│   │   │   ├── InputDiscription/
+│   │   │   │   ├── InputDiscription.module.scss
+│   │   │   │   └── index.tsx
+│   │   │   ├── InputEmail/
+│   │   │   │   ├── InputEmail.module.scss
+│   │   │   │   └── index.tsx
+│   │   │   ├── InputFirstName/
+│   │   │   │   ├── InputFirstName.module.scss
+│   │   │   │   └── index.tsx
+│   │   │   ├── InputLastName/
+│   │   │   │   ├── InputLastName.module.scss
+│   │   │   │   └── index.tsx
+│   │   │   ├── InputPassword/
+│   │   │   │   ├── InputPassword.module.scss
+│   │   │   │   └── index.tsx
+│   │   │   ├── InputSetMasseg/
+│   │   │   │   ├── InputSetMasseg.module.scss
+│   │   │   │   └── index.tsx
+│   │   │   └── InputTitle/
+│   │   │       ├── InputTitle.module.scss
+│   │   │       └── index.tsx
 │   │   └── LayOut/                      # Компоновка страниц
 │   ├── hooks/                           # Пользовательские React-хуки
+│   │   ├── useAuth.ts
+│   │   └── useChat.ts
 │   ├── pages/                           # Страницы приложения
-│   │   ├── Admin/                       # Модуль администратора
-│   │   ├── Error/                       # Страницы ошибок (например, 404)
-│   │   ├── Home/                        # Главная страница
-│   │   ├── Login/                       # Страница входа
-│   │   ├── Preloader/                   # Компоненты загрузки
-│   │   ├── Products/                    # Страница товаров
-│   │   └── User/                        # Страница пользователя
+│   │   ├── Admin/
+│   │   │   ├── Admin.module.scss
+│   │   │   └── index.tsx
+│   │   ├── Error/
+│   │   │   ├── Error.module.scss
+│   │   │   └── index.tsx
+│   │   ├── Home/
+│   │   │   ├── Home.module.scss
+│   │   │   └── index.tsx
+│   │   ├── Login/
+│   │   │   ├── Login.module.scss
+│   │   │   └── index.tsx
+│   │   ├── Preloader/
+│   │   │   ├── Preloader.module.scss
+│   │   │   └── index.tsx
+│   │   ├── Products/
+│   │   │   └── index.tsx
+│   │   └── User/
+│   │       ├── User.module.scss
+│   │       └── index.tsx
 │   ├── scss/                            # Общие SCSS-стили проекта
+│   │   ├── Main.scss
+│   │   ├── Mixins.scss
+│   │   ├── MixinsButton.scss
+│   │   ├── MixinsInputs.scss
+│   │   ├── Reset.scss
+│   │   └── Variables.scss
 │   ├── types/                           # Пользовательские типы TypeScript
+│   │   └── chat.ts
 │   ├── main.tsx                         # Точка входа в приложение React
 │   └── RouterSystem.tsx                # Система маршрутизации (React Router)
 ├── .gitignore                           # Исключения Git
