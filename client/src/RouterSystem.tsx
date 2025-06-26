@@ -54,3 +54,6 @@ const RouterSystem: React.FC = () => {
 }
 
 export default RouterSystem
+
+
+// Создать отдельный компанент для изменения темы
