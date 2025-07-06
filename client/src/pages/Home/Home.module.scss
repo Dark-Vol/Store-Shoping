@@ -17,12 +17,8 @@
 
 
         
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-body{
+/* Глобальные стили перенесены в Reset.scss */
+.wrapper {
     background-color: #D2D2D2;
     background-image:
     repeating-linear-gradient(
@@ -33,6 +29,8 @@ body{
         to bottom, transparent 0 100px,
         #25283b22 100px 101px
     );
+    min-height: 100%;
+    flex: 1;
 }
 
 .home > div { 
