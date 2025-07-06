@@ -1,0 +1,79 @@
+.chatPopup {
+  position: absolute;
+  bottom: 460px; /* Позиционируем выше кнопки чата (380px + 80px отступ) */
+  right: 20px;
+  z-index: 1001; /* Увеличиваем z-index, чтобы быть над footer */
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  border: 1px solid #e0e0e0;
+  min-width: 350px;
+  max-width: 400px;
+  max-height: 500px;
+  overflow: hidden;
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.chatContent {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.chatHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  background: #f8f9fa;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.chatTitle {
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  color: #666;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: #333;
+    background: #e9ecef;
+  }
+
+  svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+  .chatPopup {
+    bottom: 650px; /* Позиционируем выше кнопки чата на mobile (570px + 80px отступ) */
+    right: 10px;
+    left: 10px;
+    min-width: auto;
+    max-width: none;
+    max-height: 60vh;
+  }
+}
