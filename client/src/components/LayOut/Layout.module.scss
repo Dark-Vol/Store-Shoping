@@ -1,0 +1,12 @@
+.layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Минимальная высота на весь экран */
+  position: relative; /* Для absolute позиционирования дочерних элементов */
+}
+
+.main {
+  flex: 1; /* Занимает все доступное пространство */
+  display: flex;
+  flex-direction: column;
+} 
