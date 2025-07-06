@@ -1,8 +1,12 @@
 .footer{
-    left: 0;
-    bottom: 0;
-    max-width: 100%;
-    min-height: auto;
+    width: 100%;
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    padding: 40px 0 20px 0;
+    margin-top: auto; /* Прижимает footer к низу */
+    position: relative;
+    z-index: 1; /* Низкий z-index, чтобы быть под чатом */
+    transition: background-color 0.3s ease, color 0.3s ease;
 
     .container{
         width: 100%;
@@ -24,8 +28,8 @@
         margin-bottom: 20px;
         h4{
             font: normal 18px 'Times New Roman', Times, serif;
-            border-bottom: 2px solid gray;
-            color: #fff;
+            border-bottom: 2px solid var(--border-color);
+            color: var(--text-primary);
             margin-bottom: 10px;
             text-transform: uppercase;
         }
@@ -36,12 +40,12 @@
             li{
                 margin-bottom: 10px;
                 a{
-                    color: #bbb;
+                    color: var(--text-secondary);
                     text-decoration: none;
                     font: normal 18px 'Times New Roman', Times, serif;
                     transition: color 0.3s;
                     &:hover{
-                        color: #fff;
+                        color: var(--text-primary);
                     }
                 }
             }
@@ -51,13 +55,13 @@
         display: flex;
         gap: 10px;
         a{
-            color: #bbb;
+            color: var(--text-secondary);
             text-decoration: none;
             font: normal 18px 'Times New Roman', Times, serif;
             transition: color 0.3s;
             &:hover{
-                color: #fff;
-                background-color: #555;
+                color: var(--text-primary);
+                background-color: var(--bg-tertiary);
                 border-radius: 50%;
             }
             img{
@@ -70,7 +74,29 @@
         text-align: center;
         margin-top: 20px;
         font: normal 18px 'Times New Roman', Times, serif;
-        color: #bbb;
-        border-top: 1px solid #444;
+        color: var(--text-secondary);
+        border-top: 1px solid var(--border-color);
+        padding-top: 20px;
+    }
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+    .footer {
+        padding: 20px 0 10px 0;
+        
+        .container {
+            padding: 10px 20px;
+        }
+        
+        .row {
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .footer_col {
+            max-width: 100%;
+            text-align: center;
+        }
     }
 }
