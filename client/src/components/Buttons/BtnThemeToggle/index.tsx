@@ -1,20 +1,22 @@
-import { useContext } from 'react';
-import { ThemeContext } from '../../../RouterSystem';
+import { useTheme } from '../../../contexts/ThemeContext';
+import { useAppDispatch, useAppSelector } from '../../../store/hooks';
+import { toggleTheme } from '../../../store/themeSlice';
 import styles from './BtnThemeToggle.module.scss';
 
 function BtnThemeToggle() {
-  const context = useContext(ThemeContext);
+  const { theme } = useTheme();
+  const dispatch = useAppDispatch();
+  const reduxTheme = useAppSelector(state => state.theme.theme);
 
-  if (!context) {
-    throw new Error('ThemeToggle must be used within a ThemeContext.Provider');
-  }
-
-  const { theme, setTheme } = context;
+  const handleToggle = () => {
+    dispatch(toggleTheme());
+  };
 
   return (
     <button
       className={styles.BtnThemeToggle}
-      onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
+      onClick={handleToggle}
+      aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} theme`}
     >
       {theme === 'light' ? '🌞' : '🌙'}
     </button>
