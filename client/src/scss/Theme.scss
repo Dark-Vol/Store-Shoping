@@ -1,0 +1,121 @@
+// Глобальные стили для тем - применяются ко всем элементам сайта
+
+// Базовые элементы
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+// Все текстовые элементы
+h1, h2, h3, h4, h5, h6, p, span, div, a, button, input, textarea, select, label {
+  color: var(--text-primary);
+}
+
+// Все фоновые элементы
+div, section, article, aside, header, footer, nav, main {
+  background-color: var(--bg-primary);
+}
+
+// Все границы
+* {
+  border-color: var(--border-color);
+}
+
+// Все тени
+* {
+  box-shadow: var(--shadow-light);
+}
+
+// Специальные элементы
+.card, .modal, .popup, .dropdown {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-medium);
+}
+
+// Интерактивные элементы
+button, input, textarea, select {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  
+  &:hover {
+    background-color: var(--bg-tertiary);
+  }
+  
+  &:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+  }
+}
+
+// Ссылки
+a {
+  color: var(--primary-color);
+  
+  &:hover {
+    color: var(--text-primary);
+  }
+}
+
+// Кнопки
+.btn, button[type="button"], button[type="submit"] {
+  background-color: var(--primary-color);
+  color: white;
+  
+  &:hover {
+    background-color: var(--bg-tertiary);
+    color: var(--text-primary);
+  }
+}
+
+// Формы
+form {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+// Таблицы
+table {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  
+  th, td {
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+  }
+  
+  th {
+    background-color: var(--bg-tertiary);
+  }
+}
+
+// Списки
+ul, ol {
+  color: var(--text-primary);
+  
+  li {
+    color: var(--text-primary);
+  }
+}
+
+// Код
+code, pre {
+  background-color: var(--bg-tertiary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+// Цитаты
+blockquote {
+  background-color: var(--bg-secondary);
+  border-left: 4px solid var(--primary-color);
+  color: var(--text-primary);
+}
+
+// Разделители
+hr {
+  border-color: var(--border-color);
+  background-color: var(--border-color);
+} 
