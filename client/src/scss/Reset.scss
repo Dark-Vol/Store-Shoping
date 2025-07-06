@@ -51,26 +51,24 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     min-height: 100vh;
-    background-color: #fff;
-    color: #000;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
     display: flex;
     flex-direction: column;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 html, body {
     height: 100%;
     margin: 0;
 }
+
 main {
     flex: 1 1 auto;
 }
 
-footer {
-    background: #333;
-    color: white;
-    text-align: center;
-    padding: 10px auto;
-}
+/* Footer стили теперь в компоненте Footer */
+
 /* Контейнеры занимают всю ширину */
 .container {
     width: 100%;
