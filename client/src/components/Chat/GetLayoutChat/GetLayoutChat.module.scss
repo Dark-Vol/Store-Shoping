@@ -65,15 +65,3 @@
     height: 16px;
   }
 }
-
-/* Адаптивность для мобильных устройств */
-@media (max-width: 768px) {
-  .chatPopup {
-    bottom: 650px; /* Позиционируем выше кнопки чата на mobile (570px + 80px отступ) */
-    right: 10px;
-    left: 10px;
-    min-width: auto;
-    max-width: none;
-    max-height: 60vh;
-  }
-}
