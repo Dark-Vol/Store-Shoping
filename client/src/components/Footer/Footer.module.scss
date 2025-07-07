@@ -27,7 +27,7 @@
         max-width: 300px;
         margin-bottom: 20px;
         h4{
-            font: normal 18px 'Times New Roman', Times, serif;
+            font: normal 18px 'Space Grotesk', sans-serif;
             border-bottom: 2px solid var(--border-color);
             color: var(--text-primary);
             margin-bottom: 10px;
@@ -42,7 +42,7 @@
                 a{
                     color: var(--text-secondary);
                     text-decoration: none;
-                    font: normal 18px 'Times New Roman', Times, serif;
+                    font: normal 18px 'Space Grotesk', sans-serif;
                     transition: color 0.3s;
                     &:hover{
                         color: var(--text-primary);
@@ -57,7 +57,7 @@
         a{
             color: var(--text-secondary);
             text-decoration: none;
-            font: normal 18px 'Times New Roman', Times, serif;
+            font: normal 18px 'Space Grotesk', sans-serif;
             transition: color 0.3s;
             &:hover{
                 color: var(--text-primary);
@@ -73,30 +73,9 @@
     .copyright {
         text-align: center;
         margin-top: 20px;
-        font: normal 18px 'Times New Roman', Times, serif;
+        font: normal 18px 'Space Grotesk', sans-serif;
         color: var(--text-secondary);
         border-top: 1px solid var(--border-color);
         padding-top: 20px;
-    }
-}
-
-/* Адаптивность для мобильных устройств */
-@media (max-width: 768px) {
-    .footer {
-        padding: 20px 0 10px 0;
-        
-        .container {
-            padding: 10px 20px;
-        }
-        
-        .row {
-            flex-direction: column;
-            gap: 15px;
-        }
-        
-        .footer_col {
-            max-width: 100%;
-            text-align: center;
-        }
     }
 }
