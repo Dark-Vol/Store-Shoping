@@ -161,15 +161,16 @@
     left: 0;
     width: 100%;
     z-index: 1000;
-    transition: all 0.3s ease;
+    transition: background 0.5s cubic-bezier(0.4,0,0.2,1), color 0.5s cubic-bezier(0.4,0,0.2,1), box-shadow 0.5s cubic-bezier(0.4,0,0.2,1), border-color 0.5s cubic-bezier(0.4,0,0.2,1);
     background: var(--header-bg);
     box-shadow: var(--header-shadow);
   
     .top_bar {
       background: var(--top-bar-bg);
       padding: 10px 0;
-      font: normal 14px 'Times New Roman', Times, serif;
+      font: normal 14px 'Space Grotesk', sans-serif;
       border-bottom: 1px solid var(--border-color);
+      transition: background 0.5s cubic-bezier(0.4,0,0.2,1), color 0.5s cubic-bezier(0.4,0,0.2,1), border-color 0.5s cubic-bezier(0.4,0,0.2,1);
   
       .container {
         display: flex;
@@ -184,6 +185,7 @@
         margin-left: 15px;
         text-decoration: none;
         color: var(--text-color);
+        transition: color 0.5s cubic-bezier(0.4,0,0.2,1);
         &:hover {
           color: var(--primary-color);
         }
@@ -199,9 +201,10 @@
       padding: 0 20px;
   
       .logo a {
-        font: bold 28px 'Times New Roman', Times, serif;
+        font: bold 28px 'Space Grotesk', sans-serif;
         text-decoration: none;
         color: var(--text-color);
+        transition: color 0.5s cubic-bezier(0.4,0,0.2,1);
       }
   
       .nav ul {
@@ -211,8 +214,9 @@
   
         li a {
           text-decoration: none;
-          font: normal 18px 'Times New Roman', Times, serif;
+          font: normal 18px 'Space Grotesk', sans-serif;
           color: var(--text-color);
+          transition: color 0.5s cubic-bezier(0.4,0,0.2,1);
           &:hover {
             color: var(--primary-color);
           }
@@ -224,9 +228,9 @@
         gap: 15px;
   
         .icon {
-          font: normal 22px 'Times New Roman', Times, serif;
+          font: normal 22px 'Space Grotesk', sans-serif;
           cursor: pointer;
-          transition: color 0.3s;
+          transition: color 0.5s cubic-bezier(0.4,0,0.2,1);
           color: var(--text-color);
           &:hover {
             color: var(--primary-color);
@@ -239,6 +243,7 @@
       background: var(--bottom-bar-bg);
       padding: 10px 0;
       border-top: 1px solid var(--border-color);
+      transition: background 0.5s cubic-bezier(0.4,0,0.2,1), color 0.5s cubic-bezier(0.4,0,0.2,1), border-color 0.5s cubic-bezier(0.4,0,0.2,1);
   
       .container {
         display: flex;
@@ -251,8 +256,9 @@
   
           li a {
             text-decoration: none;
-            font: normal 16px 'Times New Roman', Times, serif;
+            font: normal 16px 'Space Grotesk', sans-serif;
             color: var(--text-color);
+            transition: color 0.5s cubic-bezier(0.4,0,0.2,1);
             &:hover {
               color: var(--primary-color);
             }
@@ -283,4 +289,3 @@
     --primary-color: #007bff;
     --border-color: #dddddd;
   }
-  
