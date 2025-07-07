@@ -1,6 +1,6 @@
 @use "@scss/Variables" as *;
 
-$font: normal 16px 'Times New Roman', Times, serif;
+$font: normal 16px 'Space Grotesk', sans-serif;
 
 
 @mixin flex-container($max-width: 100%) {

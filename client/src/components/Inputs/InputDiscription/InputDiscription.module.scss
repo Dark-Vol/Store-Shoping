@@ -7,7 +7,7 @@
         width: 100%;
         height: 100%;
         padding: 10px;
-        font: normal 16px 'Times New Roman', Times, serif;
+        font: normal 16px 'Space Grotesk', sans-serif;
         border: 1px solid #ccc;
         border-radius: 4px;
         outline: none;
@@ -39,7 +39,7 @@
         top: 50%;
         left: 10px;
         transform: translateY(-50%);
-        font: normal 16px 'Times New Roman', Times, serif;
+        font: normal 16px 'Space Grotesk', sans-serif;
         color: #888;
         pointer-events: none;
         transition: 0.3s;
@@ -48,7 +48,7 @@
     input:focus~.label_discription,
     input:valid~.label_discription {
         top: 0;
-        font: normal 12px 'Times New Roman', Times, serif;
+        font: normal 12px 'Space Grotesk', sans-serif;
         color: #007BFF;
     }
 }
