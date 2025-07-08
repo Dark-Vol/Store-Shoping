@@ -29,8 +29,13 @@
         to bottom, transparent 0 100px,
         #25283b22 100px 101px
     );
-    min-height: 100%;
+    min-height: 100vh;
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
 }
 
 .home > div { 
