@@ -1,291 +1,286 @@
-// .header {
-//     position: fixed;
-//     top: 0;
-//     left: 0;
-//     width: 100%;
-//     z-index: 1000;
-//     padding: 20px;
-//     transition: all 0.3s ease;
+@use '../../scss/Variables.scss' as *;
+@use '../../scss/Mixins.scss' as *;
 
-//     &.scrolled {
-//         background-color: rgba(0, 0, 0, 0.9);
+.header {
+  background: $white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
 
-//         .logo, .desktop_nav a, .cta_button {
-//             color: white;
-//         }
+  // Top banner
+  .topBanner {
+    background: linear-gradient(135deg, $primary, $secondary);
+    color: $white;
+    padding: 8px 0;
+    font-size: 14px;
+    font-weight: 500;
 
-//         .cta_button {
-//             background-color: white;
-//             color: black;
-//         }
-//     }
-// }
-
-// .header_container {
-//     display: flex;
-//     justify-content: space-between;
-//     align-items: center;
-//     max-width: 1200px;
-//     margin: 0 auto;
-//     padding: 16px 24px;
-//     border-radius: 50px;
-//     background-color: rgba(255, 255, 255, 0.8);
-//     backdrop-filter: blur(10px);
-//     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
-// }
-
-// .logo {
-//     font-weight: bold;
-//     font: bold 24px 'Times New Roman', Times, serif;
-//     color: #000;
-// }
-
-// .desktop_nav {
-//     display: flex;
-//     gap: 32px;
-
-//     a {
-//         text-decoration: none;
-//         color: #333;
-//         font: normal 24px 'Times New Roman', Times, serif;
-//         transition: color 0.3s ease;
-//     }
-// }
-
-// .button_container {
-//     display: flex;
-//     align-items: center;
-//     gap: 15px;
-// }
-
-// .cta_button {
-//     background-color: #000;
-//     color: white;
-//     border: none;
-//     padding: 12px 24px;
-//     border-radius: 30px;
-//     font: normal 24px 'Times New Roman', Times, serif;
-//     cursor: pointer;
-//     transition: all 0.3s ease;
-
-//     &:hover {
-//         background-color: #333;
-//         transform: translateY(-2px);
-//     }
-// }
-
-// .hamburger {
-//     display: none;
-//     background: none;
-//     border: none;
-//     cursor: pointer;
-//     padding: 10px;
-
-//     span {
-//         display: block;
-//         width: 25px;
-//         height: 3px;
-//         margin: 5px 0;
-//         background-color: #000;
-//         transition: all 0.3s ease;
-//     }
-
-//     &.open {
-//         span:nth-child(1) {
-//             transform: rotate(45deg) translate(5px, 6px);
-//         }
-//         span:nth-child(2) {
-//             opacity: 0;
-//         }
-//         span:nth-child(3) {
-//             transform: rotate(-45deg) translate(5px, -6px);
-//         }
-//     }
-// }
-
-// .mobile_menu {
-//     position: fixed;
-//     top: 0;
-//     right: -100%;
-//     width: 100%;
-//     height: 100vh;
-//     background-color: rgba(0, 0, 0, 0.95);
-//     display: flex;
-//     flex-direction: column;
-//     justify-content: center;
-//     align-items: center;
-//     gap: 30px;
-//     transition: right 0.3s ease;
-//     z-index: 999;
-
-//     &.open {
-//         right: 0;
-//     }
-
-//     Link {
-//         text-decoration: none;
-//         color: white;
-//         font: normal 24px 'Times New Roman', Times, serif;
-//         transition: color 0.3s ease;
-//     }
-// }
-
-// .mobile_cta_button {
-//     background-color: white;
-//     color: black;
-//     border: none;
-//     padding: 15px 30px;
-//     border-radius: 30px;
-//     font: normal 18px 'Times New Roman', Times, serif;
-//     margin-top: 20px;
-//     cursor: pointer;
-// }
-
-// @media (max-width: 768px) {
-//     .desktop_nav {
-//         display: none;
-//     }
-
-//     .hamburger {
-//         display: block;
-//     }
-
-//     .cta_button {
-//         display: none;
-//     }
-// }
-
-.header_large {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-    transition: background 0.5s cubic-bezier(0.4,0,0.2,1), color 0.5s cubic-bezier(0.4,0,0.2,1), box-shadow 0.5s cubic-bezier(0.4,0,0.2,1), border-color 0.5s cubic-bezier(0.4,0,0.2,1);
-    background: var(--header-bg);
-    box-shadow: var(--header-shadow);
-  
-    .top_bar {
-      background: var(--top-bar-bg);
-      padding: 10px 0;
-      font: normal 14px 'Space Grotesk', sans-serif;
-      border-bottom: 1px solid var(--border-color);
-      transition: background 0.5s cubic-bezier(0.4,0,0.2,1), color 0.5s cubic-bezier(0.4,0,0.2,1), border-color 0.5s cubic-bezier(0.4,0,0.2,1);
-  
-      .container {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 20px;
-      }
-  
-      .top_links a {
-        margin-left: 15px;
-        text-decoration: none;
-        color: var(--text-color);
-        transition: color 0.5s cubic-bezier(0.4,0,0.2,1);
-        &:hover {
-          color: var(--primary-color);
-        }
-      }
-    }
-  
-    .container_main_header {
+    .bannerContent {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      max-width: 1200px;
-      margin: 20px auto;
-      padding: 0 20px;
-  
-      .logo a {
-        font: bold 28px 'Space Grotesk', sans-serif;
-        text-decoration: none;
-        color: var(--text-color);
-        transition: color 0.5s cubic-bezier(0.4,0,0.2,1);
+
+      .bannerText {
+        text-align: center;
+        flex: 1;
       }
-  
-      .nav ul {
-        list-style: none;
+
+      .bannerLinks {
         display: flex;
-        gap: 25px;
-  
-        li a {
+        gap: 20px;
+
+        a {
+          color: $white;
           text-decoration: none;
-          font: normal 18px 'Space Grotesk', sans-serif;
-          color: var(--text-color);
-          transition: color 0.5s cubic-bezier(0.4,0,0.2,1);
+          @include transition;
+          font-size: 13px;
+
           &:hover {
-            color: var(--primary-color);
-          }
-        }
-      }
-  
-      .actions {
-        display: flex;
-        gap: 15px;
-  
-        .icon {
-          font: normal 22px 'Space Grotesk', sans-serif;
-          cursor: pointer;
-          transition: color 0.5s cubic-bezier(0.4,0,0.2,1);
-          color: var(--text-color);
-          &:hover {
-            color: var(--primary-color);
+            color: $Light-Yellow;
+            transform: translateY(-1px);
           }
         }
       }
     }
-  
-    .bottom_bar {
-      background: var(--bottom-bar-bg);
-      padding: 10px 0;
-      border-top: 1px solid var(--border-color);
-      transition: background 0.5s cubic-bezier(0.4,0,0.2,1), color 0.5s cubic-bezier(0.4,0,0.2,1), border-color 0.5s cubic-bezier(0.4,0,0.2,1);
-  
-      .container {
+  }
+
+  // Main header
+  .mainHeader {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+
+    .headerContent {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+
+      .logo {
+        a {
+          font-size: 28px;
+          font-weight: 700;
+          color: $primary;
+          text-decoration: none;
+          @include transition;
+
+          &:hover {
+            color: $secondary;
+            transform: scale(1.05);
+          }
+        }
+      }
+
+      .navigation {
+        nav {
+          ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            margin: 0;
+            padding: 0;
+
+            li {
+              a {
+                color: $dark;
+                text-decoration: none;
+                font-weight: 500;
+                font-size: 16px;
+                @include transition;
+                position: relative;
+
+                &:hover {
+                  color: $primary;
+                }
+
+                &::after {
+                  content: '';
+                  position: absolute;
+                  bottom: -5px;
+                  left: 0;
+                  width: 0;
+                  height: 2px;
+                  background: $primary;
+                  @include transition;
+                }
+
+                &:hover::after {
+                  width: 100%;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .headerActions {
         display: flex;
-        justify-content: center;
-  
-        ul {
-          list-style: none;
+        align-items: center;
+        gap: 20px;
+
+        .searchIcon,
+        .userIcon,
+        .cartIcon {
+          color: $dark;
+          cursor: pointer;
+          @include transition;
+          padding: 8px;
+          border-radius: 50%;
           display: flex;
-          gap: 20px;
-  
-          li a {
+          align-items: center;
+          justify-content: center;
+
+          &:hover {
+            color: $primary;
+            background: rgba($primary, 0.1);
+            transform: scale(1.1);
+          }
+        }
+
+        .cartIcon {
+          position: relative;
+
+          &::after {
+            content: '0';
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: $secondary;
+            color: $white;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            font-size: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+          }
+        }
+      }
+    }
+  }
+
+  // Bottom navigation
+  .bottomNav {
+    background: $tertiary;
+    border-top: 1px solid rgba($dark, 0.1);
+
+    .bottomNavContent {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+
+      ul {
+        display: flex;
+        list-style: none;
+        gap: 40px;
+        margin: 0;
+        padding: 15px 0;
+        justify-content: center;
+
+        li {
+          a {
+            color: $dark;
             text-decoration: none;
-            font: normal 16px 'Space Grotesk', sans-serif;
-            color: var(--text-color);
-            transition: color 0.5s cubic-bezier(0.4,0,0.2,1);
+            font-weight: 500;
+            font-size: 14px;
+            @include transition;
+            padding: 8px 16px;
+            border-radius: 20px;
+
             &:hover {
-              color: var(--primary-color);
+              color: $primary;
+              background: rgba($primary, 0.1);
             }
           }
         }
       }
     }
   }
-  
-  /* Темная тема */
-  [data-theme="dark"] {
-    --header-bg: #1a1a1a;
-    --header-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-    --top-bar-bg: #2d2d2d;
-    --bottom-bar-bg: #2d2d2d;
-    --text-color: #ffffff;
-    --primary-color: #4dabf7;
-    --border-color: #404040;
+}
+
+// Responsive design
+@include responsive(mobile) {
+  .header {
+    .topBanner {
+      .bannerContent {
+        flex-direction: column;
+        gap: 10px;
+
+        .bannerLinks {
+          gap: 15px;
+        }
+      }
+    }
+
+    .mainHeader {
+      .headerContent {
+        flex-direction: column;
+        gap: 20px;
+        padding: 15px 0;
+
+        .navigation {
+          nav {
+            ul {
+              gap: 15px;
+              flex-wrap: wrap;
+              justify-content: center;
+
+              li {
+                a {
+                  font-size: 14px;
+                }
+              }
+            }
+          }
+        }
+
+        .headerActions {
+          gap: 15px;
+        }
+      }
+    }
+
+    .bottomNav {
+      .bottomNavContent {
+        ul {
+          gap: 20px;
+          flex-wrap: wrap;
+
+          li {
+            a {
+              font-size: 13px;
+              padding: 6px 12px;
+            }
+          }
+        }
+      }
+    }
   }
-  
-  /* Светлая тема */
-  [data-theme="light"] {
-    --header-bg: #ffffff;
-    --header-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    --top-bar-bg: #f8f8f8;
-    --bottom-bar-bg: #f8f8f8;
-    --text-color: #333333;
-    --primary-color: #007bff;
-    --border-color: #dddddd;
+}
+
+@include responsive(tablet) {
+  .header {
+    .mainHeader {
+      .headerContent {
+        .navigation {
+          nav {
+            ul {
+              gap: 20px;
+
+              li {
+                a {
+                  font-size: 15px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
   }
+}

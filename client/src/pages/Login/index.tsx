@@ -55,13 +55,13 @@ const Login: React.FC = () => {
             password={password}
             onChange={(e) => setUserPassword(e.target.value)}
           />
-          <div className="styles.options_02}">
+          <div className="">
             <p>Already Registered?
               <BtnLogin onClick={(e) => { e.preventDefault(); loginAction() }} />
               <a href="#">Forgot your password?</a>
             </p>
           </div>
-          <div className={styles.options_02}>
+          <div className="">
             <p>Not Registered? <a href="#" onClick={toggleForm}>Create an Account</a></p>
           </div>
         </form>
@@ -74,7 +74,7 @@ const Login: React.FC = () => {
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
-            className={styles.lucide_circle_user_round}
+            className=""
           >
             <path d="M18 20a6 6 0 0 0-12 0" />
             <circle cx="12" cy="10" r="4" />
@@ -96,7 +96,7 @@ const Login: React.FC = () => {
             password={password}
             onChange={(e) => setUserPassword(e.target.value)}
           />
-          <div className="styles.options_01}">
+          <div className="">
             <label className={styles.remember_me}>
               <input type="checkbox" /> Remember me
             </label>

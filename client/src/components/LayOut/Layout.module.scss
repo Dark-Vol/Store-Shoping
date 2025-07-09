@@ -1,12 +1,22 @@
-.layout {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh; /* Минимальная высота на весь экран */
-  position: relative; /* Для absolute позиционирования дочерних элементов */
-}
+@use '../../scss/Variables.scss' as *;
+@use '../../scss/Mixins.scss' as *;
 
-.main {
-  flex: 1; /* Занимает все доступное пространство */
+.layout {
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
+  background: $white;
+
+  .mainContent {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 0; // Важно для правильной работы flex
+  }
+
+  .pageContent {
+    flex: 1;
+    width: 100%;
+    min-height: 0; // Важно для правильной работы flex
+  }
 }

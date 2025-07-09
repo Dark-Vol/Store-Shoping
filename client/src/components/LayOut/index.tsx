@@ -8,10 +8,12 @@ const LayOut: React.FC = () => {
   return (
     <div className={styles.layout}>
       <Header />
-      <main className={styles.main}>
-        <Outlet />
-      </main>
-      <GetLayoutChat />
+      <div className={styles.mainContent}>
+        <div className={styles.pageContent}>
+          <Outlet />
+        </div>
+        <GetLayoutChat />
+      </div>
       <Footer />
     </div>
   );

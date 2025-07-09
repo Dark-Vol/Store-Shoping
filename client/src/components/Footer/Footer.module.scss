@@ -1,81 +1,222 @@
-.footer{
-    width: 100%;
-    background-color: var(--bg-secondary);
-    color: var(--text-primary);
-    padding: 40px 0 20px 0;
-    margin-top: auto; /* Прижимает footer к низу */
-    position: relative;
-    z-index: 1; /* Низкий z-index, чтобы быть под чатом */
-    transition: background-color 0.3s ease, color 0.3s ease;
+@use '../../scss/Variables.scss' as *;
+@use '../../scss/Mixins.scss' as *;
 
-    .container{
-        width: 100%;
-        height: auto;
-        max-width: 1440px;
-        padding: 10px 40px;
-        margin: 0 auto;
-    }
-    .row{
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        gap: 20px;
-    }
-    .footer_col{
-        flex: 1;
-        width: 100%;
-        max-width: 300px;
-        margin-bottom: 20px;
-        h4{
-            font: normal 18px 'Space Grotesk', sans-serif;
-            border-bottom: 2px solid var(--border-color);
-            color: var(--text-primary);
-            margin-bottom: 10px;
-            text-transform: uppercase;
+.footer {
+  background: linear-gradient(135deg, $dark, $dark-2);
+  color: $white;
+
+  .footerContent {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 20px 30px;
+
+    .footerMain {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+
+      .footerSection {
+        h4 {
+          color: $Light-Yellow;
+          font-size: 18px;
+          font-weight: 600;
+          margin-bottom: 20px;
+          position: relative;
+          padding-bottom: 10px;
+
+          &::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: $secondary;
+          }
         }
-        ul{
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            li{
-                margin-bottom: 10px;
-                a{
-                    color: var(--text-secondary);
-                    text-decoration: none;
-                    font: normal 18px 'Space Grotesk', sans-serif;
-                    transition: color 0.3s;
-                    &:hover{
-                        color: var(--text-primary);
-                    }
+
+        ul {
+          list-style: none;
+          margin: 0;
+          padding: 0;
+
+          li {
+            margin-bottom: 12px;
+
+            a {
+              color: rgba($white, 0.8);
+              text-decoration: none;
+              font-size: 14px;
+              @include transition;
+              display: inline-block;
+              position: relative;
+
+              &:hover {
+                color: $Light-Yellow;
+                transform: translateX(5px);
+              }
+
+              &::before {
+                content: '→';
+                position: absolute;
+                left: -15px;
+                opacity: 0;
+                @include transition;
+              }
+
+              &:hover::before {
+                opacity: 1;
+                left: -20px;
+              }
+            }
+          }
+        }
+
+        .socialLinks {
+          display: flex;
+          gap: 15px;
+          margin-top: 15px;
+
+          a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba($white, 0.1);
+            border-radius: 50%;
+            @include transition;
+            border: 1px solid rgba($white, 0.2);
+
+            &:hover {
+              background: $primary;
+              border-color: $primary;
+              transform: translateY(-3px);
+              @include box-shadow(0, 5px, 15px, rgba($primary, 0.3));
+            }
+
+            img {
+              width: 20px;
+              height: 20px;
+              filter: brightness(0) invert(1);
+              @include transition;
+            }
+
+            &:hover img {
+              filter: brightness(0) invert(1);
+            }
+          }
+        }
+      }
+    }
+
+    .footerBottom {
+      border-top: 1px solid rgba($white, 0.1);
+      padding-top: 30px;
+      text-align: center;
+
+      p {
+        color: rgba($white, 0.6);
+        font-size: 14px;
+        margin: 0;
+        font-weight: 400;
+      }
+    }
+  }
+}
+
+// Responsive design
+@include responsive(mobile) {
+  .footer {
+    .footerContent {
+      padding: 40px 20px 20px;
+
+      .footerMain {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        margin-bottom: 30px;
+
+        .footerSection {
+          text-align: center;
+
+          h4 {
+            font-size: 16px;
+            margin-bottom: 15px;
+
+            &::after {
+              left: 50%;
+              transform: translateX(-50%);
+            }
+          }
+
+          ul {
+            li {
+              margin-bottom: 10px;
+
+              a {
+                font-size: 13px;
+
+                &:hover {
+                  transform: translateX(0);
                 }
+
+                &::before {
+                  display: none;
+                }
+              }
             }
+          }
+
+          .socialLinks {
+            justify-content: center;
+            gap: 12px;
+
+            a {
+              width: 35px;
+              height: 35px;
+
+              img {
+                width: 18px;
+                height: 18px;
+              }
+            }
+          }
         }
-    }
-    .social_links{
-        display: flex;
-        gap: 10px;
-        a{
-            color: var(--text-secondary);
-            text-decoration: none;
-            font: normal 18px 'Space Grotesk', sans-serif;
-            transition: color 0.3s;
-            &:hover{
-                color: var(--text-primary);
-                background-color: var(--bg-tertiary);
-                border-radius: 50%;
-            }
-            img{
-                width: 30px;
-                height: 30px;
-            }
-        }
-    }
-    .copyright {
-        text-align: center;
-        margin-top: 20px;
-        font: normal 18px 'Space Grotesk', sans-serif;
-        color: var(--text-secondary);
-        border-top: 1px solid var(--border-color);
+      }
+
+      .footerBottom {
         padding-top: 20px;
+
+        p {
+          font-size: 12px;
+        }
+      }
     }
+  }
+}
+
+@include responsive(tablet) {
+  .footer {
+    .footerContent {
+      .footerMain {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+
+        .footerSection {
+          h4 {
+            font-size: 17px;
+          }
+
+          ul {
+            li {
+              a {
+                font-size: 13px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
