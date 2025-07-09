@@ -94,19 +94,16 @@ export default function AboutUs() {
             <h2>Наша команда</h2>
             <div>
               {[{
-                img: Avatar1,
                 name: "Алексей Петров",
                 position: "Основатель и CEO",
                 icons: [<Guitar style={{ color: '#fb923c' }} />, <Piano style={{ color: '#fb923c' }} />],
                 description: "Профессиональный гитарист с 20-летним стажем. Основал компанию с мечтой сделать музыку доступной для всех."
               }, {
-                img: Avatar2,
                 name: "Мария Иванова",
                 position: "Менеджер по продукту",
                 icons: [<Piano style={{ color: '#3b82f6' }} />, <Mic style={{ color: '#3b82f6' }} />],
                 description: "Классическая пианистка и вокалистка. Отвечает за качество и ассортимент клавишных инструментов."
               }, {
-                img: Avatar3,
                 name: "Дмитрий Козлов",
                 position: "Технический директор",
                 icons: [<Drum style={{ color: '#ef4444' }} />, <Guitar style={{ color: '#ef4444' }} />],
