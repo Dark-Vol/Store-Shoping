@@ -4,6 +4,7 @@
 .footer {
   background: linear-gradient(135deg, $dark, $dark-2);
   color: $white;
+  flex-shrink: 0; // Предотвращает сжатие footer
 
   .footerContent {
     max-width: 1200px;
