@@ -68,6 +68,7 @@ html, body {
 
 main {
     flex: 1 1 auto;
+    min-height: 0; // Позволяет контенту растягиваться
 }
 
 /* Footer стили теперь в компоненте Footer */
