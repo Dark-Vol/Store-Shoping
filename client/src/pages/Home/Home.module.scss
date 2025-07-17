@@ -1,0 +1,112 @@
+@use '../../scss/Variables.scss' as *;
+@use '../../scss/Mixins.scss' as *;
+
+.homePage {
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(135deg, $tertiary, $Light-Cream);
+
+  .hero {
+    background: linear-gradient(135deg, $primary, $secondary);
+    color: $white;
+    text-align: center;
+    padding: 80px 20px;
+    margin-bottom: 60px;
+
+    h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      @include responsive(mobile) {
+        font-size: 2rem;
+      }
+    }
+
+    p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      max-width: 600px;
+      margin: 0 auto;
+      @include responsive(mobile) {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  .content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px 60px;
+
+    h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      color: $dark;
+      margin-bottom: 50px;
+      @include responsive(mobile) {
+        font-size: 2rem;
+      }
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+      margin-bottom: 80px;
+
+      .feature {
+        background: $white;
+        padding: 40px 30px;
+        border-radius: 15px;
+        text-align: center;
+        @include box-shadow(0, 10px, 30px, rgba(0, 0, 0, 0.1));
+        @include transition;
+
+        &:hover {
+          transform: translateY(-5px);
+          @include box-shadow(0, 20px, 40px, rgba(0, 0, 0, 0.15));
+        }
+
+        h3 {
+          color: $primary;
+          font-size: 1.5rem;
+          margin-bottom: 15px;
+          font-weight: 600;
+        }
+
+        p {
+          color: $dark;
+          line-height: 1.6;
+          font-size: 1rem;
+        }
+      }
+    }
+
+    .testContent {
+      .testSection {
+        background: $white;
+        margin-bottom: 30px;
+        padding: 30px;
+        border-radius: 10px;
+        @include box-shadow(0, 5px, 15px, rgba(0, 0, 0, 0.08));
+
+        h3 {
+          color: $primary;
+          font-size: 1.3rem;
+          margin-bottom: 15px;
+          font-weight: 600;
+        }
+
+        p {
+          color: $dark;
+          line-height: 1.6;
+          margin-bottom: 15px;
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+  }
+}
