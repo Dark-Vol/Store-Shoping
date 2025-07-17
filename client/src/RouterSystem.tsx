@@ -3,6 +3,7 @@ import Main from "@pages/Home";
 import AboutUs from "@pages/AboutUs";
 import ErrorPage from "@pages/Error";
 import Products from "@pages/Products";
+import ContactPage from "@pages/Contact";
 import Login from "@pages/Login";
 import Admin from "@pages/Admin";
 import LayOut from "@components/LayOut";
@@ -30,6 +31,7 @@ const RouterSystem: React.FC = () => {
       <Route path="/" element={<LayOut />}>
         <Route index element={<Main />} />
         <Route path="aboutus" element={<AboutUs />} />
+        <Route path="contact" element={<ContactPage />} />
         <Route path="products" element={<Products />} />
         <Route path="login" element={<Login />} />
         <Route path="user" element={<User />} />
