@@ -1,5 +1,6 @@
 import { ChatContainer } from "../ChatContainer";
-import { LoginForm } from "../LoginForm";
+// import { LoginForm } from "../LoginForm";
+import { RegistraisheForm } from "../RegistraisheForm"
 import StartChatForm from "../StartChatForm";
 import useChat from "@hooks/useChat";
 import useAuth from "@hooks/useAuth";
@@ -35,6 +36,10 @@ const GetLayoutChat: React.FC = () => {
     setUserPassword,
     loginAction,
     registerAction,
+    firstName,
+    setFirstName,
+    lastName,
+    setLastName,
   } = useAuth()
 
   // Обработчик клика вне чата
@@ -69,8 +74,8 @@ const GetLayoutChat: React.FC = () => {
               <h3 className={styles.chatTitle}>
                 {auth ? (activeChat ? 'Чат поддержки' : 'Начать чат') : 'Войти в чат'}
               </h3>
-              <button 
-                className={styles.closeButton} 
+              <button
+                className={styles.closeButton}
                 onClick={toggleChat}
                 aria-label="Закрыть чат"
               >
@@ -90,13 +95,17 @@ const GetLayoutChat: React.FC = () => {
                 </svg>
               </button>
             </div>
-            
+
             {auth === false && (
-              <LoginForm
+              <RegistraisheForm
                 email={email}
                 setUserEmail={setUserEmail}
                 password={password}
                 setUserPassword={setUserPassword}
+                firstName={firstName}
+                setFirstName={setFirstName}
+                lastName={lastName}
+                setLastName={setLastName}
                 loginAction={loginAction}
                 registerAction={registerAction}
               />
