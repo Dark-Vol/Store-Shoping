@@ -1,39 +1,42 @@
 .btnChat{
-  position: absolute;
-  bottom: 380px; /* Позиционируем выше footer (300px + высота кнопки 60px + отступ 20px) */
+  position: fixed;
+  bottom: 20px;
   right: 20px;
   z-index: 1000;
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  background-color: #007bff; /* Bootstrap primary color */
-  color: white;
+  background: rgba(255, 255, 255, 0.25); /* Полупрозрачный белый */
+  backdrop-filter: blur(8px); /* Эффект матового стекла */
+  -webkit-backdrop-filter: blur(8px);
+  border: 1.5px solid rgba(255, 255, 255, 0.45); /* Светлая рамка */
+  color: #007bff;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+  box-shadow: 0px 4px 16px 0px rgba(0,0,0,0.18);
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background 0.3s, color 0.3s, border 0.3s;
 
   &:hover {
-    background-color: #0056b3; /* Darker shade on hover */
+    background: rgba(0, 123, 255, 0.15); /* Легкий синий оттенок при наведении */
+    color: #0056b3;
+    border: 1.5px solid rgba(0, 123, 255, 0.25);
   }
 
   & svg {
     width: 24px;
     height: 24px;
-    fill: currentColor; /* Use the button's text color */
+    fill: currentColor;
   }
 }
 
-/* Адаптивность для мобильных устройств */
 @media (max-width: 768px) {
   .btnChat {
-    bottom: 570px; /* Позиционируем выше footer на mobile (500px + высота кнопки 50px + отступ 20px) */
+    bottom: 20px;
     right: 15px;
     width: 50px;
     height: 50px;
-    
     & svg {
       width: 20px;
       height: 20px;

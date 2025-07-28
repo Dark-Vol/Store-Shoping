@@ -12,8 +12,8 @@ const LayOut: React.FC = () => {
         <div className={styles.pageContent}>
           <Outlet />
         </div>
-        <GetLayoutChat />
       </div>
+      <GetLayoutChat />
       <Footer />
     </div>
   );

@@ -71,7 +71,9 @@ const GetLayoutChat: React.FC = () => {
 
   return (
     <>
-      <BtnChat onClick={toggleChat} />
+      <div className={styles.btnChatContainer}>
+        <BtnChat onClick={toggleChat} />
+      </div>
 
       {isChatOpen && (
         <div className={styles.chatPopup} ref={chatRef}>
