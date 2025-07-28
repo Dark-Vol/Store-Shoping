@@ -1,15 +1,21 @@
 import { ChatContainer } from "../ChatContainer";
-// import { LoginForm } from "../LoginForm";
+import { LoginForm } from "../LoginForm";
 import { RegistraisheForm } from "../RegistraisheForm"
 import StartChatForm from "../StartChatForm";
 import useChat from "@hooks/useChat";
 import useAuth from "@hooks/useAuth";
 import BtnChat from "@components/Buttons/BtnChat";
 import styles from './GetLayoutChat.module.scss';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 const GetLayoutChat: React.FC = () => {
   const chatRef = useRef<HTMLDivElement>(null);
+  // Новое состояние для переключения между формами
+  const [isRegistered, setIsRegistered] = useState(true); // true = LoginForm, false = RegistraisheForm
+
+  // Функции для переключения форм
+  const handleSwitchToRegister = () => setIsRegistered(false);
+  const handleSwitchToLogin = () => setIsRegistered(true);
 
   const {
     messages,
@@ -72,7 +78,7 @@ const GetLayoutChat: React.FC = () => {
           <div className={styles.chatContent}>
             <div className={styles.chatHeader}>
               <h3 className={styles.chatTitle}>
-                {auth ? (activeChat ? 'Чат поддержки' : 'Начать чат') : 'Войти в чат'}
+                {auth ? (activeChat ? 'Чат поддержки' : 'Начать чат') : (isRegistered ? 'Войти в чат' : 'Регистрация')}
               </h3>
               <button
                 className={styles.closeButton}
@@ -96,19 +102,33 @@ const GetLayoutChat: React.FC = () => {
               </button>
             </div>
 
+            {/* Если не авторизован, показываем одну из форм */}
             {auth === false && (
-              <RegistraisheForm
-                email={email}
-                setUserEmail={setUserEmail}
-                password={password}
-                setUserPassword={setUserPassword}
-                firstName={firstName}
-                setFirstName={setFirstName}
-                lastName={lastName}
-                setLastName={setLastName}
-                loginAction={loginAction}
-                registerAction={registerAction}
-              />
+              isRegistered ? (
+                <LoginForm
+                  email={email}
+                  setUserEmail={setUserEmail}
+                  password={password}
+                  setUserPassword={setUserPassword}
+                  loginAction={loginAction}
+                  registerAction={registerAction}
+                  onSwitchToRegister={handleSwitchToRegister}
+                />
+              ) : (
+                <RegistraisheForm
+                  email={email}
+                  setUserEmail={setUserEmail}
+                  password={password}
+                  setUserPassword={setUserPassword}
+                  firstName={firstName}
+                  setFirstName={setFirstName}
+                  lastName={lastName}
+                  setLastName={setLastName}
+                  loginAction={loginAction}
+                  registerAction={registerAction}
+                  onSwitchToLogin={handleSwitchToLogin}
+                />
+              )
             )}
 
             {auth && activeChat === false && (

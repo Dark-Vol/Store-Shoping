@@ -18,6 +18,7 @@ type RegistraisheFormProps = {
   setLastName: (value: string) => void;
   loginAction: () => void;
   registerAction: () => void;
+  onSwitchToLogin: () => void;
 };
 
 export const RegistraisheForm: React.FC<RegistraisheFormProps> = ({
@@ -31,7 +32,7 @@ export const RegistraisheForm: React.FC<RegistraisheFormProps> = ({
   setLastName,
   loginAction,
   registerAction,
-
+  onSwitchToLogin,
 }) => {
   return (
     <div className={styles.form_container}>
@@ -54,7 +55,7 @@ export const RegistraisheForm: React.FC<RegistraisheFormProps> = ({
         />
       </div>
       <div className={styles.form_buttons}>
-        <BtnLogin onClick={loginAction} />
+        <BtnLogin onClick={onSwitchToLogin} />
         <BtnRegistraishen onClick={registerAction} />
       </div>
     </div>

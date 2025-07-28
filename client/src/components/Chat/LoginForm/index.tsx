@@ -12,6 +12,7 @@ type LoginFormProps = {
   setUserPassword: (value: string) => void;
   loginAction: () => void;
   registerAction: () => void;
+  onSwitchToRegister: () => void;
 };
 
 export const LoginForm: React.FC<LoginFormProps> = ({
@@ -21,6 +22,7 @@ export const LoginForm: React.FC<LoginFormProps> = ({
   setUserPassword,
   loginAction,
   registerAction,
+  onSwitchToRegister,
 }) => {
   return (
     <div className={styles.form_container}>
@@ -36,7 +38,7 @@ export const LoginForm: React.FC<LoginFormProps> = ({
       </div>
       <div className={styles.form_buttons}>
         <BtnLogin onClick={loginAction} />
-        <BtnRegistraishen onClick={registerAction} />
+        <BtnRegistraishen onClick={onSwitchToRegister} />
       </div>
     </div>
   );
