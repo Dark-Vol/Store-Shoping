@@ -1,0 +1,29 @@
+@use "@scss/Variables" as *;
+
+.servicesSection {
+  margin: 0 auto 2.5rem auto;
+  max-width: 900px;
+  padding: 2rem 1rem;
+  background: #f8f9fa;
+  border-radius: 18px;
+  box-shadow: 0 1px 8px rgba(0,0,0,0.04);
+}
+.servicesTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+.servicesList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+.serviceItem {
+  flex: 1 1 200px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 1px 8px rgba(0,0,0,0.04);
+  padding: 1rem;
+  text-align: center;
+}

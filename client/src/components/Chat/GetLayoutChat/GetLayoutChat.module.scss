@@ -1,8 +1,18 @@
-.chatPopup {
-  position: absolute;
-  bottom: 460px; /* Позиционируем выше кнопки чата (380px + 80px отступ) */
+.fixedChatWrapper {
+  position: fixed;
   right: 20px;
-  z-index: 1001; /* Увеличиваем z-index, чтобы быть над footer */
+  bottom: 100px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.chatPopup {
+  position: fixed;
+  bottom: calc(100px + 60px); /* 100px - отступ кнопки, 60px - высота popup + небольшой зазор */
+  right: 20px;
+  z-index: 1001;
   background: white;
   border-radius: 12px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
