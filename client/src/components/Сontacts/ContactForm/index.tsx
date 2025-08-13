@@ -3,44 +3,44 @@ import styles from "./ContactForm.module.scss"
 export function ContactForm() {
   return (
     <div className={styles.contactForm}>
-      <div className="">
-        <h3 className="">Send Us a Message</h3>
-        <p className="">
+      <div className={styles.formHeader}>
+        <h3 className={styles.formTitle}>Send Us a Message</h3>
+        <p className={styles.formDescription}>
           Have a question about our instruments or services? We'd love to hear from you!
         </p>
       </div>
-      <form className="">
-        <div className="">
-          <div className="">
-            <label htmlFor="firstName" className="">First Name</label>
-            <input id="firstName" placeholder="John" className="" />
+      <form className={styles.form}>
+        <div className={styles.nameRow}>
+          <div className={styles.inputGroup}>
+            <label htmlFor="firstName" className={styles.label}>First Name</label>
+            <input id="firstName" placeholder="John" className={styles.input} />
           </div>
-          <div className="">
-            <label htmlFor="lastName" className="">Last Name</label>
-            <input id="lastName" placeholder="Doe" className="" />
+          <div className={styles.inputGroup}>
+            <label htmlFor="lastName" className={styles.label}>Last Name</label>
+            <input id="lastName" placeholder="Doe" className={styles.input} />
           </div>
         </div>
-        <div className="">
-          <label htmlFor="email" className="">Email</label>
-          <input id="email" type="email" placeholder="john@example.com" className="" />
+        <div className={styles.inputGroup}>
+          <label htmlFor="email" className={styles.label}>Email</label>
+          <input id="email" type="email" placeholder="john@example.com" className={styles.input} />
         </div>
-        <div className="">
-          <label htmlFor="phone" className="">Phone Number (Optional)</label>
-          <input id="phone" type="tel" placeholder="(555) 123-4567" className="" />
+        <div className={styles.inputGroup}>
+          <label htmlFor="phone" className={styles.label}>Phone Number (Optional)</label>
+          <input id="phone" type="tel" placeholder="(555) 123-4567" className={styles.input} />
         </div>
-        <div className="">
-          <label htmlFor="subject" className="">Subject</label>
-          <input id="subject" placeholder="What can we help you with?" className="" />
+        <div className={styles.inputGroup}>
+          <label htmlFor="subject" className={styles.label}>Subject</label>
+          <input id="subject" placeholder="What can we help you with?" className={styles.input} />
         </div>
-        <div className="">
-          <label htmlFor="message" className="">Message</label>
+        <div className={styles.inputGroup}>
+          <label htmlFor="message" className={styles.label}>Message</label>
           <textarea
             id="message"
             placeholder="Tell us about your musical needs..."
-            className=""
+            className={styles.textarea}
           />
         </div>
-        <button type="submit" className="">Send Message</button>
+        <button type="submit" className={styles.submitButton}>Send Message</button>
       </form>
     </div>
   )

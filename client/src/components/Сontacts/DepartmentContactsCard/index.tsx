@@ -4,37 +4,37 @@ import styles from "./DepartmentContactsCard.module.scss"
 export function DepartmentContactsCard() {
   return (
     <div className={styles.departmentContactsCard}>
-      <div className="">
-        <h3 className="">Department Contacts</h3>
-        <p className="">Reach out to our specialized teams</p>
+      <div className={styles.header}>
+        <h3 className={styles.title}>Department Contacts</h3>
+        <p className={styles.description}>Reach out to our specialized teams</p>
       </div>
-      <div className="">
-        <div className="">
-          <Guitar className="" />
-          <div className="">
-            <p className="">Guitar Department</p>
-            <p className="">guitars@harmonymusicstore.com</p>
+      <div className={styles.contactsList}>
+        <div className={styles.contactItem}>
+          <Guitar className={styles.icon} />
+          <div className={styles.contactInfo}>
+            <p className={styles.contactTitle}>Guitar Department</p>
+            <p className={styles.contactEmail}>guitars@harmonymusicstore.com</p>
           </div>
         </div>
-        <div className="">
-          <Piano className="" />
-          <div className="">
-            <p className="">Piano & Keyboards</p>
-            <p className="">pianos@harmonymusicstore.com</p>
+        <div className={styles.contactItem}>
+          <Piano className={styles.icon} />
+          <div className={styles.contactInfo}>
+            <p className={styles.contactTitle}>Piano & Keyboards</p>
+            <p className={styles.contactEmail}>pianos@harmonymusicstore.com</p>
           </div>
         </div>
-        <div className="">
-          <Headphones className="" />
-          <div className="">
-            <p className="">Audio Equipment</p>
-            <p className="">audio@harmonymusicstore.com</p>
+        <div className={styles.contactItem}>
+          <Headphones className={styles.icon} />
+          <div className={styles.contactInfo}>
+            <p className={styles.contactTitle}>Audio Equipment</p>
+            <p className={styles.contactEmail}>audio@harmonymusicstore.com</p>
           </div>
         </div>
-        <div className="">
-          <Music className="" />
-          <div className="">
-            <p className="">Repairs & Maintenance</p>
-            <p className="">repairs@harmonymusicstore.com</p>
+        <div className={styles.contactItem}>
+          <Music className={styles.icon} />
+          <div className={styles.contactInfo}>
+            <p className={styles.contactTitle}>Repairs & Maintenance</p>
+            <p className={styles.contactEmail}>repairs@harmonymusicstore.com</p>
           </div>
         </div>
       </div>

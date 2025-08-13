@@ -1,41 +1,55 @@
 @use "@scss/Variables" as *;
 
 .form {
-  background: #fff;
-  border-radius: 18px;
-  box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+  background: $tertiary;
+  border-radius: 1.125rem;
+  box-shadow: 0 2px 16px rgba($black, 0.07);
   padding: 2rem 1.5rem;
   max-width: 400px;
   margin: 0 auto 2rem auto;
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
+  transition: box-shadow 0.2s $ease-in-out-quad;
+
+  @media (max-width: 600px) {
+    padding: 1.2rem 0.5rem;
+    border-radius: 0.75rem;
+  }
 }
+
 .formLabel {
   font-weight: 500;
   margin-bottom: 0.5rem;
+  color: $primary;
 }
+
 .formInput {
-  border: 1px solid #ccc;
-  border-radius: 8px;
+  border: 1px solid $similar;
+  border-radius: 0.5rem;
   padding: 0.75rem 1rem;
   font-size: 1rem;
   outline: none;
-  transition: border 0.2s;
+  transition: border 0.2s $ease-in-out-quad;
+  background: $white;
+  color: $dark;
 }
+
 .formInput:focus {
-  border: 1.5px solid #888;
+  border: 1.5px solid $primary;
 }
+
 .formButton {
-  background: #222;
-  color: #fff;
+  background: $primary;
+  color: $white;
   border: none;
-  border-radius: 8px;
+  border-radius: 0.5rem;
   padding: 0.75rem 1.5rem;
   font-size: 1rem;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: background 0.2s $ease-in-out-quad;
 }
+
 .formButton:hover {
-  background: #444;
+  background: $hover-color;
 }
