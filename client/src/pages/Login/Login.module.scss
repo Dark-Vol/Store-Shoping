@@ -1,39 +1,224 @@
-.login{
+@use "@scss/Variables" as *;
+
+.login {
+  min-height: 100vh;
+  background: linear-gradient(135deg, $primary 0%, $secondary 50%, $tertiary 100%);
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
-  padding: 32px auto;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
 
-  .login_form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    max-width: 400px;
-    padding: 32px 40px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  // Анимированные фоновые элементы
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    animation: float 6s ease-in-out infinite;
   }
 
+  &::before {
+    top: 10%;
+    left: 10%;
+    animation-delay: 0s;
+  }
+
+  &::after {
+    bottom: 10%;
+    right: 10%;
+    animation-delay: 3s;
+  }
+
+  .login_form {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 
+      0 20px 40px rgba(0, 0, 0, 0.1),
+      0 8px 16px rgba(46, 49, 146, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    max-width: 380px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 
+        0 25px 50px rgba(0, 0, 0, 0.15),
+        0 12px 24px rgba(46, 49, 146, 0.15);
+    }
+
     .lucide_circle_user_round {
-      display: block;
-      margin: 0 auto 16px auto;
-      align-items: center;
-      stroke: black;
-      transition: stroke 0.3s ease;
-      width: 48px;
-      height: 48px;
-      fill: none;
-      stroke-width: 2px;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-  
-      @media (prefers-color-scheme: dark) {
-        stroke: #000000;
+      width: 60px;
+      height: 60px;
+      margin: 0 auto 15px;
+      stroke: $primary;
+      stroke-width: 1.5;
+      filter: drop-shadow(0 4px 8px rgba(46, 49, 146, 0.2));
+      transition: all 0.3s ease;
+
+      &:hover {
+        transform: scale(1.1);
+        stroke: $secondary;
+        filter: drop-shadow(0 6px 12px rgba(46, 49, 146, 0.3));
       }
     }
+
+    .form_title {
+      color: $Dark-Olive;
+      font: 600 24px 'Space Grotesk', sans-serif;
+      margin: 0 0 20px 0;
+      text-align: center;
+    }
+
+    .error_message {
+      background: rgba(214, 81, 55, 0.1);
+      color: $Light-Red;
+      border: 1px solid rgba(214, 81, 55, 0.2);
+      padding: 10px 14px;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      font: 500 13px 'Space Grotesk', sans-serif;
+      text-align: center;
+    }
+
+    .form_group {
+      max-width: 100%;
+      margin-bottom: 15px;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+    }
+
+    .form_options {
+      margin: 15px 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+
+      .remember_me {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: $Dark-Olive;
+        font: 400 13px 'Space Grotesk', sans-serif;
+        cursor: pointer;
+
+        input[type="checkbox"] {
+          width: 14px;
+          height: 14px;
+          accent-color: $primary;
+          cursor: pointer;
+        }
+      }
+
+      .forgot_password {
+        color: $primary;
+        text-decoration: none;
+        font: 400 13px 'Space Grotesk', sans-serif;
+        transition: all 0.3s ease;
+
+        &:hover {
+          color: $secondary;
+          text-decoration: underline;
+        }
+      }
+    }
+
+    .form_actions {
+      margin: 20px 0;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+    }
+
+    .form_footer {
+      margin-top: 20px;
+      padding-top: 15px;
+      border-top: 1px solid rgba(46, 49, 146, 0.1);
+
+      .register_prompt,
+      .login_prompt {
+        color: $Dark-Olive;
+        font: 400 14px 'Space Grotesk', sans-serif;
+        margin: 0;
+        text-align: center;
+
+        a {
+          color: $primary;
+          text-decoration: none;
+          font-weight: 500;
+          transition: all 0.3s ease;
+
+          &:hover {
+            color: $secondary;
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+
+  // Анимация плавания
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  // Адаптивность
+  @media (max-width: 768px) {
+    padding: 16px;
+
+    .login_form {
+      padding: 25px 20px;
+      max-width: 100%;
+
+      .form_title {
+        font-size: 22px;
+        margin-bottom: 18px;
+      }
+
+      .lucide_circle_user_round {
+        width: 50px;
+        height: 50px;
+        margin-bottom: 12px;
+      }
+
+      .form_options {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    .login_form {
+      padding: 20px 15px;
+
+      .form_title {
+        font-size: 20px;
+        margin-bottom: 15px;
+      }
+
+      .form_options {
+        margin: 12px 0;
+      }
+    }
+  }
 }
