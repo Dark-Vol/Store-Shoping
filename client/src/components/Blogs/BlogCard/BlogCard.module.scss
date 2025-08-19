@@ -1,0 +1,158 @@
+.blogCard {
+  background: white;
+  border-radius: 12px; // Увеличиваем радиус для более мягкого вида
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1); // Улучшаем тень
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+  }
+}
+
+.imageContainer {
+  position: relative;
+  height: 160px; // Немного увеличиваем для лучшего восприятия
+  overflow: hidden;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.blogCard:hover .image {
+  transform: scale(1.05);
+}
+
+.category {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(102, 126, 234, 0.95); // Делаем более непрозрачным
+  color: white;
+  padding: 6px 12px; // Увеличиваем padding для лучшей читаемости
+  border-radius: 16px;
+  font-size: 0.75rem; // Немного увеличиваем шрифт
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  backdrop-filter: blur(5px); // Добавляем размытие фона
+}
+
+.content {
+  padding: 20px; // Увеличиваем padding для лучшего дыхания
+}
+
+.title {
+  font-size: 1.2rem; // Увеличиваем размер заголовка
+  font-weight: 700;
+  color: #2c3e50; // Более контрастный цвет
+  margin-bottom: 12px; // Увеличиваем отступ
+  line-height: 1.4; // Улучшаем межстрочный интервал
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.excerpt {
+  color: #5a6c7d; // Более читаемый цвет текста
+  line-height: 1.6; // Улучшаем межстрочный интервал
+  margin-bottom: 16px; // Увеличиваем отступ
+  font-size: 0.9rem; // Увеличиваем размер для лучшей читаемости
+  display: -webkit-box;
+  -webkit-line-clamp: 3; // Возвращаем 3 строки для лучшего понимания
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px; // Увеличиваем отступ
+  font-size: 0.85rem; // Увеличиваем размер шрифта
+  padding: 16px 20px; // Добавляем внутренние отступы
+  margin: 16px -20px; // Расширяем на всю ширину карточки
+  background: #f8f9fa; // Добавляем легкий фон для выделения
+  border-top: 1px solid #e9ecef; // Верхняя граница
+  border-bottom: 1px solid #e9ecef; // Нижняя граница
+}
+
+.author {
+  display: flex;
+  align-items: center;
+  gap: 8px; // Увеличиваем отступ
+}
+
+.authorLabel {
+  color: #7f8c8d; // Более читаемый цвет
+}
+
+.authorName {
+  color: #667eea;
+  font-weight: 600;
+}
+
+.details {
+  display: flex;
+  gap: 12px; // Увеличиваем отступы
+  color: #7f8c8d; // Более читаемый цвет
+}
+
+.readMore {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 10px 20px; // Увеличиваем padding кнопки
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 0.85rem; // Увеличиваем размер шрифта
+  cursor: pointer;
+  transition: all 0.3s ease; // Улучшаем анимацию
+  width: 100%; // Делаем кнопку на всю ширину
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4); // Добавляем тень при наведении
+  }
+  
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .content {
+    padding: 18px; // Уменьшаем немного на мобильных
+  }
+  
+  .title {
+    font-size: 1.1rem; // Адаптируем размер
+  }
+  
+  .excerpt {
+    font-size: 0.85rem; // Адаптируем размер
+    -webkit-line-clamp: 2; // На мобильных показываем 2 строки
+  }
+  
+  .meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px 0;
+  }
+  
+  .imageContainer {
+    height: 140px; // Адаптируем высоту
+  }
+  
+  .readMore {
+    padding: 12px 20px; // Увеличиваем на мобильных для удобства
+    font-size: 0.9rem;
+  }
+}

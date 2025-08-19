@@ -1,0 +1,242 @@
+@use "@scss/Variables" as *;
+
+.settings_content {
+  h3 {
+    color: $Dark-Olive;
+    font: 600 24px 'Space Grotesk', sans-serif;
+    margin: 0 0 30px 0;
+    padding-bottom: 12px;
+    border-bottom: 2px solid rgba(46, 49, 146, 0.1);
+  }
+
+  .settings_section {
+    margin-bottom: 40px;
+
+    h4 {
+      color: $Dark-Olive;
+      font: 600 18px 'Space Grotesk', sans-serif;
+      margin: 0 0 20px 0;
+      padding-left: 12px;
+      border-left: 3px solid $primary;
+    }
+
+    .form_group {
+      margin-bottom: 20px;
+
+      label {
+        display: block;
+        color: $Dark-Olive;
+        font: 500 14px 'Space Grotesk', sans-serif;
+        margin-bottom: 8px;
+      }
+
+      input {
+        width: 100%;
+        padding: 12px 16px;
+        border: 2px solid rgba(46, 49, 146, 0.1);
+        border-radius: 8px;
+        font: 400 14px 'Space Grotesk', sans-serif;
+        color: $Dark-Olive;
+        background: rgba(255, 255, 255, 0.8);
+        transition: all 0.3s ease;
+
+        &:focus {
+          outline: none;
+          border-color: $primary;
+          background: white;
+          box-shadow: 0 0 0 3px rgba(46, 49, 146, 0.1);
+        }
+
+        &:disabled {
+          opacity: 0.6;
+          cursor: not-allowed;
+        }
+      }
+    }
+
+    .checkbox_group {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+
+      .checkbox_item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        cursor: pointer;
+        padding: 8px;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+
+        &:hover {
+          background: rgba(46, 49, 146, 0.05);
+        }
+
+        input[type="checkbox"] {
+          width: 18px;
+          height: 18px;
+          accent-color: $primary;
+          cursor: pointer;
+
+          &:disabled {
+            cursor: not-allowed;
+            opacity: 0.6;
+          }
+        }
+
+        span {
+          color: $Dark-Olive;
+          font: 400 14px 'Space Grotesk', sans-serif;
+        }
+      }
+    }
+
+    button {
+      margin-right: 12px;
+      margin-bottom: 12px;
+
+      &:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+      }
+    }
+  }
+
+  .settings_actions {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    padding-top: 20px;
+    border-top: 1px solid rgba(46, 49, 146, 0.1);
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
+  }
+
+  // Состояния загрузки, ошибок, успеха и отсутствия данных
+  .loading_state, .error_state, .no_data_state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    text-align: center;
+    min-height: 300px;
+
+    p {
+      color: $Dark-Olive;
+      font: 400 16px 'Space Grotesk', sans-serif;
+      margin: 20px 0 0 0;
+    }
+  }
+
+  .loading_state {
+    .spinner {
+      width: 40px;
+      height: 40px;
+      border: 4px solid rgba(46, 49, 146, 0.1);
+      border-left: 4px solid $primary;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+  }
+
+  .error_state {
+    color: $Light-Red;
+
+    .retry_button {
+      background: linear-gradient(135deg, $Light-Red, #b91c1c);
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font: 500 14px 'Space Grotesk', sans-serif;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: 16px;
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(214, 81, 55, 0.3);
+      }
+    }
+  }
+
+  .no_data_state {
+    color: $quinary;
+  }
+
+  // Сообщения об успехе и ошибках
+  .success_message, .error_message {
+    padding: 16px 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font: 500 14px 'Space Grotesk', sans-serif;
+    text-align: center;
+  }
+
+  .success_message {
+    background: rgba(113, 151, 116, 0.1);
+    color: $Light-Green;
+    border: 1px solid rgba(113, 151, 116, 0.2);
+  }
+
+  .error_message {
+    background: rgba(214, 81, 55, 0.1);
+    color: $Light-Red;
+    border: 1px solid rgba(214, 81, 55, 0.2);
+  }
+
+  // Анимация спиннера
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  // Кнопки
+  .btn_primary, .btn_secondary, .btn_danger {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font: 500 14px 'Space Grotesk', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+
+    &:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+  }
+
+  .btn_primary {
+    background: linear-gradient(135deg, $primary, $secondary);
+    color: white;
+
+    &:hover:not(:disabled) {
+      box-shadow: 0 4px 12px rgba(46, 49, 146, 0.3);
+    }
+  }
+
+  .btn_secondary {
+    background: rgba(46, 49, 146, 0.1);
+    color: $primary;
+    border: 1px solid rgba(46, 49, 146, 0.2);
+
+    &:hover:not(:disabled) {
+      background: rgba(46, 49, 146, 0.15);
+      border-color: $primary;
+    }
+  }
+
+  .btn_danger {
+    background: linear-gradient(135deg, $Light-Red, #b91c1c);
+    color: white;
+
+    &:hover:not(:disabled) {
+      box-shadow: 0 4px 12px rgba(214, 81, 55, 0.3);
+    }
+  }
+}
