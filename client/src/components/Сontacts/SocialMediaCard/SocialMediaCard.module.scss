@@ -1,48 +1,179 @@
 @use "@scss/Variables" as *;
 
 .socialMediaCard {
-  background: $tertiary;
-  border-radius: 1rem;
-  box-shadow: 0 2px 16px rgba($black, 0.07);
-  padding: 2rem 1.5rem;
-  margin-bottom: 2rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-  transition: box-shadow 0.2s $ease-in-out-quad;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
 
-  @media (max-width: 600px) {
-    padding: 1rem 0.5rem;
-    border-radius: 0.75rem;
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, $Light-Pink, $Light-Peach);
+    border-radius: 16px 16px 0 0;
+  }
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  }
+
+  .header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+
+    .socialMediaTitle {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: $Dark-Olive;
+      margin: 0 0 0.5rem 0;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    .socialMediaDescription {
+      font-size: 0.9rem;
+      color: $Dark-Olive;
+      margin: 0;
+      opacity: 0.7;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+  }
+
+  .socialMediaButtons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+
+    .button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 1rem;
+      border: none;
+      border-radius: 12px;
+      background: rgba(222, 206, 190, 0.1);
+      color: $Dark-Olive;
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: 'Space Grotesk', sans-serif;
+      border: 1px solid rgba(222, 206, 190, 0.2);
+
+      svg {
+        width: 20px;
+        height: 20px;
+        transition: all 0.3s ease;
+      }
+
+      &:hover {
+        background: rgba(222, 206, 190, 0.2);
+        border-color: rgba(222, 206, 190, 0.4);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba(222, 206, 190, 0.3);
+
+        svg {
+          transform: scale(1.1);
+        }
+      }
+
+      &:active {
+        transform: translateY(0);
+      }
+
+      // Специфичные цвета для разных социальных сетей
+      &:nth-child(1) {
+        &:hover {
+          background: rgba(66, 103, 178, 0.1);
+          border-color: rgba(66, 103, 178, 0.3);
+          color: #4267B2;
+        }
+      }
+
+      &:nth-child(2) {
+        &:hover {
+          background: rgba(225, 48, 108, 0.1);
+          border-color: rgba(225, 48, 108, 0.3);
+          color: #E1306C;
+        }
+      }
+
+      &:nth-child(3) {
+        &:hover {
+          background: rgba(29, 161, 242, 0.1);
+          border-color: rgba(29, 161, 242, 0.3);
+          color: #1DA1F2;
+        }
+      }
+
+      &:nth-child(4) {
+        &:hover {
+          background: rgba(255, 0, 0, 0.1);
+          border-color: rgba(255, 0, 0, 0.3);
+          color: #FF0000;
+        }
+      }
+    }
   }
 }
 
-.socialTitle {
-  font-size: 1.25rem;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-  color: $primary;
+@media (max-width: 768px) {
+  .socialMediaCard {
+    padding: 1.25rem;
+
+    .header {
+      .socialMediaTitle {
+        font-size: 1.1rem;
+      }
+
+      .socialMediaDescription {
+        font-size: 0.85rem;
+      }
+    }
+
+    .socialMediaButtons {
+      gap: 0.75rem;
+
+      .button {
+        padding: 0.75rem;
+        font-size: 0.85rem;
+
+        svg {
+          width: 18px;
+          height: 18px;
+        }
+      }
+    }
+  }
 }
 
-.socialButtons {
-  display: flex;
-  gap: 1rem;
-}
+@media (max-width: 480px) {
+  .socialMediaCard {
+    padding: 1rem;
 
-.socialButton {
-  background: $Light-Cream;
-  border: none;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: background 0.2s $ease-in-out-quad;
-}
+    .socialMediaButtons {
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
 
-.socialButton:hover {
-  background: $hover-color;
+      .button {
+        padding: 1rem;
+        font-size: 0.9rem;
+
+        svg {
+          width: 20px;
+          height: 20px;
+        }
+      }
+    }
+  }
 }

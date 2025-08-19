@@ -1,30 +1,172 @@
 @use "@scss/Variables" as *;
 
-.hoursCard {
-  background: $tertiary;
-  border-radius: 1rem;
-  box-shadow: 0 2px 16px rgba($black, 0.07);
-  padding: 1.5rem 1rem;
-  margin-bottom: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  transition: box-shadow 0.2s $ease-in-out-quad;
+.businessHoursCard {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
 
-  @media (max-width: 600px) {
-    padding: 1rem 0.5rem;
-    border-radius: 0.75rem;
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, $secondary, $Light-Yellow);
+    border-radius: 16px 16px 0 0;
+  }
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  }
+
+  .cardHeader {
+    margin-bottom: 1.25rem;
+
+    .titleWrapper {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+
+      .icon {
+        width: 24px;
+        height: 24px;
+        color: $secondary;
+        flex-shrink: 0;
+      }
+
+      .title {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: $Dark-Olive;
+        margin: 0;
+        font-family: 'Space Grotesk', sans-serif;
+      }
+    }
+  }
+
+  .hoursContent {
+    .hoursRow {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid rgba(190, 100, 64, 0.1);
+
+      &:last-of-type {
+        border-bottom: none;
+        margin-bottom: 1rem;
+      }
+
+      .day {
+        font-size: 0.95rem;
+        font-weight: 500;
+        color: $Dark-Olive;
+        font-family: 'Space Grotesk', sans-serif;
+      }
+
+      .time {
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: $secondary;
+        font-family: 'Space Grotesk', sans-serif;
+        background: rgba(190, 100, 64, 0.1);
+        padding: 0.25rem 0.75rem;
+        border-radius: 20px;
+        white-space: nowrap;
+      }
+    }
+
+    .note {
+      margin-top: 1rem;
+      padding: 1rem;
+      background: rgba(190, 100, 64, 0.05);
+      border-radius: 12px;
+      border-left: 4px solid $secondary;
+
+      .noteLabel {
+        display: block;
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: $secondary;
+        margin-bottom: 0.5rem;
+        font-family: 'Space Grotesk', sans-serif;
+      }
+
+      .noteText {
+        font-size: 0.85rem;
+        color: $Dark-Olive;
+        margin: 0;
+        line-height: 1.4;
+        font-family: 'Space Grotesk', sans-serif;
+        opacity: 0.8;
+      }
+    }
   }
 }
 
-.hoursTitle {
-  font-size: 1.1rem;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-  color: $primary;
+@media (max-width: 768px) {
+  .businessHoursCard {
+    padding: 1.25rem;
+
+    .cardHeader {
+      .titleWrapper {
+        .title {
+          font-size: 1.1rem;
+        }
+      }
+    }
+
+    .hoursContent {
+      .hoursRow {
+        padding: 0.5rem 0;
+
+        .day {
+          font-size: 0.9rem;
+        }
+
+        .time {
+          font-size: 0.85rem;
+          padding: 0.2rem 0.6rem;
+        }
+      }
+
+      .note {
+        padding: 0.75rem;
+
+        .noteLabel {
+          font-size: 0.85rem;
+        }
+
+        .noteText {
+          font-size: 0.8rem;
+        }
+      }
+    }
+  }
 }
 
-.hoursText {
-  color: $dark;
-  font-size: 0.98rem;
+@media (max-width: 480px) {
+  .businessHoursCard {
+    padding: 1rem;
+
+    .hoursContent {
+      .hoursRow {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+
+        .time {
+          align-self: flex-end;
+        }
+      }
+    }
+  }
 }
