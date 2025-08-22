@@ -8,6 +8,7 @@ import Login from "@pages/Login";
 import Admin from "@pages/Admin";
 import LayOut from "@components/LayOut";
 import User from "@pages/User";
+import Blog from "@pages/Blog";
 // import Preloader from "./pages/Preloader";
 
 
@@ -32,6 +33,7 @@ const RouterSystem: React.FC = () => {
         <Route index element={<Main />} />
         <Route path="aboutus" element={<AboutUs />} />
         <Route path="contact" element={<ContactPage />} />
+        <Route path="blog" element={<Blog />} />
         <Route path="products" element={<Products />} />
         <Route path="login" element={<Login />} />
         <Route path="user" element={<User />} />

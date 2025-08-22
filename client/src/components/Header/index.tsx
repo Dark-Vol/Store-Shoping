@@ -30,7 +30,7 @@ const Header: React.FC = () => {
             </nav>
           </div>
           <div className={styles.headerActions}>
-            <Search />
+            <Search/>
             <a href="/login">
               <CircleUserRound />
             </a>
