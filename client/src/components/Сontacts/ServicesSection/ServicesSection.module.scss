@@ -1,40 +1,224 @@
 @use "@scss/Variables" as *;
 
 .servicesSection {
-  margin: 0 auto 2.5rem auto;
-  max-width: 900px;
-  padding: 2rem 1rem;
-  background: $Light-Cream;
-  border-radius: 1.125rem;
-  box-shadow: 0 2px 16px rgba($black, 0.07);
-  transition: box-shadow 0.2s $ease-in-out-quad;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
 
-  @media (max-width: 600px) {
-    padding: 1.2rem 0.5rem;
-    border-radius: 0.75rem;
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, $Light-Yellow, $Light-Peach);
+    border-radius: 20px 20px 0 0;
+  }
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+  }
+
+  .header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+
+    .title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: $Dark-Olive;
+      margin: 0 0 0.75rem 0;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    .description {
+      font-size: 1rem;
+      color: $Dark-Olive;
+      margin: 0;
+      opacity: 0.8;
+      font-family: 'Space Grotesk', sans-serif;
+      line-height: 1.5;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+  }
+
+  .servicesList {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+
+    .serviceItem {
+      background: rgba(255, 255, 255, 0.7);
+      border-radius: 16px;
+      padding: 1.5rem;
+      text-align: center;
+      border: 1px solid rgba(239, 200, 125, 0.2);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(90deg, $Light-Yellow, $Light-Peach);
+        border-radius: 16px 16px 0 0;
+        transform: scaleX(0);
+        transition: transform 0.3s ease;
+      }
+
+      &:hover {
+        transform: translateY(-6px);
+        background: rgba(255, 255, 255, 0.9);
+        border-color: rgba(239, 200, 125, 0.4);
+        box-shadow: 0 8px 25px rgba(239, 200, 125, 0.2);
+
+        &::before {
+          transform: scaleX(1);
+        }
+
+        .icon {
+          transform: scale(1.1) rotate(5deg);
+          background: linear-gradient(135deg, $Light-Yellow, $Light-Peach);
+          color: $white;
+        }
+      }
+
+      .icon {
+        width: 60px;
+        height: 60px;
+        background: rgba(239, 200, 125, 0.1);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1rem;
+        color: $Light-Yellow;
+        transition: all 0.3s ease;
+        border: 2px solid rgba(239, 200, 125, 0.2);
+
+        svg {
+          width: 28px;
+          height: 28px;
+        }
+      }
+
+      .serviceTitle {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: $Dark-Olive;
+        margin: 0 0 0.75rem 0;
+        font-family: 'Space Grotesk', sans-serif;
+      }
+
+      .serviceDescription {
+        font-size: 0.9rem;
+        color: $Dark-Olive;
+        margin: 0;
+        line-height: 1.5;
+        font-family: 'Space Grotesk', sans-serif;
+        opacity: 0.8;
+      }
+    }
   }
 }
 
-.servicesTitle {
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
-  color: $primary;
+@media (max-width: 768px) {
+  .servicesSection {
+    padding: 1.5rem;
+
+    .header {
+      margin-bottom: 2rem;
+
+      .title {
+        font-size: 1.3rem;
+      }
+
+      .description {
+        font-size: 0.9rem;
+      }
+    }
+
+    .servicesList {
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.25rem;
+
+      .serviceItem {
+        padding: 1.25rem;
+
+        .icon {
+          width: 50px;
+          height: 50px;
+
+          svg {
+            width: 24px;
+            height: 24px;
+          }
+        }
+
+        .serviceTitle {
+          font-size: 1rem;
+        }
+
+        .serviceDescription {
+          font-size: 0.85rem;
+        }
+      }
+    }
+  }
 }
 
-.servicesList {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  margin-top: 1.5rem;
-}
+@media (max-width: 480px) {
+  .servicesSection {
+    padding: 1.25rem;
 
-.serviceItem {
-  flex: 1 1 200px;
-  background: $white;
-  border-radius: 0.75rem;
-  box-shadow: 0 2px 16px rgba($black, 0.07);
-  padding: 1rem;
-  text-align: center;
-  transition: box-shadow 0.2s $ease-in-out-quad;
+    .header {
+      .title {
+        font-size: 1.2rem;
+      }
+
+      .description {
+        font-size: 0.85rem;
+      }
+    }
+
+    .servicesList {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+
+      .serviceItem {
+        padding: 1rem;
+
+        .icon {
+          width: 45px;
+          height: 45px;
+
+          svg {
+            width: 22px;
+            height: 22px;
+          }
+        }
+
+        .serviceTitle {
+          font-size: 0.95rem;
+        }
+
+        .serviceDescription {
+          font-size: 0.8rem;
+        }
+      }
+    }
+  }
 }

@@ -24,7 +24,7 @@ const Login: React.FC = () => {
     setFirstName,
     lastName,
     setLastName,
-  } = useAuth()
+  } = useAuth();
 
   const toggleForm = () => {
     setIsLogin(!isLogin);
@@ -47,70 +47,102 @@ const Login: React.FC = () => {
             <circle cx="12" cy="10" r="4" />
             <circle cx="12" cy="12" r="10" />
           </svg>
-          <InputEmail
-            email={email}
-            onChange={(e) => setUserEmail(e.target.value)}
-          />
-          <InputPassword
-            password={password}
-            onChange={(e) => setUserPassword(e.target.value)}
-          />
-          <div className="">
-            <p>Already Registered?
-              <BtnLogin onClick={(e) => { e.preventDefault(); loginAction() }} />
-              <a href="#">Forgot your password?</a>
-            </p>
+          
+          <h2 className={styles.form_title}>Вход в аккаунт</h2>
+          
+          <div className={styles.form_group}>
+            <InputEmail
+              email={email}
+              onChange={(e) => setUserEmail(e.target.value)}
+            />
           </div>
-          <div className="">
-            <p>Not Registered? <a href="#" onClick={toggleForm}>Create an Account</a></p>
+          
+          <div className={styles.form_group}>
+            <InputPassword
+              password={password}
+              onChange={(e) => setUserPassword(e.target.value)}
+            />
+          </div>
+          
+          <div className={styles.form_options}>
+            <label className={styles.remember_me}>
+              <input type="checkbox" /> Запомнить меня
+            </label>
+            <a href="#" className={styles.forgot_password}>Забыли пароль?</a>
+          </div>
+          
+          <div className={styles.form_actions}>
+            <BtnLogin onClick={() => loginAction()} />
+          </div>
+          
+          <div className={styles.form_footer}>
+            <p className={styles.register_prompt}>
+              Нет аккаунта? <a href="#" onClick={toggleForm} className={styles.register_link}>Создать аккаунт</a>
+            </p>
           </div>
         </form>
       ) : (
         <form
           className={styles.login_form}
-          action=""
-          method="post"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
-            className=""
+            className={styles.lucide_circle_user_round}
           >
             <path d="M18 20a6 6 0 0 0-12 0" />
             <circle cx="12" cy="10" r="4" />
             <circle cx="12" cy="12" r="10" />
           </svg>
-          <InputFirstName
-            firstName={firstName}
-            onChange={(e) => setFirstName(e.target.value)}
-          />
-          <InputLastName
-            lastName={lastName}
-            onChange={(e) => setLastName(e.target.value)}
-          />
-          <InputEmail
-            email={email}
-            onChange={(e) => setUserEmail(e.target.value)}
-          />
-          <InputPassword
-            password={password}
-            onChange={(e) => setUserPassword(e.target.value)}
-          />
-          <div className="">
+          
+          <h2 className={styles.form_title}>Регистрация</h2>
+          <div className={styles.form_group}>
+            <InputFirstName
+              firstName={firstName}
+              onChange={(e) => setFirstName(e.target.value)}
+            />
+          </div>
+          
+          <div className={styles.form_group}>
+            <InputLastName
+              lastName={lastName}
+              onChange={(e) => setLastName(e.target.value)}
+            />
+          </div>
+          
+          <div className={styles.form_group}>
+            <InputEmail
+              email={email}
+              onChange={(e) => setUserEmail(e.target.value)}
+            />
+          </div>
+          
+          <div className={styles.form_group}>
+            <InputPassword
+              password={password}
+              onChange={(e) => setUserPassword(e.target.value)}
+            />
+          </div>
+          
+          <div className={styles.form_options}>
             <label className={styles.remember_me}>
-              <input type="checkbox" /> Remember me
+              <input type="checkbox" /> Запомнить меня
             </label>
           </div>
-          <BtnRegistraishen onClick={(e) => { e.preventDefault(); registerAction() }} />
-          <div className={styles.options_02}>
-            <p>There is an Account?
-              <a href="" onClick={toggleForm}> Login an Account</a>
+          
+          <div className={styles.form_actions}>
+            <BtnRegistraishen onClick={() => registerAction()} />
+          </div>
+          
+          <div className={styles.form_footer}>
+            <p className={styles.login_prompt}>
+              Уже есть аккаунт? <a href="#" onClick={toggleForm} className={styles.login_link}>Войти в аккаунт</a>
             </p>
           </div>
         </form>
       )}
     </div>
-  )
-}
+  );
+};
 
-export default Login
+export default Login;
