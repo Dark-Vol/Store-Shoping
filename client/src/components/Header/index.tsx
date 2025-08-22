@@ -30,11 +30,11 @@ const Header: React.FC = () => {
             </nav>
           </div>
           <div className={styles.headerActions}>
-            <Search className={styles.searchIcon} />
+            <Search/>
             <a href="/login">
-              <CircleUserRound className={styles.userIcon} />
+              <CircleUserRound />
             </a>
-            <ShoppingCart className={styles.cartIcon} />
+            <ShoppingCart />
           </div>
         </div>
       </div>
