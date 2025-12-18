@@ -100,26 +100,26 @@ export default function AboutUs() {
         <div className={styles.container}>
           <div className={styles.heroContent}>
             <div className={styles.heroIcon}><Music /></div>
-            <h1>О нас</h1>
-            <p>Мы делаем музыку доступной для каждого уже более 15 лет</p>
+            <h1>About Us</h1>
+            <p>We've been making music accessible to everyone for over 15 years.</p>
             <div className={styles.heroStats} ref={statsRef}>
               <div className={`${styles.stat} ${isVisible ? styles.animate : ''}`}>
                 <Award /> 
                 <span className={styles.statNumber}>
                   <Counter end={15} suffix="+" />
-                </span> лет опыта
+                </span> years of experience
               </div>
               <div className={`${styles.stat} ${isVisible ? styles.animate : ''}`}>
                 <Users /> 
                 <span className={styles.statNumber}>
                   <Counter end={50000} suffix="+" />
-                </span> клиентов
+                </span> clients
               </div>
               <div className={`${styles.stat} ${isVisible ? styles.animate : ''}`}>
                 <Guitar /> 
                 <span className={styles.statNumber}>
                   <Counter end={10000} suffix="+" />
-                </span> инструментов
+                </span> musical instruments
               </div>
             </div>
           </div>
@@ -130,7 +130,7 @@ export default function AboutUs() {
       <section className={styles.story}>
         <div className={styles.container}>
           <div className={styles.storyContent}>
-            <h2>Наша история</h2>
+            <h2>Our history</h2>
             <div className={styles.storyGrid}>
               <div className={styles.storyImage}>
                 <img
@@ -143,14 +143,19 @@ export default function AboutUs() {
               </div>
               <div className={styles.storyText}>
                 <p>
-                  Всё началось в 2009 году, когда группа музыкантов решила создать место, где каждый сможет найти
-                  инструмент своей мечты. Мы начинали с небольшого магазина в центре города и большой любви к музыке.
+                  It all started in 2009, when a group of musicians decided to create a place where everyone could find their dream instrument.
+                  We started with a small shop in the city center and a deep love for music.
                 </p>
                 <p>
-                  Сегодня мы — один из крупнейших интернет-магазинов музыкальных инструментов в стране, но наша миссия
-                  остается неизменной: помогать людям создавать музыку и воплощать свои творческие мечты.
+                  Today we are one of the largest online music instrument stores in the country, but our mission
+                  remains unchanged: helping people create music and bring their creative dreams to life.
                 </p>
-                <div className={styles.passion}><Heart /> <span>Музыка — это наша страсть</span></div>
+                <div className={styles.passion}>
+                  <Heart /> 
+                    <span>
+                      Music is our passion
+                    </span>
+                  </div>
               </div>
             </div>
           </div>
@@ -161,28 +166,28 @@ export default function AboutUs() {
       <section className={styles.values}>
         <div className={styles.container}>
           <div className={styles.valuesContent}>
-            <h2>Наши ценности</h2>
+            <h2>Our values</h2>
             <div className={styles.valuesGrid}>
               <div className={styles.valueCard}>
                 <div className={styles.valueIcon}><Heart style={{ color: '#ef4444' }} /></div>
-                <h3>Страсть к музыке</h3>
+                <h3>Passion for music</h3>
                 <p>
-                  Мы живем и дышим музыкой. Каждый инструмент в нашем каталоге выбран с любовью и пониманием
-                  потребностей музыкантов.
+                  We live and breathe music. Every instrument in our catalog is chosen with love and understanding
+                  of the needs of musicians.
                 </p>
               </div>
               <div className={styles.valueCard}>
                 <div className={styles.valueIcon}><Shield style={{ color: '#3b82f6' }} /></div>
-                <h3>Качество</h3>
+                <h3>Quality</h3>
                 <p>
-                  Мы работаем только с проверенными брендами и гарантируем качество каждого инструмента. Ваше доверие — наш приоритет.
+                  We work only with verified brands and guarantee the quality of each instrument. Your trust is our priority.
                 </p>
               </div>
               <div className={styles.valueCard}>
                 <div className={styles.valueIcon}><Users style={{ color: '#10b981' }} /></div>
-                <h3>Поддержка</h3>
+                <h3>Support</h3>
                 <p>
-                  Наша команда экспертов всегда готова помочь с выбором инструмента и ответить на любые вопросы о музыке.
+                  Our team of experts is always ready to help with instrument selection and answer any questions about music.
                 </p>
               </div>
             </div>
@@ -194,7 +199,7 @@ export default function AboutUs() {
       <section className={styles.team}>
         <div className={styles.container}>
           <div className={styles.teamContent}>
-            <h2>Наша команда</h2>
+            <h2>Our team</h2>
             <div className={styles.teamGrid}>
               {[{
                 name: "Алексей Петров",
@@ -266,27 +271,27 @@ export default function AboutUs() {
       <section className={styles.whyChoose}>
         <div className={styles.container}>
           <div className={styles.whyChooseContent}>
-            <h2>Почему выбирают нас</h2>
+            <h2>Why choose us</h2>
             <div className={styles.whyChooseGrid}>
               <div className={styles.whyChooseCard}>
                 <div className={styles.whyChooseIcon}><Truck style={{ color: '#10b981' }} /></div>
-                <h3>Быстрая доставка</h3>
-                <p>Доставляем по всей стране в течение 1-3 дней</p>
+                <h3>Fast delivery</h3>
+                <p>Delivered across the country within 1-3 days</p>
               </div>
               <div className={styles.whyChooseCard}>
                 <div className={styles.whyChooseIcon}><Shield style={{ color: '#3b82f6' }} /></div>
-                <h3>Гарантия качества</h3>
-                <p>2 года гарантии на все инструменты</p>
+                <h3>Quality guarantee</h3>
+                <p>2 years warranty on all instruments</p>
               </div>
               <div className={styles.whyChooseCard}>
                 <div className={styles.whyChooseIcon}><Clock style={{ color: '#fb923c' }} /></div>
-                <h3>Поддержка 24/7</h3>
-                <p>Наши эксперты готовы помочь в любое время</p>
+                <h3>24/7 Support</h3>
+                <p>Our experts are ready to help at any time</p>
               </div>
               <div className={styles.whyChooseCard}>
                 <div className={styles.whyChooseIcon}><Star style={{ color: '#eab308' }} /></div>
-                <h3>Лучшие цены</h3>
-                <p>Конкурентные цены и регулярные скидки</p>
+                <h3>Best prices</h3>
+                <p>Competitive prices and regular discounts</p>
               </div>
             </div>
           </div>
@@ -297,17 +302,17 @@ export default function AboutUs() {
       <section className={styles.contact}>
         <div className={styles.container}>
           <div className={styles.contactContent}>
-            <h2>Свяжитесь с нами</h2>
-            <p>Есть вопросы? Мы всегда рады помочь!</p>
+            <h2>Contact us</h2>
+            <p>Have questions? We're always happy to help!</p>
             <div className={styles.contactGrid}>
               <div className={styles.contactCard}>
                 <MapPin className={styles.contactIcon} />
-                <h3>Адрес</h3>
-                <p>ул. Музыкальная, 123<br />Одесса, 65000</p>
+                <h3>Address</h3>
+                <p>Musical Street, 123<br />Odessa, 65000</p>
               </div>
               <div className={styles.contactCard}>
                 <Phone className={styles.contactIcon} />
-                <h3>Телефон</h3>
+                <h3>Phone</h3>
                 <p>+38 (050) 579-94-37</p>
               </div>
               <div className={styles.contactCard}>
@@ -316,7 +321,7 @@ export default function AboutUs() {
                 <p>info@musicstore.ru</p>
               </div>
             </div>
-            <button className={styles.contactButton}>Написать нам</button>
+            <button className={styles.contactButton}>Write to us</button>
           </div>
         </div>
       </section>
