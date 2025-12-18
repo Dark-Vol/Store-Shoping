@@ -59,9 +59,9 @@ const Pagination: React.FC<PaginationProps> = ({
             <button
               className={`${styles.paginationButton} ${styles.firstButton}`}
               onClick={() => handlePageChange(1)}
-              aria-label="Перейти на первую страницу"
+              aria-label="Go to the first page"
             >
-              <span className={styles.buttonText}>Первая</span>
+              <span className={styles.buttonText}>First</span>
             </button>
           </li>
         )}
@@ -72,7 +72,7 @@ const Pagination: React.FC<PaginationProps> = ({
             <button
               className={`${styles.paginationButton} ${styles.prevButton}`}
               onClick={() => handlePageChange(currentPage - 1)}
-              aria-label="Перейти на предыдущую страницу"
+              aria-label="Go to the previous page"
             >
               <span className={styles.buttonText}>‹</span>
             </button>
@@ -101,11 +101,11 @@ const Pagination: React.FC<PaginationProps> = ({
             <button
               className={`${styles.paginationButton} ${styles.nextButton}`}
               onClick={() => handlePageChange(currentPage + 1)}
-              aria-label="Перейти на следующую страницу"
+              aria-label="Go to the next page"
             >
               <span className={styles.buttonText}>›</span>
             </button>
-          </li>
+            </li>
         )}
 
         {/* Кнопка "Последняя страница" */}
@@ -114,11 +114,11 @@ const Pagination: React.FC<PaginationProps> = ({
             <button
               className={`${styles.paginationButton} ${styles.lastButton}`}
               onClick={() => handlePageChange(totalPages)}
-              aria-label="Перейти на последнюю страницу"
+              aria-label="Go to the last page"
             >
               <span className={styles.buttonText}>Последняя</span>
             </button>
-          </li>
+            </li>
         )}
       </ul>
 
