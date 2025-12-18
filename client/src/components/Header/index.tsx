@@ -6,9 +6,9 @@ const Header: React.FC = () => {
     <header className={styles.header}>
       <div className={styles.topBanner}>
         <div className={styles.bannerContent}>
-          <p className={styles.bannerText}>Бесплатная доставка при заказе от 5000 UAH</p>
+          <p className={styles.bannerText}>Free shipping on orders over UAH 5,000</p>
           <div className={styles.bannerLinks}>
-            <a href="/help">Помощь</a>
+            <a href="/help">Help</a>
             <a href="/faq">FAQ</a>
           </div>
         </div>
@@ -21,11 +21,11 @@ const Header: React.FC = () => {
           <div className={styles.navigation}>
             <nav>
               <ul>
-                <li><a href="/shop">Магазин</a></li>
-                <li><a href="/categories">Категории</a></li>
-                <li><a href="/deals">Скидки</a></li>
-                <li><a href="/aboutus">О нас</a></li>
-                <li><a href="/contact">Контакты</a></li>
+                <li><a href="/shop">Shop</a></li>
+                <li><a href="/categories">Categories</a></li>
+                <li><a href="/deals">Deals</a></li>
+                <li><a href="/aboutus">About Us</a></li>
+                <li><a href="/contact">Contact</a></li>
               </ul>
             </nav>
           </div>
@@ -41,10 +41,10 @@ const Header: React.FC = () => {
       <div className={styles.bottomNav}>
         <div className={styles.bottomNavContent}>
           <ul>
-            <li><a href="/new">Новинки</a></li>
-            <li><a href="/best-sellers">Популярное</a></li>
-            <li><a href="/gift-cards">Подарочные карты</a></li>
-            <li><a href="/blog">Блог</a></li>
+            <li><a href="/new">New</a></li>
+            <li><a href="/best-sellers">Best Sellers</a></li>
+            <li><a href="/gift-cards">Gift Cards</a></li>
+            <li><a href="/blog">Blog</a></li>
           </ul>
         </div>
       </div>
