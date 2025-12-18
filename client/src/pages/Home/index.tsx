@@ -5,24 +5,24 @@ const Home: React.FC = () => {
   return (
     <section className={style.homePage}>
       <div className={style.hero}>
-        <h1>Добро пожаловать в наш магазин</h1>
-        <p>Найдите лучшие товары по выгодным ценам</p>
+        <h1>Welcome to our store</h1>
+        <p>Find the best products at competitive prices</p>
       </div>
       
       <div className={style.content}>
-        <h2>Наши преимущества</h2>
+        <h2>Our advantages</h2>
         <div className={style.features}>
           <div className={style.feature}>
-            <h3>Быстрая доставка</h3>
-            <p>Доставляем по всей Украине в течение 1-3 дней</p>
+            <h3>Fast delivery</h3>
+            <p>Delivered across the country within 1-3 days</p>
           </div>
           <div className={style.feature}>
-            <h3>Качественные товары</h3>
-            <p>Только проверенные бренды и качественные материалы</p>
+            <h3>Quality products</h3>
+            <p>Only verified brands and quality materials</p>
           </div>
           <div className={style.feature}>
-            <h3>Гарантия возврата</h3>
-            <p>30 дней на возврат товара без объяснения причин</p>
+            <h3>Return guarantee</h3>
+            <p>30 days to return the product without explanation</p>
           </div>
         </div>
         
@@ -30,7 +30,7 @@ const Home: React.FC = () => {
         <div className={style.testContent}>
           {Array.from({ length: 20 }, (_, i) => (
             <div key={i} className={style.testSection}>
-              <h3>Секция {i + 1}</h3>
+              <h3>Section {i + 1}</h3>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
                 Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
