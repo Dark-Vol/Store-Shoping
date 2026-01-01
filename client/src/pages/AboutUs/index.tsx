@@ -4,6 +4,7 @@ import {
 } from "lucide-react";
 import styles from "./About.module.scss";
 import { useState, useEffect, useRef } from "react";
+import { getTeamMembers } from "./teamMembers";
 
 // Компонент счетчика
 const Counter: React.FC<{ end: number; duration?: number; suffix?: string }> = ({ 
@@ -201,22 +202,7 @@ export default function AboutUs() {
           <div className={styles.teamContent}>
             <h2>Our team</h2>
             <div className={styles.teamGrid}>
-              {[{
-                name: "Алексей Петров",
-                position: "Основатель и CEO",
-                icons: [<Guitar style={{ color: '#fb923c' }} />, <Piano style={{ color: '#fb923c' }} />],
-                description: "Профессиональный гитарист с 20-летним стажем. Основал компанию с мечтой сделать музыку доступной для всех."
-              }, {
-                name: "Мария Иванова",
-                position: "Менеджер по продукту",
-                icons: [<Piano style={{ color: '#3b82f6' }} />, <Mic style={{ color: '#3b82f6' }} />],
-                description: "Классическая пианистка и вокалистка. Отвечает за качество и ассортимент клавишных инструментов."
-              }, {
-                name: "Дмитрий Козлов",
-                position: "Технический директор",
-                icons: [<Drum style={{ color: '#ef4444' }} />, <Guitar style={{ color: '#ef4444' }} />],
-                description: "Барабанщик и звукоинженер. Специализируется на ударных инструментах и звуковом оборудовании."
-              }].map((member, index) => (
+              {getTeamMembers(Guitar, Piano, Drum, Mic).map((member, index) => (
                 <div key={index} className={styles.teamMember}>
                   <div className={styles.memberInfo}>
                     <img
