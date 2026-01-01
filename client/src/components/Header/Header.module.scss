@@ -1,12 +1,52 @@
 @use '../../scss/Variables.scss' as *;
 @use '../../scss/Mixins.scss' as *;
 
+// Анимации для баннера
+@keyframes bannerTextSlide {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bannerTextPulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.02);
+  }
+}
+
+@keyframes bannerTextGlow {
+  0%, 100% {
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5),
+                 0 0 10px rgba(255, 255, 255, 0.3),
+                 0 0 15px rgba(239, 200, 125, 0.2);
+    color: $white;
+  }
+  50% {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8),
+                 0 0 20px rgba(255, 255, 255, 0.5),
+                 0 0 30px rgba(239, 200, 125, 0.4),
+                 0 0 40px rgba(239, 200, 125, 0.3);
+    color: $Light-Yellow;
+  }
+}
+
 .header {
   background: $white;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   position: sticky;
   top: 0;
   z-index: 1000;
+  height: auto;
 
   // Top banner
   .topBanner {
@@ -27,6 +67,10 @@
       .bannerText {
         text-align: center;
         flex: 1;
+        animation: bannerTextSlide 0.8s ease-out, bannerTextGlow 3s ease-in-out 1.5s infinite;
+        position: relative;
+        font-weight: 600;
+        letter-spacing: 0.5px;
       }
 
       .bannerLinks {
@@ -60,6 +104,30 @@
       align-items: center;
       padding: 20px 0;
 
+      .menuButton {
+        background: transparent;
+        border: none;
+        color: $dark;
+        cursor: pointer;
+        padding: 8px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @include transition;
+
+        &:hover {
+          color: $primary;
+          background: rgba($primary, 0.1);
+          transform: scale(1.1);
+        }
+
+        svg {
+          width: 24px;
+          height: 24px;
+        }
+      }
+
       .logo {
         a {
           font-size: 28px;
@@ -85,6 +153,8 @@
             padding: 0;
 
             li {
+              position: relative;
+
               a {
                 color: $dark;
                 text-decoration: none;
@@ -110,6 +180,172 @@
 
                 &:hover::after {
                   width: 100%;
+                }
+              }
+            }
+
+            .categoriesDropdown {
+              position: relative;
+            }
+
+            .categoriesButton {
+              display: flex;
+              align-items: center;
+              gap: 6px;
+              background: transparent;
+              color: $dark;
+              text-decoration: none;
+              font-weight: 500;
+              font-size: 16px;
+              cursor: pointer;
+              @include transition;
+              position: relative;
+              padding: 0;
+              font-family: inherit;
+              border: none;
+
+              &:hover {
+                color: $primary;
+
+                &::after {
+                  width: 100%;
+                }
+              }
+
+              &::after {
+                content: '';
+                position: absolute;
+                bottom: -5px;
+                left: 0;
+                width: 0;
+                height: 2px;
+                background: $primary;
+                @include transition;
+              }
+
+              .chevron {
+                width: 16px;
+                height: 16px;
+                @include transition;
+                transform: rotate(0deg);
+
+                &.rotate {
+                  transform: rotate(180deg);
+                }
+              }
+            }
+
+            .dropdownMenu {
+              position: absolute;
+              top: calc(100% + 10px);
+              left: 0;
+              background: $white;
+              box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+              border-radius: 8px;
+              list-style: none;
+              margin: 0;
+              padding: 8px 0;
+              min-width: 250px;
+              z-index: 1000;
+              animation: slideDown 0.3s ease-out;
+              display: flex;
+              flex-direction: column;
+            }
+
+            @keyframes slideDown {
+              from {
+                opacity: 0;
+                transform: translateY(-10px);
+              }
+              to {
+                opacity: 1;
+                transform: translateY(0);
+              }
+            }
+
+            .dropdownItem {
+              position: relative;
+
+              > a {
+                display: block;
+                padding: 12px 20px;
+                color: $dark;
+                text-decoration: none;
+                font-size: 15px;
+                font-weight: 500;
+                @include transition;
+                position: relative;
+
+                &::after {
+                  display: none;
+                }
+
+                &:hover {
+                  background: rgba($primary, 0.1);
+                  color: $primary;
+                }
+              }
+
+              &:hover {
+                .submenu {
+                  display: block;
+                }
+              }
+
+              &:hover .submenu,
+              .submenu:hover {
+                display: block;
+              }
+            }
+
+            .submenu {
+              display: none;
+              position: absolute;
+              left: calc(100% - 8px);
+              top: 0;
+              background: $white;
+              box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+              border-radius: 8px;
+              list-style: none;
+              margin: 0;
+              padding: 8px 0;
+              min-width: 200px;
+              margin-left: 8px;
+              animation: slideInRight 0.2s ease-out;
+              z-index: 1001;
+            }
+
+            @keyframes slideInRight {
+              from {
+                opacity: 0;
+                transform: translateX(-10px);
+              }
+              to {
+                opacity: 1;
+                transform: translateX(0);
+              }
+            }
+
+            .submenu li {
+              a {
+                display: block;
+                padding: 10px 20px;
+                color: $dark;
+                text-decoration: none;
+                font-size: 14px;
+                font-weight: 400;
+                @include transition;
+                position: relative;
+                white-space: nowrap;
+
+                &::after {
+                  display: none;
+                }
+
+                &:hover {
+                  background: rgba($primary, 0.1);
+                  color: $primary;
+                  padding-left: 25px;
                 }
               }
             }
@@ -234,6 +470,36 @@
               li {
                 a {
                   font-size: 14px;
+                }
+              }
+
+              .categoriesDropdown {
+                .categoriesButton {
+                  font-size: 14px;
+
+                  .chevron {
+                    width: 14px;
+                    height: 14px;
+                  }
+                }
+
+                .dropdownMenu {
+                  left: 50%;
+                  transform: translateX(-50%);
+                  min-width: 220px;
+                  max-width: calc(100vw - 40px);
+                }
+
+                .submenu {
+                  position: static;
+                  margin-left: 0;
+                  margin-top: 4px;
+                  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+                  border-radius: 4px;
+                  display: flex;
+                  flex-wrap: wrap;
+                  gap: 6px;
+                  padding: 6px 8px;
                 }
               }
             }
