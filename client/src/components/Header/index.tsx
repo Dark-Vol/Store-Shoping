@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Search, CircleUserRound, ShoppingCart, ChevronDown } from "lucide-react";
 import styles from "./Header.module.scss";
-import { categories } from "../../data/categoriesData";
+import { categories } from "@data/categoriesData";
 
 const Header: React.FC = () => {
   const [isCategoriesOpen, setIsCategoriesOpen] = useState(false);
