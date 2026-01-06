@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import styles from './Categories.module.scss';
-import { categories } from '../../../../data/categoriesData';
+import styles from '../Categories.module.scss';
+import { categories } from '@data/categoriesData';
 import { categoryIcons } from '../Categoriesicon';
 
 const CategoriesList: React.FC = () => {
