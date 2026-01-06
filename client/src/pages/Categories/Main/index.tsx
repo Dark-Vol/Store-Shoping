@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, useParams, Outlet } from 'react-router-dom';
 import { Music } from 'lucide-react';
 import styles from './Categories.module.scss';
-import { categories } from '../../../data/categoriesData';
+import { categories } from '@data/categoriesData';
 import CategoriesList from './Categorieslist';
 import { categoryIconsLarge } from './Categoriesicon';
 export { CategoriesList };
