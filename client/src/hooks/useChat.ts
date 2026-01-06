@@ -1,5 +1,5 @@
 import { useEffect, useState, useCallback } from "react";
-import { ReceivedMessage, Message } from "../types/chat";
+import { ReceivedMessage, Message } from "@types/chat";
 import axios from "axios";
 import io from "socket.io-client";
 
