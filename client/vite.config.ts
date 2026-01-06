@@ -15,6 +15,7 @@ export default defineConfig({
       "@routes": path.resolve(__dirname, "src/routes"),
       "@store": path.resolve(__dirname, "src/store"),
       "@types": path.resolve(__dirname, "src/types"),
+      "@data": path.resolve(__dirname, "src/data"),
       "@services": path.resolve(__dirname, "src/services"),
       "@constants": path.resolve(__dirname, "src/constants"),
       "@mocks": path.resolve(__dirname, "src/mocks"),
