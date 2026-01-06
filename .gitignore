@@ -1,0 +1,14 @@
+/node_modules
+/dist
+/.env
+.DS_Store
+/logs
+/coverage
+*.log
+*.tmp
+.idea/
+.vscode/
+*.swp
+*.bak
+*.old
+1.txt
