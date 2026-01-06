@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./Orders.module.scss";
-import { UserOrder } from "../../../types/user";
+import { UserOrder } from "@types/user";
 
 interface OrdersProps {
   orders: UserOrder[];

@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./Profile.module.scss";
-import { UserProfile, UserActivity } from "../../../types/user";
+import { UserProfile, UserActivity } from "@types/user";
 
 export interface ProfileProps {
   profile: UserProfile | null;

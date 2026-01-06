@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styles from "./Settings.module.scss";
-import { UserSettings } from "../../../types/user";
+import { UserSettings } from "@types/user";
 
 interface SettingsProps {
   settings: UserSettings | null;
