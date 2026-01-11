@@ -1,42 +1,62 @@
-const { Sequelize, DataTypes } = require('sequelize');
-const sequelize = require('../config/db.js');
+import { DataTypes, Model } from 'sequelize';
+import sequelize from '@config/db';
+import {
+  AccountAttributes,
+  ProfileAttributes,
+  UserAttributes,
+  AdministratorAttributes,
+  PhotoAttributes,
+  AddressAttributes,
+  SupportAttributes,
+  MessageAttributes,
+  CategoryAttributes,
+  InstrumentAttributes,
+  ItemAttributes,
+  CartAttributes,
+  CartItemAttributes,
+  UserOrderAttributes,
+  OrderStatusAttributes,
+  TransactionAttributes,
+  OrderItemAttributes,
+  CountryAttributes,
+  ManufacturerAttributes
+} from '../types';
 
-
-/** Создание акаунта, профиля для Администратора и Пользователя */
-const Account = sequelize.define("Account", {
+// Определение моделей
+export const Account = sequelize.define<Model<AccountAttributes>>("Account", {
   accountType: { type: DataTypes.ENUM("User", "Administrator"), allowNull: false },
   status: { type: DataTypes.STRING(50), allowNull: false, defaultValue: "active" },
-  registrationDate: { type: DataTypes.DATE, defaultValue: Sequelize.NOW },
+  registrationDate: { type: DataTypes.DATE, defaultValue: DataTypes.NOW },
 });
 
-const Profile = sequelize.define("Profile", {
+export const Profile = sequelize.define<Model<ProfileAttributes>>("Profile", {
   firstName: { type: DataTypes.STRING(255), allowNull: false },
   lastName: { type: DataTypes.STRING(255), allowNull: false },
   phone: { type: DataTypes.STRING(50) },
 });
 
-const User = sequelize.define('User', {
+export const User = sequelize.define<Model<UserAttributes>>('User', {
   firstName: { type: DataTypes.STRING(255), allowNull: false },
   lastName: { type: DataTypes.STRING(255), allowNull: false },
   email: { type: DataTypes.STRING(255), unique: true, allowNull: false },
   password: { type: DataTypes.STRING(255), allowNull: false },
-  registrationDate: { type: DataTypes.DATE, defaultValue: Sequelize.NOW },
+  registrationDate: { type: DataTypes.DATE, defaultValue: DataTypes.NOW },
 });
 
-const Administrator = sequelize.define("Administrator", {
+export const Administrator = sequelize.define<Model<AdministratorAttributes>>("Administrator", {
   adminName: { type: DataTypes.STRING(255), allowNull: false },
   email: { type: DataTypes.STRING, unique: true, allowNull: false },
   password: { type: DataTypes.STRING, allowNull: false },
-  registrationDate: { type: DataTypes.DATE, defaultValue: Sequelize.NOW },
+  registrationDate: { type: DataTypes.DATE, defaultValue: DataTypes.NOW },
 });
 
-const Photo = sequelize.define("Photo", {
+export const Photo = sequelize.define<Model<PhotoAttributes>>("Photo", {
   path: { type: DataTypes.STRING, allowNull: false, unique: true },
   description: { type: DataTypes.STRING(255) },
   isMain: { type: DataTypes.BOOLEAN, defaultValue: false },
 });
 
-const Address = sequelize.define("Address", {
+export const Address = sequelize.define<Model<AddressAttributes>>("Address", {
   address: { type: DataTypes.STRING(255), allowNull: false },
   city: { type: DataTypes.STRING(255), allowNull: false },
   zipCode: { type: DataTypes.STRING(50), allowNull: false },
@@ -44,10 +64,8 @@ const Address = sequelize.define("Address", {
   state: { type: DataTypes.STRING(255) },
   other: { type: DataTypes.STRING(255) },
 });
-/** */
 
-/** Сообщения, Помощь */
-const Support = sequelize.define("Support", {
+export const Support = sequelize.define<Model<SupportAttributes>>("Support", {
   title: { type: DataTypes.STRING(255), allowNull: false },
   body: { type: DataTypes.STRING(255), allowNull: false },
   statusClose: { type: DataTypes.BOOLEAN, defaultValue: false },
@@ -55,25 +73,23 @@ const Support = sequelize.define("Support", {
   answer: { type: DataTypes.STRING(255) },
 });
 
-const Message = sequelize.define("Message", {
+export const Message = sequelize.define<Model<MessageAttributes>>("Message", {
   text: { type: DataTypes.TEXT, allowNull: false },
   room: { type: DataTypes.INTEGER, allowNull: false },
   status: { type: DataTypes.BOOLEAN, defaultValue: false },
   isRead: { type: DataTypes.BOOLEAN, defaultValue: false },
 });
-/** */
 
-/** Предметы */
-const Category = sequelize.define("Category", {
+export const Category = sequelize.define<Model<CategoryAttributes>>("Category", {
   categoryName: { type: DataTypes.STRING(255), allowNull: false },
 });
 
-const Instrument = sequelize.define("Instrument", {
+export const Instrument = sequelize.define<Model<InstrumentAttributes>>("Instrument", {
   instrumentName: { type: DataTypes.STRING(255), allowNull: false },
   description: { type: DataTypes.TEXT },
 });
 
-const Item = sequelize.define("Item", {
+export const Item = sequelize.define<Model<ItemAttributes>>("Item", {
   serialNumber: { type: DataTypes.STRING(255), allowNull: false },
   yearOfProduction: { type: DataTypes.INTEGER },
   price: { type: DataTypes.DECIMAL(10, 2), allowNull: false },
@@ -88,10 +104,8 @@ const Item = sequelize.define("Item", {
   discountEndDate: { type: DataTypes.DATE },
   discountStartDate: { type: DataTypes.DATE },
 });
-/** */
 
-/** Оплата */
-const Cart = sequelize.define("Cart", {
+export const Cart = sequelize.define<Model<CartAttributes>>("Cart", {
   sessionId: { type: DataTypes.STRING(100) },
   status: { type: DataTypes.SMALLINT },
   firstName: { type: DataTypes.STRING(50) },
@@ -99,13 +113,13 @@ const Cart = sequelize.define("Cart", {
   mobile: { type: DataTypes.STRING(20) },
 });
 
-const CartItem = sequelize.define("CartItem", {
+export const CartItem = sequelize.define<Model<CartItemAttributes>>("CartItem", {
   price: { type: DataTypes.FLOAT, allowNull: false },
   discount: { type: DataTypes.FLOAT },
   active: { type: DataTypes.BOOLEAN, defaultValue: true },
 });
 
-const UserOrder = sequelize.define("UserOrder", {
+export const UserOrder = sequelize.define<Model<UserOrderAttributes>>("UserOrder", {
   deliveryAddress: { type: DataTypes.STRING(255) },
   totalPrice: { type: DataTypes.DECIMAL(10, 2) },
   discount: { type: DataTypes.FLOAT },
@@ -113,35 +127,33 @@ const UserOrder = sequelize.define("UserOrder", {
   active: { type: DataTypes.BOOLEAN, defaultValue: true },
 });
 
-const OrderStatus = sequelize.define("OrderStatus", {
+export const OrderStatus = sequelize.define<Model<OrderStatusAttributes>>("OrderStatus", {
   statusName: { type: DataTypes.STRING(255), allowNull: false },
 });
 
-const Transaction = sequelize.define("Transaction", {
+export const Transaction = sequelize.define<Model<TransactionAttributes>>("Transaction", {
   mode: { type: DataTypes.SMALLINT },
   status: { type: DataTypes.SMALLINT },
 });
 
-const OrderItem = sequelize.define("OrderItem", {
+export const OrderItem = sequelize.define<Model<OrderItemAttributes>>("OrderItem", {
   price: { type: DataTypes.DECIMAL(10, 2), allowNull: false },
   discount: { type: DataTypes.FLOAT },
 });
-/** */
 
-/** Other */
-const Country = sequelize.define("Country", {
+export const Country = sequelize.define<Model<CountryAttributes>>("Country", {
   countryName: { type: DataTypes.STRING(255), allowNull: false },
 });
 
-const Manufacturer = sequelize.define("Manufacturer", { // производитель
+export const Manufacturer = sequelize.define<Model<ManufacturerAttributes>>("Manufacturer", {
   manufactureName: { type: DataTypes.STRING(255), allowNull: false },
   contactInfo: { type: DataTypes.STRING(255) },
   webSite: { type: DataTypes.STRING(255) },
   email: { type: DataTypes.STRING(100) },
   phone: { type: DataTypes.STRING(50) },
 });
-/** */
 
+// Определение связей
 Profile.belongsTo(User);
 User.hasOne(Profile);
 
@@ -157,74 +169,60 @@ Administrator.hasOne(Account);
 Photo.belongsTo(Profile);
 Profile.hasOne(Photo);
 
-User.belongsTo(Country)
-Country.hasMany(User)
+User.belongsTo(Country);
+Country.hasMany(User);
 
-Country.hasMany(Address) // так как одна страна может иметь несколько адресов
-Address.belongsTo(Country) // указывая, что каждый адрес принадлежит одной стране
-
-Country.hasMany(Manufacturer) // потому что одна страна может иметь несколько производителей
-Manufacturer.belongsTo(Country) // так как каждый производитель принадлежит одной стране
-
-Manufacturer.hasMany(Instrument) // потому что один производитель может выпускать несколько инструментов.
-Instrument.belongsTo(Manufacturer) // так как каждый инструмент принадлежит одному производителю.
-
-Category.hasMany(Instrument); // Каждый инструмент в одной категории
-Instrument.belongsTo(Category); // Инструмент может быть в нескольких категориях
-
-// Один инструмент может иметь несколько товаров
-Instrument.hasMany(Item);
-Item.belongsTo(Instrument);
-
-// Один товар может быть в нескольких записях корзины
-Item.hasMany(CartItem);
-CartItem.belongsTo(Item);
-
-// Один Country может иметь много Items
-Country.hasMany(Item);
-Item.belongsTo(Country);
-
-// Один User может иметь только одну Cart
-User.hasOne(Cart);
-Cart.belongsTo(User);
-
-// Одна Cart может содержать много CartItem
-Cart.hasMany(CartItem);
-CartItem.belongsTo(Cart);
-
-// Один Item может быть в нескольких CartItem
-Item.hasMany(CartItem);
-CartItem.belongsTo(Item);
-
-// Один User может иметь много UserOrder
-User.hasMany(UserOrder);
-UserOrder.belongsTo(User);
-
-// Один UserOrder имеет один OrderStatus
-OrderStatus.hasOne(UserOrder);
-UserOrder.belongsTo(OrderStatus);
-
-// Один UserOrder может содержать несколько OrderItem
-UserOrder.hasMany(OrderItem);
-OrderItem.belongsTo(UserOrder);
-
-// Один OrderItem может иметь одну Transaction
-OrderItem.hasOne(Transaction);
-Transaction.belongsTo(OrderItem);
-
-// Один User может иметь много Transaction
-User.hasMany(Transaction);
-Transaction.belongsTo(User);
-
-// Связь страны с адресом (Одна страна может содержать несколько адресов)
 Country.hasMany(Address);
 Address.belongsTo(Country);
 
-// Если адрес принадлежит пользователю
+Country.hasMany(Manufacturer);
+Manufacturer.belongsTo(Country);
+
+Manufacturer.hasMany(Instrument);
+Instrument.belongsTo(Manufacturer);
+
+Category.hasMany(Instrument);
+Instrument.belongsTo(Category);
+
+Instrument.hasMany(Item);
+Item.belongsTo(Instrument);
+
+Item.hasMany(CartItem);
+CartItem.belongsTo(Item);
+
+Country.hasMany(Item);
+Item.belongsTo(Country);
+
+User.hasOne(Cart);
+Cart.belongsTo(User);
+
+Cart.hasMany(CartItem);
+CartItem.belongsTo(Cart);
+
+Item.hasMany(CartItem);
+CartItem.belongsTo(Item);
+
+User.hasMany(UserOrder);
+UserOrder.belongsTo(User);
+
+OrderStatus.hasOne(UserOrder);
+UserOrder.belongsTo(OrderStatus);
+
+UserOrder.hasMany(OrderItem);
+OrderItem.belongsTo(UserOrder);
+
+OrderItem.hasOne(Transaction);
+Transaction.belongsTo(OrderItem);
+
+User.hasMany(Transaction);
+Transaction.belongsTo(User);
+
+Country.hasMany(Address);
+Address.belongsTo(Country);
+
 Profile.hasOne(Address);
 Address.belongsTo(Profile);
 
-// Если адрес используется для доставки заказа
 UserOrder.belongsTo(Address);
 Address.hasOne(UserOrder);
 
@@ -237,24 +235,3 @@ Message.belongsTo(Administrator);
 Support.hasMany(Message);
 Message.belongsTo(Support);
 
-module.exports = {
-  Account,
-  Profile,
-  Address,
-  Photo,
-  User,
-  Administrator,
-  Country,
-  Manufacturer, // производитель
-  Category,
-  Instrument,
-  Item,
-  Cart,
-  CartItem,
-  UserOrder,
-  OrderStatus,
-  Transaction,
-  OrderItem,
-  Support,
-  Message,
-};
