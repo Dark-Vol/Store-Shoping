@@ -1,0 +1,73 @@
+# Список изменений в проекте
+
+## 1. Создание корневого package.json
+**Файл:** `package.json` (корневой)
+- Создан новый файл с общими скриптами для проекта
+- Добавлен скрипт `install:all` и `i` для установки зависимостей во всех подпроектах
+- Добавлен скрипт `dev` для одновременного запуска клиента и сервера через `concurrently`
+- Добавлен `concurrently` в devDependencies
+
+## 2. Обновление client/package.json
+**Файл:** `client/package.json`
+- Добавлен `module-alias` версии `^2.2.3` в dependencies
+
+## 3. Обновление server/package.json
+**Файл:** `server/package.json`
+- Добавлен скрипт `dev` для запуска сервера в режиме разработки через `nodemon`
+- Скрипт: `"dev": "nodemon server.js"`
+
+## 4. Настройка алиасов в Vite
+**Файл:** `client/vite.config.ts`
+- Добавлен новый алиас `@data` для директории `src/data`
+- Путь: `"@data": path.resolve(__dirname, "src/data")`
+
+## 5. Настройка алиасов в TypeScript
+**Файл:** `client/tsconfig.app.json`
+- Добавлен новый алиас `@data/*` для директории `src/data/*`
+- Путь: `"@data/*": ["./src/data/*"]`
+
+## 6. Замена относительных путей на алиасы
+
+### client/src/components/Header/index.tsx
+**Изменение:** Заменен импорт `categoriesData`
+- Было: `import { categories } from "../../data/categoriesData";`
+- Стало: `import { categories } from "@data/categoriesData";`
+
+### client/src/hooks/useChat.ts
+**Изменение:** Заменен импорт типов чата
+- Было: `import { ReceivedMessage, Message } from "../types/chat";`
+- Стало: `import { ReceivedMessage, Message } from "@types/chat";`
+
+### client/src/pages/Categories/Main/Categorieslist/index.tsx
+**Изменение:** Заменен импорт `categoriesData`
+- Было: `import { categories } from '../../../../data/categoriesData';`
+- Стало: `import { categories } from '@data/categoriesData';`
+
+### client/src/pages/Categories/Main/index.tsx
+**Изменение:** Заменен импорт `categoriesData`
+- Было: `import { categories } from '../../../data/categoriesData';`
+- Стало: `import { categories } from '@data/categoriesData';`
+
+### client/src/pages/User/Orders/Orders.tsx
+**Изменение:** Заменен импорт типов пользователя
+- Было: `import { UserOrder } from "../../../types/user";`
+- Стало: `import { UserOrder } from "@types/user";`
+
+### client/src/pages/User/Profile/Profile.tsx
+**Изменение:** Заменен импорт типов пользователя
+- Было: `import { UserProfile, UserActivity } from "../../../types/user";`
+- Стало: `import { UserProfile, UserActivity } from "@types/user";`
+
+### client/src/pages/User/Settings/Settings.tsx
+**Изменение:** Заменен импорт типов пользователя
+- Было: `import { UserSettings } from "../../../types/user";`
+- Стало: `import { UserSettings } from "@types/user";`
+
+## Итоги
+- Все длинные относительные пути (3+ уровня) заменены на алиасы
+- Добавлен новый алиас `@data` для удобной работы с данными
+- Использованы существующие алиасы `@types` для типов
+- Код стал более читаемым и поддерживаемым
+- Настроена общая система запуска проекта через корневой package.json
+
+
