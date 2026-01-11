@@ -1,0 +1,22 @@
+import { Model } from 'sequelize';
+import { AccountAttributes, ProfileAttributes, UserAttributes, AdministratorAttributes, PhotoAttributes, AddressAttributes, SupportAttributes, MessageAttributes, CategoryAttributes, InstrumentAttributes, ItemAttributes, CartAttributes, CartItemAttributes, UserOrderAttributes, OrderStatusAttributes, TransactionAttributes, OrderItemAttributes, CountryAttributes, ManufacturerAttributes } from '../types';
+export declare const Account: import("sequelize").ModelCtor<Model<AccountAttributes, AccountAttributes>>;
+export declare const Profile: import("sequelize").ModelCtor<Model<ProfileAttributes, ProfileAttributes>>;
+export declare const User: import("sequelize").ModelCtor<Model<UserAttributes, UserAttributes>>;
+export declare const Administrator: import("sequelize").ModelCtor<Model<AdministratorAttributes, AdministratorAttributes>>;
+export declare const Photo: import("sequelize").ModelCtor<Model<PhotoAttributes, PhotoAttributes>>;
+export declare const Address: import("sequelize").ModelCtor<Model<AddressAttributes, AddressAttributes>>;
+export declare const Support: import("sequelize").ModelCtor<Model<SupportAttributes, SupportAttributes>>;
+export declare const Message: import("sequelize").ModelCtor<Model<MessageAttributes, MessageAttributes>>;
+export declare const Category: import("sequelize").ModelCtor<Model<CategoryAttributes, CategoryAttributes>>;
+export declare const Instrument: import("sequelize").ModelCtor<Model<InstrumentAttributes, InstrumentAttributes>>;
+export declare const Item: import("sequelize").ModelCtor<Model<ItemAttributes, ItemAttributes>>;
+export declare const Cart: import("sequelize").ModelCtor<Model<CartAttributes, CartAttributes>>;
+export declare const CartItem: import("sequelize").ModelCtor<Model<CartItemAttributes, CartItemAttributes>>;
+export declare const UserOrder: import("sequelize").ModelCtor<Model<UserOrderAttributes, UserOrderAttributes>>;
+export declare const OrderStatus: import("sequelize").ModelCtor<Model<OrderStatusAttributes, OrderStatusAttributes>>;
+export declare const Transaction: import("sequelize").ModelCtor<Model<TransactionAttributes, TransactionAttributes>>;
+export declare const OrderItem: import("sequelize").ModelCtor<Model<OrderItemAttributes, OrderItemAttributes>>;
+export declare const Country: import("sequelize").ModelCtor<Model<CountryAttributes, CountryAttributes>>;
+export declare const Manufacturer: import("sequelize").ModelCtor<Model<ManufacturerAttributes, ManufacturerAttributes>>;
+//# sourceMappingURL=models.d.ts.map
