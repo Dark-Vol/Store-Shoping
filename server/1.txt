@@ -1,2 +1,81 @@
 Уже созданые Controllers and routers
 Profile, Administrator, User, Photo, Address, Support, Message, Item, Instrument,
+
+Git Commands:
+- git add <file> - to include file in what will be committed
+- git add . - to include all files in current directory
+- git add server/ - to include all files in server directory
+- git add client/ - to include all files in client directory
+
+Modified and Deleted files:
+git add server/.g
+git commit -m "Update server/.g
+
+git add serv
+git commit -m "Update serv
+
+git add server/config/db.js
+git commit -m "Delete server/config/db.js"
+
+git add server/controllers/addressController.js
+git commit -m "Delete server/controllers/addressController.js"
+
+git add server/controllers/adminController.js
+git commit -m "Delete server/controllers/adminController.js"
+
+git add server/controllers/chatController.js
+git commit -m "Delete server/controllers/chatController.js"
+
+git add server/controllers/instrumentController.js
+git commit -m "Delete server/controllers/instrumentController.js"
+
+git add server/controllers/itemsController.js
+git commit -m "Delete server/controllers/itemsController.js"
+
+git add server/controllers/photoController.js
+git commit -m "Delete server/controllers/photoController.js"
+
+git add server/controllers/profileController.js
+git commit -m "Delete server/controllers/profileController.js"
+
+git add server/controllers/userController.js
+git commit -m "Delete server/controllers/userController.js"
+
+git add server/models/models.js
+git commit -m "Delete server/models/models.js"
+
+git add server/package-l
+git commit -m "Update server/package-l
+
+git add server/pack
+git commit -m "Update server/pack
+
+git add server/routers/accountAdminRouters.js
+git commit -m "Delete server/routers/accountAdminRouters.js"
+
+git add server/routers/accountUserRoutes.js
+git commit -m "Delete server/routers/accountUserRoutes.js"
+
+git add server/routers/addressRoutes.js
+git commit -m "Delete server/routers/addressRoutes.js"
+
+git add server/routers/chatRoutes.js
+git commit -m "Delete server/routers/chatRoutes.js"
+
+git add server/routers/index.js
+git commit -m "Delete server/routers/index.js"
+
+git add server/routers/instrumentRouters.js
+git commit -m "Delete server/routers/instrumentRouters.js"
+
+git add server/routers/itemsRoutes.js
+git commit -m "Delete server/routers/itemsRoutes.js"
+
+git add server/routers/photoRoutes.js
+git commit -m "Delete server/routers/photoRoutes.js"
+
+git add server/routers/profileRoutes.js
+git commit -m "Delete server/routers/profileRoutes.js"
+
+git add server/server.js
+git commit -m "Delete server/server.js"
